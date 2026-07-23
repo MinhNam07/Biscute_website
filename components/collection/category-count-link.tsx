@@ -10,10 +10,47 @@ interface CategoryCountLinkProps {
 }
 
 const shapeStyles = [
-  "rounded-full bg-biscute-pink",
+  "rounded-full bg-biscute-pink text-biscute-white",
   "rounded-none bg-biscute-pale-pink rotate-45",
-  "bg-biscute-deep-pink",
+  "bg-biscute-deep-pink text-biscute-white",
 ];
+
+const TRIANGLE_CLIP = "polygon(50% 0%, 0% 100%, 100% 100%)";
+
+function CategoryShape({ index, count }: { index: number; count: number }) {
+  const shapeIndex = index % 3;
+
+  if (shapeIndex === 2) {
+    return (
+      <span className="relative mb-3 block h-12 w-12">
+        <span
+          aria-hidden
+          className="absolute inset-0 bg-biscute-chocolate"
+          style={{ clipPath: TRIANGLE_CLIP, transform: "translate(3px, 3px)" }}
+        />
+        <span
+          className="absolute inset-0 flex items-center justify-center border-2 border-biscute-chocolate bg-biscute-deep-pink text-lg font-black text-biscute-white"
+          style={{ clipPath: TRIANGLE_CLIP }}
+        >
+          <span className="flex w-full translate-y-2 items-center justify-center leading-none tabular-nums">
+            {count}
+          </span>
+        </span>
+      </span>
+    );
+  }
+
+  return (
+    <span
+      className={cn(
+        "mb-3 flex h-12 w-12 items-center justify-center border-2 border-biscute-chocolate text-lg font-black shadow-biscute-sm",
+        shapeStyles[shapeIndex]
+      )}
+    >
+      <span className={shapeIndex === 1 ? "-rotate-45" : ""}>{count}</span>
+    </span>
+  );
+}
 
 export function CategoryCountLink({
   href,
@@ -22,8 +59,6 @@ export function CategoryCountLink({
   index = 0,
   className,
 }: CategoryCountLinkProps) {
-  const shapeClass = shapeStyles[index % 3];
-
   return (
     <Link
       href={href}
@@ -32,19 +67,7 @@ export function CategoryCountLink({
         className
       )}
     >
-      <span
-        className={cn(
-          "mb-3 flex h-12 w-12 items-center justify-center border-2 border-biscute-chocolate text-lg font-black shadow-biscute-sm",
-          shapeClass
-        )}
-        style={
-          index % 3 === 2
-            ? { clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }
-            : undefined
-        }
-      >
-        <span className={index % 3 === 1 ? "-rotate-45" : ""}>{count}</span>
-      </span>
+      <CategoryShape index={index} count={count} />
       <span className="font-display text-base font-black uppercase tracking-tighter text-biscute-chocolate sm:text-lg">
         {label}
       </span>

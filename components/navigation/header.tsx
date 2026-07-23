@@ -28,21 +28,23 @@ export function Header() {
   return (
     <>
       <header className="sticky top-0 z-40 border-b-2 border-biscute-chocolate bg-biscute-pink text-biscute-white lg:border-b-4">
-        <div className="container-biscute flex h-14 items-center justify-between gap-4 lg:h-16">
-          <button
-            className="flex h-11 w-11 items-center justify-center border-2 border-biscute-chocolate bg-biscute-white text-biscute-chocolate shadow-biscute-sm btn-press lg:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={t("menu")}
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+        <div className="container-biscute grid h-14 grid-cols-[1fr_auto_1fr] items-center gap-4 lg:h-16">
+          <div className="flex items-center gap-4">
+            <button
+              className="flex h-11 w-11 items-center justify-center border-2 border-biscute-chocolate bg-biscute-white text-biscute-chocolate shadow-biscute-sm btn-press lg:hidden"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={t("menu")}
+              aria-expanded={mobileOpen}
+            >
+              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
 
-          <Link href="/" className="transition-opacity hover:opacity-80 [&_.logo-wordmark]:text-biscute-white">
-            <GeometricLogo />
-          </Link>
+            <Link href="/" className="transition-opacity hover:opacity-80 [&_.logo-wordmark]:text-biscute-white">
+              <GeometricLogo />
+            </Link>
+          </div>
 
-          <nav className="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
+          <nav className="hidden items-center justify-center gap-6 lg:flex" aria-label="Main navigation">
             {navLinks.map((link) => (
               <Link
                 key={link.key}
@@ -57,7 +59,7 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-end gap-2">
             <button
               onClick={() => setSearchOpen(true)}
               className="flex h-11 w-11 items-center justify-center border-2 border-biscute-chocolate bg-biscute-white text-biscute-chocolate shadow-biscute-sm btn-press hover:bg-biscute-pale-pink"

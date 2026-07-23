@@ -1,19 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  /* BISCUTE Vietnam — Blue & Yellow palette */
+  /* BISCUTE Vietnam — Blue, Yellow & Red palette */
   --color-primary-blue: #1857c8;
   --color-deep-blue: #103a8c;
-  --color-mustard-yellow: #ffc41a;
-  --color-soft-yellow: #ffe566;
+  --color-mustard-yellow: #FFD831;
+  --color-soft-yellow: #ffee8c;
+  --color-accent-red: #d93a32;
+  --color-deep-red: #a92724;
   --color-warm-cream: #f8f3e7;
   --color-dark-ink: #2c2f36;
   --color-white: #ffffff;
+
+  /* Usage ratio: ~55% cream/white · 25% blue · 12% yellow · 8% red */
 
   /* Component tokens (legacy names, new values) */
   --color-signature-pink: var(--color-primary-blue);
   --color-pale-pink: var(--color-soft-yellow);
   --color-deep-pink: var(--color-deep-blue);
+  --color-accent: var(--color-accent-red);
   --color-cream: var(--color-warm-cream);
   --color-chocolate: var(--color-dark-ink);
 

@@ -20,10 +20,8 @@ export function ProductSection({
   priorityCount = 4,
 }: ProductSectionProps) {
   const t = useTranslations("sections");
-  const bg = titleKey === "newArrivals" ? "mustard" : "cream";
-
   return (
-    <SectionWrapper bg={bg}>
+    <SectionWrapper bg="cream">
       <div className="mb-6 flex items-center justify-between">
         <h2 className="font-display text-2xl font-black uppercase tracking-tighter sm:text-3xl lg:text-4xl">
           {t(titleKey)}

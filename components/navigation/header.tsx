@@ -28,10 +28,10 @@ export function Header() {
   return (
     <>
       <header className="sticky top-0 z-40 border-b-2 border-biscute-chocolate bg-biscute-pink text-biscute-white lg:border-b-4">
-        <div className="container-biscute grid h-14 grid-cols-[1fr_auto_1fr] items-center gap-4 lg:h-16">
-          <div className="flex items-center gap-4">
+        <div className="container-biscute grid h-14 grid-cols-[1fr_auto_1fr] items-stretch gap-4 lg:h-16">
+          <div className="flex items-center gap-2 lg:gap-3">
             <button
-              className="flex h-11 w-11 items-center justify-center border-2 border-biscute-chocolate bg-biscute-white text-biscute-chocolate shadow-biscute-sm btn-press lg:hidden"
+              className="flex h-11 w-11 shrink-0 items-center justify-center border-2 border-biscute-chocolate bg-biscute-white text-biscute-chocolate shadow-biscute-sm btn-press lg:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={t("menu")}
               aria-expanded={mobileOpen}
@@ -39,7 +39,7 @@ export function Header() {
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
 
-            <Link href="/" className="transition-opacity hover:opacity-80 [&_.logo-wordmark]:text-biscute-white">
+            <Link href="/" className="-ml-1 transition-opacity hover:opacity-80 sm:-ml-2 lg:-ml-3">
               <GeometricLogo />
             </Link>
           </div>

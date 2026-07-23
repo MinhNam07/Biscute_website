@@ -1,7 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+
+const MAPS_URL = "https://maps.app.goo.gl/mCmGvkCS1j6HPMBB9";
 
 export function AnnouncementBar() {
   const t = useTranslations("announcement");
@@ -11,9 +12,14 @@ export function AnnouncementBar() {
       <div className="container-biscute text-center text-sm font-bold uppercase tracking-wider text-biscute-chocolate">
         <span>{t("text")}</span>
         <span className="mx-2">·</span>
-        <Link href="/visit" className="underline underline-offset-2 hover:no-underline">
+        <a
+          href={MAPS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 hover:no-underline"
+        >
           {t("link")}
-        </Link>
+        </a>
       </div>
     </div>
   );

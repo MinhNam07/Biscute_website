@@ -13,7 +13,7 @@ export function Footer() {
       <div className="container-biscute">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <GeometricLogo className="[&_.logo-wordmark]:text-biscute-cream" />
+            <GeometricLogo />
             <p className="mt-3 text-sm font-medium text-biscute-pale-pink">
               Cute memories from Vietnam.
             </p>

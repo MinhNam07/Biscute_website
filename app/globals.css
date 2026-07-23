@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "The Funy Time";
+  src: url("/fonts/The Funy Time's(1).ttf") format("truetype");
+  font-display: swap;
+}
+
 :root {
   /* BISCUTE Vietnam — Blue, Yellow & Red palette */
   --color-primary-blue: #1857c8;
@@ -208,4 +214,56 @@ h6 {
 
 .animate-accordion-up {
   animation: accordion-up var(--motion-standard) ease-out;
+}
+
+.biscute-wordmark {
+  display: inline-block;
+  font-family: "The Funy Time", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #ffd831;
+  -webkit-text-stroke: 1.5px #103a8c;
+  filter: drop-shadow(2px 2px 0 #103a8c);
+  background: repeating-linear-gradient(
+    135deg,
+    #ffd831 0px,
+    #ffd831 10px,
+    #ffffff 10px,
+    #ffffff 20px
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .biscute-wordmark {
+    color: transparent;
+  }
+}
+
+@media (min-width: 640px) {
+  .biscute-wordmark {
+    font-size: 45px;
+    -webkit-text-stroke: 2px #103a8c;
+    filter: drop-shadow(3px 3px 0 #103a8c);
+  }
+}
+
+@media (min-width: 1024px) {
+  .biscute-wordmark {
+    font-size: 56px;
+  }
+}
+
+header .biscute-wordmark {
+  transform: translateY(1px);
+}
+
+@media (min-width: 640px) {
+  header .biscute-wordmark {
+    transform: translateY(1.5px);
+  }
 }

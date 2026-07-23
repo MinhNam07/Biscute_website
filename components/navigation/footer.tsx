@@ -9,7 +9,7 @@ export function Footer() {
   const tNav = useTranslations("nav");
 
   return (
-    <footer className="border-t-2 border-biscute-chocolate bg-biscute-chocolate py-12 text-biscute-cream lg:border-t-4">
+    <footer className="border-t-2 border-biscute-chocolate bg-biscute-deep-pink py-12 text-biscute-cream lg:border-t-4">
       <div className="container-biscute">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>

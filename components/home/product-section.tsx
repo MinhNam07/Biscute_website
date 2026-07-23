@@ -20,7 +20,7 @@ export function ProductSection({
   priorityCount = 4,
 }: ProductSectionProps) {
   const t = useTranslations("sections");
-  const bg = titleKey === "newArrivals" ? "pale-pink" : "cream";
+  const bg = titleKey === "newArrivals" ? "mustard" : "cream";
 
   return (
     <SectionWrapper bg={bg}>
@@ -30,7 +30,7 @@ export function ProductSection({
         </h2>
         <Link
           href={viewAllHref}
-          className="text-xs font-bold uppercase tracking-widest text-biscute-chocolate/70 transition-colors hover:text-biscute-deep-pink"
+          className="text-xs font-bold uppercase tracking-widest text-biscute-chocolate/70 transition-colors hover:text-biscute-pink"
         >
           {t("viewAll")} →
         </Link>

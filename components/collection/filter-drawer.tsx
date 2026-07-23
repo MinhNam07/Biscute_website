@@ -27,7 +27,7 @@ function FilterChip({
       className={cn(
         "rounded-none border-2 px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200",
         active
-          ? "border-biscute-chocolate bg-biscute-chocolate text-biscute-cream shadow-biscute-sm"
+          ? "border-biscute-chocolate bg-biscute-deep-pink text-biscute-cream shadow-biscute-sm"
           : "border-biscute-chocolate/30 hover:border-biscute-chocolate"
       )}
     >

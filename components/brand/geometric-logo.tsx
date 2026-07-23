@@ -9,10 +9,10 @@ export function GeometricLogo({ className, showWordmark = true }: GeometricLogoP
   return (
     <div className={cn("flex items-center gap-2", className)}>
       <div className="flex items-center gap-1" aria-hidden="true">
-        <span className="h-3 w-3 rounded-full bg-biscute-pink" />
+        <span className="h-3 w-3 rounded-full bg-biscute-mustard" />
         <span className="h-3 w-3 rounded-none bg-biscute-pale-pink" />
         <span
-          className="h-3 w-3 bg-biscute-deep-pink"
+          className="h-3 w-3 bg-biscute-pink"
           style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
         />
       </div>

@@ -15,13 +15,13 @@ export default async function GiftsPage({
       href: "/collections/gifts-under-200k",
       title: t("under200k"),
       description: "Perfect small gifts and souvenirs",
-      bg: "bg-biscute-pale-pink",
+      bg: "bg-biscute-mustard",
     },
     {
       href: "/collections/gifts-under-500k",
       title: t("under500k"),
       description: "Special gift sets and apparel",
-      bg: "bg-biscute-pink",
+      bg: "bg-biscute-pink text-biscute-white",
     },
   ];
 

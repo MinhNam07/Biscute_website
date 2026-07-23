@@ -14,8 +14,8 @@ export function GiftsByPrice() {
   ];
 
   return (
-    <SectionWrapper bg="deep-pink">
-      <h2 className="mb-6 font-display text-2xl font-black uppercase tracking-tighter text-biscute-white sm:text-3xl lg:text-4xl">
+    <SectionWrapper bg="mustard">
+      <h2 className="mb-6 font-display text-2xl font-black uppercase tracking-tighter text-biscute-chocolate sm:text-3xl lg:text-4xl">
         {t("giftsByPrice")}
       </h2>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

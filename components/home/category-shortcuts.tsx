@@ -18,7 +18,7 @@ export function CategoryShortcuts({ counts }: CategoryShortcutsProps) {
   ];
 
   return (
-    <SectionWrapper bg="pale-pink">
+    <SectionWrapper bg="mustard">
       <h2 className="mb-6 font-display text-2xl font-black uppercase tracking-tighter sm:text-3xl lg:text-4xl">
         {t("title")}
       </h2>

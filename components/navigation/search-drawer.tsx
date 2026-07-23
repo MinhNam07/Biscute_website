@@ -33,7 +33,7 @@ export function SearchDrawer({ open, onOpenChange }: SearchDrawerProps) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={t("placeholder")}
-            className="w-full rounded-none border-2 border-biscute-chocolate bg-biscute-white py-3 pl-10 pr-4 text-base font-medium focus:border-biscute-deep-pink focus:outline-none lg:border-4"
+            className="w-full rounded-none border-2 border-biscute-chocolate bg-biscute-white py-3 pl-10 pr-4 text-base font-medium focus:border-biscute-pink focus:outline-none lg:border-4"
             autoFocus
           />
         </div>

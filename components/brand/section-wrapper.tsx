@@ -5,6 +5,7 @@ type SectionBg =
   | "cream"
   | "pink"
   | "pale-pink"
+  | "mustard"
   | "deep-pink"
   | "white"
   | "chocolate";
@@ -21,6 +22,7 @@ const bgMap: Record<SectionBg, string> = {
   cream: "bg-biscute-cream",
   pink: "bg-biscute-pink",
   "pale-pink": "bg-biscute-pale-pink",
+  mustard: "bg-biscute-mustard",
   "deep-pink": "bg-biscute-deep-pink",
   white: "bg-biscute-white",
   chocolate: "bg-biscute-chocolate",
@@ -40,7 +42,9 @@ export function SectionWrapper({
         "py-12 sm:py-16 lg:py-24",
         bgMap[bg],
         divider && "section-divider",
-        bg === "deep-pink" || bg === "chocolate" ? "text-biscute-white" : "text-biscute-chocolate",
+        bg === "deep-pink" || bg === "chocolate" || bg === "pink"
+          ? "text-biscute-white"
+          : "text-biscute-chocolate",
         className
       )}
     >

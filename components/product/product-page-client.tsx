@@ -74,7 +74,7 @@ export function ProductPageClient({ product, related }: ProductPageClientProps) 
           {product.metafields.storeAvailability.map((store, i) => (
             <li key={i} className="flex justify-between">
               <span>{store.name[locale]}</span>
-              <span className={store.inStock ? "font-bold text-biscute-deep-pink" : "text-biscute-chocolate/50"}>
+              <span className={store.inStock ? "font-bold text-biscute-pink" : "text-biscute-chocolate/50"}>
                 {store.inStock ? t("inStock") : t("outOfStock")}
               </span>
             </li>
@@ -146,7 +146,7 @@ export function ProductPageClient({ product, related }: ProductPageClientProps) 
                     key={key}
                     className="flex items-center gap-1.5 border-2 border-biscute-chocolate bg-biscute-pale-pink px-3 py-1.5 text-xs font-bold uppercase tracking-wider shadow-biscute-sm"
                   >
-                    <Icon className="h-3.5 w-3.5 text-biscute-deep-pink" />
+                    <Icon className="h-3.5 w-3.5 text-biscute-pink" />
                     {label}
                   </span>
                 ))}

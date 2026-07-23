@@ -3,7 +3,7 @@ import type { ProductBadge } from "@/lib/types";
 
 const badgeStyles: Record<ProductBadge, string> = {
   new: "bg-biscute-pale-pink text-biscute-chocolate",
-  "best-seller": "bg-biscute-pink text-biscute-chocolate",
+  "best-seller": "bg-biscute-pink text-biscute-white",
   limited: "bg-biscute-deep-pink text-biscute-white",
 };
 

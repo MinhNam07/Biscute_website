@@ -56,7 +56,7 @@ export function StoreMap() {
           <div className="flex flex-wrap gap-3">
             <Button variant="secondary" asChild>
               <a
-                href="https://maps.google.com/?q=12+Hang+Gai+Hanoi"
+                href="https://maps.google.com/?q=3A+Pho+Dinh+Liet+Hoan+Kiem+Hanoi"
                 target="_blank"
                 rel="noopener noreferrer"
               >

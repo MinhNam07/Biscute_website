@@ -27,10 +27,10 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b-2 border-biscute-chocolate bg-biscute-cream lg:border-b-4">
+      <header className="sticky top-0 z-40 border-b-2 border-biscute-chocolate bg-biscute-pink text-biscute-white lg:border-b-4">
         <div className="container-biscute flex h-14 items-center justify-between gap-4 lg:h-16">
           <button
-            className="flex h-11 w-11 items-center justify-center border-2 border-biscute-chocolate bg-biscute-white shadow-biscute-sm btn-press lg:hidden"
+            className="flex h-11 w-11 items-center justify-center border-2 border-biscute-chocolate bg-biscute-white text-biscute-chocolate shadow-biscute-sm btn-press lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={t("menu")}
             aria-expanded={mobileOpen}
@@ -38,7 +38,7 @@ export function Header() {
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
 
-          <Link href="/" className="transition-opacity hover:opacity-80">
+          <Link href="/" className="transition-opacity hover:opacity-80 [&_.logo-wordmark]:text-biscute-white">
             <GeometricLogo />
           </Link>
 
@@ -48,8 +48,8 @@ export function Header() {
                 key={link.key}
                 href={link.href}
                 className={cn(
-                  "text-xs font-bold uppercase tracking-widest transition-colors duration-200 hover:text-biscute-deep-pink",
-                  pathname.startsWith(link.href) && "text-biscute-deep-pink underline decoration-4 underline-offset-4"
+                  "text-xs font-bold uppercase tracking-widest transition-colors duration-200 hover:text-biscute-pale-pink",
+                  pathname.startsWith(link.href) && "text-biscute-pale-pink underline decoration-4 underline-offset-4"
                 )}
               >
                 {t(link.key)}
@@ -60,7 +60,7 @@ export function Header() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setSearchOpen(true)}
-              className="flex h-11 w-11 items-center justify-center border-2 border-biscute-chocolate bg-biscute-white shadow-biscute-sm btn-press hover:bg-biscute-pale-pink"
+              className="flex h-11 w-11 items-center justify-center border-2 border-biscute-chocolate bg-biscute-white text-biscute-chocolate shadow-biscute-sm btn-press hover:bg-biscute-pale-pink"
               aria-label={t("search")}
             >
               <Search className="h-5 w-5" />
@@ -69,7 +69,7 @@ export function Header() {
             <Link
               href={pathname}
               locale={switchLocale}
-              className="flex h-11 items-center border-2 border-biscute-chocolate bg-biscute-white px-3 text-xs font-bold uppercase tracking-widest shadow-biscute-sm btn-press hover:bg-biscute-pale-pink"
+              className="flex h-11 items-center border-2 border-biscute-chocolate bg-biscute-white px-3 text-xs font-bold uppercase tracking-widest text-biscute-chocolate shadow-biscute-sm btn-press hover:bg-biscute-pale-pink"
             >
               {switchLocale.toUpperCase()}
             </Link>
@@ -78,7 +78,7 @@ export function Header() {
 
         {mobileOpen && (
           <nav
-            className="border-t-2 border-biscute-chocolate bg-biscute-cream px-4 py-4 lg:hidden"
+            className="border-t-2 border-biscute-chocolate bg-biscute-pink px-4 py-4 text-biscute-white lg:hidden"
             aria-label="Mobile navigation"
           >
             <div className="flex flex-col gap-1">
@@ -87,7 +87,7 @@ export function Header() {
                   key={link.key}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="border-2 border-transparent px-3 py-3 text-sm font-bold uppercase tracking-wider hover:border-biscute-chocolate hover:bg-biscute-pale-pink"
+                  className="border-2 border-transparent px-3 py-3 text-sm font-bold uppercase tracking-wider hover:border-biscute-white hover:bg-biscute-deep-pink"
                 >
                   {t(link.key)}
                 </Link>
@@ -96,7 +96,7 @@ export function Header() {
                 href={pathname}
                 locale={switchLocale}
                 onClick={() => setMobileOpen(false)}
-                className="border-2 border-transparent px-3 py-3 text-sm font-bold uppercase tracking-wider hover:border-biscute-chocolate hover:bg-biscute-pale-pink"
+                className="border-2 border-transparent px-3 py-3 text-sm font-bold uppercase tracking-wider hover:border-biscute-white hover:bg-biscute-deep-pink"
               >
                 {switchLocale === "en" ? "English" : "Tiếng Việt"}
               </Link>

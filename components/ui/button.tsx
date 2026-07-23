@@ -29,9 +29,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           shape === "pill" ? "rounded-full" : "rounded-none",
           variant !== "ghost" && "shadow-biscute-md btn-press",
           {
-            "bg-biscute-pink text-biscute-chocolate hover:bg-biscute-pink/90":
+            "bg-biscute-pink text-biscute-white hover:bg-biscute-deep-pink":
               variant === "primary",
-            "bg-biscute-deep-pink text-biscute-white hover:bg-biscute-deep-pink/90":
+            "bg-biscute-mustard text-biscute-chocolate hover:bg-biscute-mustard/90":
               variant === "secondary",
             "bg-biscute-pale-pink text-biscute-chocolate hover:bg-biscute-pale-pink/90":
               variant === "pale",

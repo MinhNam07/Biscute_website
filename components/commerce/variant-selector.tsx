@@ -75,7 +75,7 @@ export function VariantSelector({
                   className={cn(
                     "flex h-11 min-w-[44px] items-center justify-center rounded-none border-2 px-4 text-sm font-bold uppercase transition-all duration-200",
                     selectedSize === size
-                      ? "border-biscute-chocolate bg-biscute-chocolate text-biscute-cream shadow-biscute-sm"
+                      ? "border-biscute-chocolate bg-biscute-deep-pink text-biscute-cream shadow-biscute-sm"
                       : "border-biscute-chocolate/30 hover:border-biscute-chocolate",
                     !variant?.available && "cursor-not-allowed opacity-40 line-through"
                   )}

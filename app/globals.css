@@ -1,28 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --color-signature-pink: #fd9daa;
-  --color-pale-pink: #fde3e7;
-  --color-deep-pink: #c9366b;
-  --color-cream: #fcf5d4;
-  --color-chocolate: #4a3535;
+  /* BISCUTE Vietnam — Blue & Yellow palette */
+  --color-primary-blue: #1857c8;
+  --color-deep-blue: #103a8c;
+  --color-mustard-yellow: #d9a61e;
+  --color-soft-yellow: #f3d86a;
+  --color-warm-cream: #f8f3e7;
+  --color-dark-ink: #2c2f36;
   --color-white: #ffffff;
+
+  /* Component tokens (legacy names, new values) */
+  --color-signature-pink: var(--color-primary-blue);
+  --color-pale-pink: var(--color-soft-yellow);
+  --color-deep-pink: var(--color-deep-blue);
+  --color-cream: var(--color-warm-cream);
+  --color-chocolate: var(--color-dark-ink);
+
   --container-max: 1280px;
   --grid-gap: 8px;
   --motion-micro: 200ms;
   --motion-standard: 300ms;
   --motion-panel: 300ms;
-  --shadow-sm: 3px 3px 0px 0px #4a3535;
-  --shadow-md: 4px 4px 0px 0px #4a3535;
-  --shadow-lg: 8px 8px 0px 0px #4a3535;
+  --shadow-sm: 3px 3px 0px 0px #2c2f36;
+  --shadow-md: 4px 4px 0px 0px #2c2f36;
+  --shadow-lg: 8px 8px 0px 0px #2c2f36;
 }
 
 @theme inline {
-  --color-biscute-pink: var(--color-signature-pink);
-  --color-biscute-pale-pink: var(--color-pale-pink);
-  --color-biscute-deep-pink: var(--color-deep-pink);
-  --color-biscute-cream: var(--color-cream);
-  --color-biscute-chocolate: var(--color-chocolate);
+  --color-biscute-pink: var(--color-primary-blue);
+  --color-biscute-pale-pink: var(--color-soft-yellow);
+  --color-biscute-deep-pink: var(--color-deep-blue);
+  --color-biscute-mustard: var(--color-mustard-yellow);
+  --color-biscute-soft-yellow: var(--color-soft-yellow);
+  --color-biscute-cream: var(--color-warm-cream);
+  --color-biscute-chocolate: var(--color-dark-ink);
   --color-biscute-white: var(--color-white);
   --font-display: var(--font-outfit), "Outfit", sans-serif;
   --font-body: var(--font-outfit), "Outfit", sans-serif;
@@ -54,8 +66,8 @@ html {
 }
 
 body {
-  background: var(--color-cream);
-  color: var(--color-chocolate);
+  background: var(--color-warm-cream);
+  color: var(--color-dark-ink);
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 500;
@@ -77,7 +89,7 @@ h6 {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-chocolate);
+  outline: 2px solid var(--color-dark-ink);
   outline-offset: 2px;
 }
 
@@ -100,12 +112,12 @@ h6 {
 }
 
 .section-divider {
-  border-bottom: 4px solid var(--color-chocolate);
+  border-bottom: 4px solid var(--color-dark-ink);
 }
 
 .border-biscute {
   border-width: 2px;
-  border-color: var(--color-chocolate);
+  border-color: var(--color-dark-ink);
 }
 
 @media (min-width: 1024px) {

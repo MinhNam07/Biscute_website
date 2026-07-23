@@ -42,12 +42,12 @@ function CollectionContent({ products, title, description }: CollectionContentPr
   return (
     <div className="bg-biscute-cream">
       <div className="section-divider container-biscute py-12 md:py-16 lg:py-24">
-        <div className="mb-8 border-2 border-biscute-chocolate bg-biscute-pink p-6 shadow-biscute-lg lg:border-4 lg:p-8">
+        <div className="mb-8 border-2 border-biscute-chocolate bg-biscute-pink p-6 text-biscute-white shadow-biscute-lg lg:border-4 lg:p-8">
           <h1 className="font-display text-3xl font-black uppercase tracking-tighter sm:text-4xl lg:text-5xl">
             {title}
           </h1>
-          <p className="mt-3 font-medium text-biscute-chocolate/80">{description}</p>
-          <p className="mt-2 text-sm font-bold uppercase tracking-wider text-biscute-chocolate/60">
+          <p className="mt-3 font-medium text-biscute-white/80">{description}</p>
+          <p className="mt-2 text-sm font-bold uppercase tracking-wider text-biscute-white/60">
             {t("products", { count: filtered.length })}
           </p>
         </div>

@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "title": "BISCUTE VIETNAM",
+    "description": "Cute memories from Vietnam. Khám phá quà lưu niệm, thời trang và quà tặng dễ thương."
+  },
+  "announcement": {
+    "text": "12 Hàng Gai, Hoàn Kiếm · Mở cửa 9:00–21:00",
+    "link": "Ghé cửa hàng"
+  },
+  "nav": {
+    "shop": "Cửa hàng",
+    "souvenirs": "Quà lưu niệm",
+    "apparel": "Thời trang",
+    "gifts": "Quà tặng",
+    "visit": "Ghé thăm",
+    "search": "Tìm kiếm",
+    "menu": "Menu"
+  },
+  "hero": {
+    "title": "Cute memories from Vietnam.",
+    "subtitle": "Quà lưu niệm dễ thương, dễ mang về.",
+    "ctaShop": "Xem sản phẩm",
+    "ctaVisit": "Ghé cửa hàng"
+  },
+  "categories": {
+    "title": "Danh mục",
+    "souvenirs": "Quà lưu niệm",
+    "apparel": "Thời trang",
+    "gifts": "Quà tặng"
+  },
+  "sections": {
+    "bestSellers": "Bán chạy",
+    "shopByCollection": "Mua theo bộ sưu tập",
+    "giftsByPrice": "Quà tặng theo giá",
+    "newArrivals": "Hàng mới",
+    "storeGallery": "@BISCUTE VIETNAM",
+    "visit": "Ghé BISCUTE",
+    "related": "Có thể bạn thích",
+    "viewAll": "Xem tất cả"
+  },
+  "collections": {
+    "hanoi": "Hà Nội",
+    "food-icons": "Ẩm thực Việt",
+    "cute-animals": "Thú cưng dễ thương",
+    "vietnam-culture": "Văn hóa Việt",
+    "gifts-under-200k": "Dưới 200K",
+    "gifts-under-500k": "Dưới 500K",
+    "best-sellers": "Bán chạy",
+    "new-arrivals": "Hàng mới"
+  },
+  "product": {
+    "viewDetails": "Xem chi tiết",
+    "visitStore": "Ghé cửa hàng",
+    "soldOut": "Hết hàng",
+    "new": "Mới",
+    "bestSeller": "Bán chạy",
+    "limited": "Giới hạn",
+    "easyToPack": "Dễ mang về",
+    "lightweight": "Nhẹ",
+    "giftReady": "Sẵn quà tặng",
+    "vietnamMade": "Sản xuất tại Việt Nam",
+    "material": "Chất liệu",
+    "dimensions": "Kích thước",
+    "origin": "Xuất xứ",
+    "care": "Bảo quản",
+    "storeAvailability": "Tình trạng cửa hàng",
+    "artworkStory": "Câu chuyện artwork",
+    "inStock": "Còn hàng",
+    "outOfStock": "Hết hàng",
+    "quantity": "Số lượng",
+    "color": "Màu",
+    "size": "Size"
+  },
+  "filters": {
+    "title": "Bộ lọc",
+    "sort": "Sắp xếp",
+    "category": "Danh mục",
+    "price": "Giá",
+    "color": "Màu",
+    "size": "Size",
+    "availability": "Tình trạng",
+    "apply": "Áp dụng",
+    "clear": "Xóa bộ lọc",
+    "sortFeatured": "Nổi bật",
+    "sortPriceAsc": "Giá thấp → cao",
+    "sortPriceDesc": "Giá cao → thấp",
+    "sortNewest": "Mới nhất",
+    "sortBestSelling": "Bán chạy"
+  },
+  "search": {
+    "title": "Tìm kiếm",
+    "placeholder": "Tìm sản phẩm, bộ sưu tập...",
+    "noResults": "Không tìm thấy kết quả",
+    "results": "{count} kết quả"
+  },
+  "visit": {
+    "title": "Ghé BISCUTE",
+    "subtitle": "Kỷ niệm dễ thương bắt đầu từ đây.",
+    "address": "12 Hàng Gai, Hoàn Kiếm, Hà Nội",
+    "hours": "Thứ 2 – Chủ nhật: 9:00 – 21:00",
+    "directions": "Chỉ đường",
+    "call": "Gọi cửa hàng"
+  },
+  "gifts": {
+    "title": "Quà tặng",
+    "subtitle": "Tìm món quà hoàn hảo cho mọi dịp.",
+    "under200k": "Quà dưới 200K",
+    "under500k": "Quà dưới 500K"
+  },
+  "footer": {
+    "shop": "Cửa hàng",
+    "about": "Về BISCUTE",
+    "contact": "Liên hệ",
+    "follow": "Theo dõi",
+    "rights": "© 2026 BISCUTE VIETNAM. All rights reserved."
+  },
+  "loader": {
+    "text": "Đang tải kỷ niệm dễ thương…"
+  },
+  "common": {
+    "products": "{count} sản phẩm",
+    "loading": "Đang tải..."
+  }
+}

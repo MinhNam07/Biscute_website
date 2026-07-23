@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "title": "BISCUTE VIETNAM",
+    "description": "Cute memories from Vietnam. Browse adorable souvenirs, apparel and gifts."
+  },
+  "announcement": {
+    "text": "12 Hang Gai St, Hoan Kiem · Open 9AM–9PM",
+    "link": "Visit us"
+  },
+  "nav": {
+    "shop": "Shop",
+    "souvenirs": "Souvenirs",
+    "apparel": "Apparel",
+    "gifts": "Gifts",
+    "visit": "Visit Us",
+    "search": "Search",
+    "menu": "Menu"
+  },
+  "hero": {
+    "title": "Cute memories from Vietnam.",
+    "subtitle": "Adorable souvenirs, easy to pack and take home.",
+    "ctaShop": "Browse products",
+    "ctaVisit": "Visit us"
+  },
+  "categories": {
+    "title": "Categories",
+    "souvenirs": "Souvenirs",
+    "apparel": "Apparel",
+    "gifts": "Gifts"
+  },
+  "sections": {
+    "bestSellers": "Best Sellers",
+    "shopByCollection": "Shop by Collection",
+    "giftsByPrice": "Gifts by Price",
+    "newArrivals": "New Arrivals",
+    "storeGallery": "@BISCUTE VIETNAM",
+    "visit": "Visit BISCUTE",
+    "related": "You May Also Like",
+    "viewAll": "View all"
+  },
+  "collections": {
+    "hanoi": "Hanoi",
+    "food-icons": "Food Icons",
+    "cute-animals": "Cute Animals",
+    "vietnam-culture": "Vietnam Culture",
+    "gifts-under-200k": "Under 200K",
+    "gifts-under-500k": "Under 500K",
+    "best-sellers": "Best Sellers",
+    "new-arrivals": "New Arrivals"
+  },
+  "product": {
+    "viewDetails": "View details",
+    "visitStore": "Visit our store",
+    "soldOut": "Sold Out",
+    "new": "New",
+    "bestSeller": "Best Seller",
+    "limited": "Limited",
+    "easyToPack": "Easy to pack",
+    "lightweight": "Lightweight",
+    "giftReady": "Gift-ready",
+    "vietnamMade": "Made in Vietnam",
+    "material": "Material",
+    "dimensions": "Dimensions",
+    "origin": "Origin",
+    "care": "Care",
+    "storeAvailability": "Store availability",
+    "artworkStory": "Artwork story",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "quantity": "Quantity",
+    "color": "Color",
+    "size": "Size"
+  },
+  "filters": {
+    "title": "Filters",
+    "sort": "Sort",
+    "category": "Category",
+    "price": "Price",
+    "color": "Color",
+    "size": "Size",
+    "availability": "Availability",
+    "apply": "Apply",
+    "clear": "Clear filters",
+    "sortFeatured": "Featured",
+    "sortPriceAsc": "Price: Low to High",
+    "sortPriceDesc": "Price: High to Low",
+    "sortNewest": "Newest",
+    "sortBestSelling": "Best Selling"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search products, collections...",
+    "noResults": "No results found",
+    "results": "{count} results"
+  },
+  "visit": {
+    "title": "Visit BISCUTE",
+    "subtitle": "Cute memories start here.",
+    "address": "12 Hang Gai Street, Hoan Kiem, Hanoi",
+    "hours": "Mon–Sun: 9:00 AM – 9:00 PM",
+    "directions": "Get directions",
+    "call": "Call store"
+  },
+  "gifts": {
+    "title": "Gifts",
+    "subtitle": "Find the perfect gift for every occasion.",
+    "under200k": "Gifts under 200K",
+    "under500k": "Gifts under 500K"
+  },
+  "footer": {
+    "shop": "Shop",
+    "about": "About",
+    "contact": "Contact",
+    "follow": "Follow",
+    "rights": "© 2026 BISCUTE VIETNAM. All rights reserved."
+  },
+  "loader": {
+    "text": "Loading cute memories…"
+  },
+  "common": {
+    "products": "{count} products",
+    "loading": "Loading..."
+  }
+}

@@ -4,7 +4,7 @@ For brand/design team. Phase 1 uses placeholders until final assets are delivere
 
 ## Logo
 - Format: SVG (primary), PNG @2x (fallback)
-- Variants: full wordmark, icon-only (bear-rabbit mark)
+- Variants: full wordmark, geometric mark (circle + square + triangle), bear-rabbit mascot
 - Colors: chocolate brown on cream; reversed white on pink for campaigns
 - Min clear space: 1x icon height on all sides
 
@@ -15,7 +15,7 @@ For brand/design team. Phase 1 uses placeholders until final assets are delivere
 
 ## Product Photography
 - Ratio: **4:5** (portrait) — mandatory, consistent across all products
-- Background: neutral cream (#FFF8F0) or white (#FFFFFF)
+- Background: neutral cream (#FCF5D4) or white (#FFFFFF)
 - Per product minimum: front, back, detail, scale reference (4–6 images)
 - Resolution: 1200×1500px minimum
 - Alt text pattern: `{product name} {color} {viewpoint}`
@@ -27,25 +27,34 @@ For brand/design team. Phase 1 uses placeholders until final assets are delivere
 
 ## Category Icons
 - Format: SVG, 1:1 ratio
-- Style: line icons, chocolate brown stroke
+- Style: geometric Bauhaus — chocolate brown stroke, pink fill accents
 - Categories: Souvenirs, Apparel, Gifts, Hanoi, Food Icons, Cute Animals, Vietnam Culture
 
-## Color Palette
+## Color Palette (Bauhaus Pink)
 | Token | Hex | Usage |
 |---|---|---|
-| Biscute Pink | #F4A7B9 | Mascot, badges, campaigns |
-| Cream | #FFF8F0 | Page background |
-| Chocolate Brown | #3D2314 | Text, navigation, outlines |
-| Sky Blue | #7EC8E3 | Secondary CTA, collection markers |
+| Signature Pink | #FD9DAA | Primary brand, buttons, hero panels |
+| Pale Pink | #FDE3E7 | Secondary backgrounds, muted surfaces |
+| Deep Pink | #C9366B | Accent CTA, announcement bar, badges |
+| Cream | #FCF5D4 | Page background |
+| Chocolate Brown | #4A3535 | Text, navigation, borders, shadows |
 | White | #FFFFFF | Product card surface |
 
 ## Typography
-- Display: round, bold — headings, campaign, collection counts
-- Body: neutral sans-serif — prices, filters, body copy
-- Max 2 font families; subset Latin + Vietnamese
+- Font: **Outfit** (Google Fonts) — weights 400, 500, 700, 900
+- Headlines: font-black (900), uppercase, tight tracking
+- Body: font-medium (500), relaxed line-height
+- Subset Latin + Vietnamese
+
+## Design Language
+- Bauhaus constructivist: geometric shapes (circle, square, triangle)
+- Hard offset shadows (4px/8px), thick chocolate borders (2px/4px)
+- Binary radius: `rounded-none` or `rounded-full` only
+- No gradients; solid color blocking per section
 
 ## Delivery Checklist
 - [ ] Logo SVG + PNG
+- [ ] Geometric logo mark SVG
 - [ ] Mascot SVG set (4 states)
 - [ ] Category icons (7)
 - [ ] Hero image/video

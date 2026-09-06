@@ -1,3 +1,4 @@
+import type { Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -7,12 +8,20 @@ import { AnnouncementBar } from "@/components/navigation/announcement-bar";
 import { Header } from "@/components/navigation/header";
 import { Footer } from "@/components/navigation/footer";
 import "../globals.css";
+import "../motion.css";
+import "../scroll-motion.css";
 
 const outfit = Outfit({
   subsets: ["latin", "latin-ext"],
   variable: "--font-outfit",
-  weight: ["400", "500", "700", "900"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

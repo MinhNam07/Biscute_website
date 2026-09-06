@@ -52,7 +52,7 @@ export function ProductPageClient({ product, related }: ProductPageClientProps) 
     {
       title: `${t("material")} · ${t("dimensions")}`,
       content: (
-        <div className="space-y-1 text-sm font-medium">
+        <div className="type-body space-y-1">
           <p>{product.metafields.material[locale]}</p>
           <p>{product.metafields.dimensions}</p>
         </div>
@@ -61,30 +61,15 @@ export function ProductPageClient({ product, related }: ProductPageClientProps) 
     {
       title: `${t("origin")} · ${t("care")}`,
       content: (
-        <div className="space-y-1 text-sm font-medium">
+        <div className="type-body space-y-1">
           <p>{product.metafields.origin[locale]}</p>
           <p>{product.metafields.careInstructions[locale]}</p>
         </div>
       ),
     },
     {
-      title: t("storeAvailability"),
-      content: (
-        <ul className="space-y-1 text-sm font-medium">
-          {product.metafields.storeAvailability.map((store, i) => (
-            <li key={i} className="flex justify-between">
-              <span>{store.name[locale]}</span>
-              <span className={store.inStock ? "font-bold text-biscute-pink" : "text-biscute-chocolate/50"}>
-                {store.inStock ? t("inStock") : t("outOfStock")}
-              </span>
-            </li>
-          ))}
-        </ul>
-      ),
-    },
-    {
       title: t("artworkStory"),
-      content: <p className="text-sm font-medium">{product.metafields.artworkStory[locale]}</p>,
+      content: <p className="type-body">{product.metafields.artworkStory[locale]}</p>,
     },
   ];
 
@@ -101,10 +86,10 @@ export function ProductPageClient({ product, related }: ProductPageClientProps) 
                   <Badge key={badge} variant={badge} label={badgeLabels[badge]} />
                 ))}
               </div>
-              <h1 className="font-display text-2xl font-black uppercase tracking-tighter md:text-3xl lg:text-4xl">
+              <h1 className="type-page-title">
                 {product.title[locale]}
               </h1>
-              <p className="mt-3 font-medium leading-relaxed text-biscute-chocolate/80">
+              <p className="type-body mt-3 text-biscute-chocolate/80">
                 {product.description[locale]}
               </p>
               <div className="mt-3">
@@ -144,7 +129,7 @@ export function ProductPageClient({ product, related }: ProductPageClientProps) 
                 {touristAttrs.map(({ key, icon: Icon, label }) => (
                   <span
                     key={key}
-                    className="flex items-center gap-1.5 border-2 border-biscute-chocolate bg-biscute-pale-pink px-3 py-1.5 text-xs font-bold uppercase tracking-wider shadow-biscute-sm"
+                    className="type-label flex items-center gap-1.5 border-2 border-biscute-chocolate bg-biscute-pale-pink px-3 py-1.5 shadow-biscute-sm"
                   >
                     <Icon className="h-3.5 w-3.5 text-biscute-pink" />
                     {label}
@@ -161,7 +146,7 @@ export function ProductPageClient({ product, related }: ProductPageClientProps) 
       {related.length > 0 && (
         <section className="section-divider bg-biscute-pale-pink py-12 md:py-16 lg:py-24">
           <div className="container-biscute">
-            <h2 className="mb-6 font-display text-2xl font-black uppercase tracking-tighter sm:text-3xl">
+            <h2 className="type-section-title mb-6">
               {ts("related")}
             </h2>
             <ProductGrid products={related} />

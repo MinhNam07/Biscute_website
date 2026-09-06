@@ -1,0 +1,96 @@
+/* BISCUTE motion tokens and interaction utilities */
+
+:root {
+  --motion-micro: 160ms;
+  --motion-ui: 240ms;
+  --motion-reveal: 480ms;
+  /* Legacy aliases */
+  --motion-standard: var(--motion-ui);
+  --motion-panel: var(--motion-ui);
+  --ease-ui: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-expressive: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.motion-opacity {
+  transition: opacity var(--motion-micro) var(--ease-ui);
+}
+
+.hover-lift {
+  transition: transform var(--motion-micro) var(--ease-ui);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Grayscale product images — full color on touch, reveal on hover for pointer-fine */
+.hover-grayscale img,
+img.hover-grayscale {
+  filter: grayscale(1);
+  transition:
+    filter var(--motion-micro) var(--ease-ui),
+    opacity var(--motion-micro) var(--ease-ui);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .hover-grayscale img,
+  img.hover-grayscale {
+    filter: grayscale(0);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hover-grayscale:hover img,
+  .group.hover-grayscale:hover img,
+  img.hover-grayscale:hover,
+  .group:hover img.hover-grayscale {
+    filter: grayscale(0);
+  }
+}
+
+@keyframes mascot-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-mascot-float {
+  animation: mascot-float 1.4s var(--ease-ui) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-lift {
+    transition: none !important;
+  }
+
+  .hover-lift:hover {
+    transform: none !important;
+  }
+
+  .hover-grayscale img,
+  img.hover-grayscale {
+    filter: grayscale(0) !important;
+    transition: none !important;
+  }
+
+  .scroll-section__title,
+  .scroll-section__body,
+  .hero-stamp-headline,
+  .hero-stamp-subtitle,
+  .hero-stamp-location,
+  .hero-stamp-ctas,
+  .hero-stamp-panel,
+  .best-sellers-card,
+  .best-sellers-corner,
+  .best-sellers-progress__bar,
+  .animate-mascot-float,
+  .animate-spin-slow {
+    animation: none !important;
+  }
+}

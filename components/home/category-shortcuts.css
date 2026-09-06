@@ -1,0 +1,37 @@
+.category-stamp-link {
+  transition:
+    background-color var(--motion-micro) var(--ease-ui),
+    transform var(--motion-micro) var(--ease-ui);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .category-stamp-link:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.category-stamp-link:active {
+  transform: translate(2px, 2px);
+}
+
+.category-stamp-link__shape--square .category-stamp-link__shape-inner {
+  transition: transform var(--motion-micro) var(--ease-ui);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .category-stamp-link:hover .category-stamp-link__shape--square .category-stamp-link__shape-inner {
+    transform: rotate(54deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-stamp-link,
+  .category-stamp-link__shape--square .category-stamp-link__shape-inner {
+    transition: none !important;
+  }
+
+  .category-stamp-link:hover,
+  .category-stamp-link:hover .category-stamp-link__shape--square .category-stamp-link__shape-inner {
+    transform: none !important;
+  }
+}

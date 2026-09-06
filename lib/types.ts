@@ -30,7 +30,6 @@ export type ProductMetafields = {
   lightweight: boolean;
   giftReady: boolean;
   artworkStory: LocalizedString;
-  storeAvailability: { name: LocalizedString; inStock: boolean }[];
 };
 
 export type BiscuteProduct = {

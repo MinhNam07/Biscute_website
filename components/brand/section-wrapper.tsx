@@ -10,13 +10,25 @@ type SectionBg =
   | "white"
   | "chocolate";
 
+type SectionSpacing = "default" | "featured" | "editorial" | "standard" | "visit";
+
 interface SectionWrapperProps {
   children: ReactNode;
   bg?: SectionBg;
   className?: string;
   divider?: boolean;
   id?: string;
+  scrollMotion?: boolean;
+  spacing?: SectionSpacing;
 }
+
+const spacingMap: Record<SectionSpacing, string> = {
+  default: "section-spacing-default",
+  featured: "section-spacing-featured",
+  editorial: "section-spacing-editorial",
+  standard: "section-spacing-standard",
+  visit: "section-spacing-visit",
+};
 
 const bgMap: Record<SectionBg, string> = {
   cream: "bg-biscute-cream",
@@ -34,14 +46,17 @@ export function SectionWrapper({
   className,
   divider = true,
   id,
+  scrollMotion = false,
+  spacing = "default",
 }: SectionWrapperProps) {
   return (
     <section
       id={id}
       className={cn(
-        "py-12 sm:py-16 lg:py-24",
+        spacingMap[spacing],
         bgMap[bg],
         divider && "section-divider",
+        scrollMotion && "scroll-section",
         bg === "deep-pink" || bg === "chocolate" || bg === "pink"
           ? "text-biscute-white"
           : "text-biscute-chocolate",

@@ -1,0 +1,138 @@
+/* BISCUTE semantic typography roles */
+
+:root {
+  /* Scale */
+  --type-display: clamp(2.25rem, 4vw + 1rem, 5.75rem);
+  --type-page-title: clamp(2rem, 2.5vw + 1rem, 3.5rem);
+  --type-section: clamp(1.75rem, 2vw + 0.75rem, 2.75rem);
+  --type-subsection: clamp(1.25rem, 1vw + 0.75rem, 1.75rem);
+  --type-card-title: 0.875rem;
+  --type-body-lg: clamp(1rem, 0.5vw + 0.9rem, 1.25rem);
+  --type-body: 1rem;
+  --type-meta: 0.875rem;
+  --type-label: 0.75rem;
+  --type-nav: 0.75rem;
+  --type-cta: 0.875rem;
+
+  /* Weights */
+  --type-weight-display: 900;
+  --type-weight-page: 800;
+  --type-weight-section: 800;
+  --type-weight-subsection: 700;
+  --type-weight-card: 700;
+  --type-weight-body: 500;
+  --type-weight-meta: 500;
+  --type-weight-label: 600;
+  --type-weight-nav: 600;
+  --type-weight-cta: 600;
+
+  /* Tracking */
+  --type-tracking-display: -0.025em;
+  --type-tracking-page: -0.02em;
+  --type-tracking-section: -0.015em;
+  --type-tracking-subsection: -0.01em;
+  --type-tracking-card: 0.03em;
+  --type-tracking-label: 0.06em;
+  --type-tracking-nav: 0.05em;
+  --type-tracking-cta: 0.04em;
+}
+
+/* Display — hero headlines only */
+.type-display {
+  font-family: var(--font-display);
+  font-size: var(--type-display);
+  font-weight: var(--type-weight-display);
+  line-height: 0.9;
+  letter-spacing: var(--type-tracking-display);
+  text-transform: uppercase;
+}
+
+/* Page title — h1 on inner pages */
+.type-page-title {
+  font-family: var(--font-display);
+  font-size: var(--type-page-title);
+  font-weight: var(--type-weight-page);
+  line-height: 0.95;
+  letter-spacing: var(--type-tracking-page);
+  text-transform: uppercase;
+}
+
+/* Section heading — h2 */
+.type-section-title {
+  font-family: var(--font-display);
+  font-size: var(--type-section);
+  font-weight: var(--type-weight-section);
+  line-height: 1;
+  letter-spacing: var(--type-tracking-section);
+  text-transform: uppercase;
+}
+
+/* Subsection — h3 in content blocks */
+.type-subsection-title {
+  font-family: var(--font-display);
+  font-size: var(--type-subsection);
+  font-weight: var(--type-weight-subsection);
+  line-height: 1.15;
+  letter-spacing: var(--type-tracking-subsection);
+  text-transform: uppercase;
+}
+
+/* Card title — product/collection names */
+.type-card-title {
+  font-family: var(--font-display);
+  font-size: var(--type-card-title);
+  font-weight: var(--type-weight-card);
+  line-height: 1.25;
+  letter-spacing: var(--type-tracking-card);
+  text-transform: uppercase;
+}
+
+/* Body copy */
+.type-body-lg {
+  font-size: var(--type-body-lg);
+  font-weight: var(--type-weight-body);
+  line-height: 1.625;
+  text-transform: none;
+}
+
+.type-body {
+  font-size: var(--type-body);
+  font-weight: var(--type-weight-body);
+  line-height: 1.625;
+  text-transform: none;
+}
+
+/* Metadata — prices, counts, secondary info */
+.type-meta {
+  font-size: var(--type-meta);
+  font-weight: var(--type-weight-meta);
+  line-height: 1.5;
+  text-transform: none;
+}
+
+/* Label — badges, filter groups, footer column headers */
+.type-label {
+  font-size: var(--type-label);
+  font-weight: var(--type-weight-label);
+  line-height: 1.2;
+  letter-spacing: var(--type-tracking-label);
+  text-transform: uppercase;
+}
+
+/* Navigation links */
+.type-nav {
+  font-size: var(--type-nav);
+  font-weight: var(--type-weight-nav);
+  line-height: 1.2;
+  letter-spacing: var(--type-tracking-nav);
+  text-transform: uppercase;
+}
+
+/* CTA — buttons and action links */
+.type-cta {
+  font-size: var(--type-cta);
+  font-weight: var(--type-weight-cta);
+  line-height: 1.2;
+  letter-spacing: var(--type-tracking-cta);
+  text-transform: uppercase;
+}

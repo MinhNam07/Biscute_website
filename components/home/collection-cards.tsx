@@ -1,39 +1,84 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { SectionWrapper } from "@/components/brand/section-wrapper";
-import { CardCornerDecorations } from "@/components/brand/geometric-decoration";
+import { GeometricDecoration } from "@/components/brand/geometric-decoration";
+import type { Collection } from "@/lib/types";
+import "./home-sections.css";
+import "./homepage-colors.css";
 
-const collectionKeys = [
-  "hanoi",
-  "food-icons",
-  "cute-animals",
-  "vietnam-culture",
-] as const;
+interface CollectionCardsProps {
+  collections: Collection[];
+}
 
-export function CollectionCards() {
+const cardVariants = ["blue", "mustard", "red", "deep"] as const;
+const stampColors = ["pink", "mustard", "red", "deep"] as const;
+const stampShapes = ["circle", "square", "triangle", "circle"] as const;
+
+export function CollectionCards({ collections }: CollectionCardsProps) {
+  const locale = useLocale() as "vi" | "en";
   const t = useTranslations("sections");
   const tc = useTranslations("collections");
 
+  if (collections.length === 0) {
+    return null;
+  }
+
   return (
-    <SectionWrapper bg="pink">
-      <h2 className="mb-6 font-display text-2xl font-black uppercase tracking-tighter sm:text-3xl lg:text-4xl">
-        {t("shopByCollection")}
+    <SectionWrapper bg="cream" spacing="standard" className="home-section-collections">
+      <h2 className="section-header-gap section-title-accent section-title-accent--red type-section-title">
+        {t("collections")}
       </h2>
-      <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
-        {collectionKeys.map((key, i) => (
-          <Link
-            key={key}
-            href={`/collections/${key}`}
-            className="group relative flex aspect-[4/3] items-end border-2 border-biscute-chocolate bg-biscute-white p-4 shadow-biscute-lg transition-transform duration-200 hover:-translate-y-1 lg:border-4"
-          >
-            <CardCornerDecorations index={i} />
-            <span className="font-display text-base font-black uppercase tracking-tighter text-biscute-chocolate sm:text-lg">
-              {tc(key)}
-            </span>
-          </Link>
-        ))}
+      <div className="collections-grid">
+        {collections.map((collection, i) => {
+          const variant = cardVariants[i % cardVariants.length];
+          const stampColor = stampColors[i % stampColors.length];
+          const stampShape = stampShapes[i % stampShapes.length];
+          const label = tc.has(collection.handle as "hanoi")
+            ? tc(collection.handle as "hanoi")
+            : collection.title[locale];
+          const description = collection.description[locale];
+
+          return (
+            <Link
+              key={collection.handle}
+              href={`/collections/${collection.handle}`}
+              className={`collection-card collection-card--${variant} group hover-lift relative flex aspect-[3/4] flex-col justify-end overflow-hidden border-2 border-biscute-chocolate shadow-biscute-lg lg:border-4`}
+            >
+              <GeometricDecoration
+                shape={stampShape as "circle" | "square" | "triangle"}
+                color={stampColor as "pink" | "pale" | "deep" | "red" | "mustard"}
+                size="lg"
+                rotate={stampShape === "square"}
+                className="collection-card__stamp"
+              />
+              {collection.image ? (
+                <Image
+                  src={collection.image}
+                  alt={label}
+                  fill
+                  className="object-cover hover-grayscale"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-biscute-pale-pink" aria-hidden />
+              )}
+              <div className="collection-card__scrim relative z-10 p-4 pt-16">
+                <h3 className="type-card-title text-biscute-white">
+                  {label}
+                </h3>
+                <p className="type-meta mt-1 line-clamp-2 text-biscute-cream/90">
+                  {description}
+                </p>
+                <span className="type-label mt-2 inline-block text-biscute-soft-yellow transition-colors group-hover:text-biscute-white">
+                  {t("exploreCollection")} →
+                </span>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </SectionWrapper>
   );

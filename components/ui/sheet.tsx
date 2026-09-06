@@ -26,7 +26,7 @@ export function Sheet({
         <Dialog.Overlay className="fixed inset-0 z-50 bg-biscute-chocolate/50" />
         <Dialog.Content
           className={cn(
-            "fixed z-50 flex flex-col border-2 border-biscute-chocolate bg-biscute-cream shadow-biscute-lg transition-transform duration-300 ease-out lg:border-4",
+            "fixed z-50 flex flex-col border-2 border-biscute-chocolate bg-biscute-cream shadow-biscute-lg transition-transform duration-[var(--motion-ui)] ease-[var(--ease-ui)] lg:border-4",
             side === "right" &&
               "inset-y-0 right-0 h-full w-full max-w-md",
             side === "bottom" &&
@@ -35,7 +35,7 @@ export function Sheet({
         >
           <div className="flex items-center justify-between border-b-2 border-biscute-chocolate px-4 py-3 lg:border-b-4">
             {title && (
-              <Dialog.Title className="font-display text-lg font-black uppercase tracking-tighter text-biscute-chocolate">
+              <Dialog.Title className="type-subsection-title text-biscute-chocolate">
                 {title}
               </Dialog.Title>
             )}

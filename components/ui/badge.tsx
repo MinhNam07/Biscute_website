@@ -17,7 +17,7 @@ export function Badge({ variant, label, className }: BadgeProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-none border-2 border-biscute-chocolate px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider shadow-biscute-sm",
+        "inline-flex items-center rounded-none border-2 border-biscute-chocolate px-2.5 py-0.5 type-label shadow-biscute-sm",
         badgeStyles[variant],
         className
       )}

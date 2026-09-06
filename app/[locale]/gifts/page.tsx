@@ -29,10 +29,10 @@ export default async function GiftsPage({
     <div className="bg-biscute-cream">
       <div className="section-divider container-biscute py-12 md:py-16 lg:py-24">
         <div className="mb-8 text-center">
-          <h1 className="font-display text-3xl font-black uppercase tracking-tighter md:text-4xl lg:text-5xl">
+          <h1 className="type-page-title">
             {t("title")}
           </h1>
-          <p className="mt-3 font-medium text-biscute-chocolate/80">{t("subtitle")}</p>
+          <p className="type-body-lg mt-3 text-biscute-chocolate/80">{t("subtitle")}</p>
         </div>
         <div className="mx-auto grid max-w-2xl gap-4">
           {tiers.map((tier, i) => (
@@ -42,10 +42,10 @@ export default async function GiftsPage({
               className={`group relative flex flex-col items-center justify-center border-2 border-biscute-chocolate p-12 text-center shadow-biscute-lg transition-transform duration-200 hover:-translate-y-1 lg:border-4 ${tier.bg}`}
             >
               <CardCornerDecorations index={i} />
-              <span className="font-display text-2xl font-black uppercase tracking-tighter">
+              <span className="type-subsection-title">
                 {tier.title}
               </span>
-              <span className="mt-2 text-sm font-medium text-biscute-chocolate/80">
+              <span className="type-meta mt-2 text-biscute-chocolate/80">
                 {tier.description}
               </span>
             </Link>

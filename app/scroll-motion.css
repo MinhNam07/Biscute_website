@@ -1,0 +1,33 @@
+/* Opt-in scroll-driven motion — subtle title settle only */
+
+@supports (animation-timeline: view()) {
+  .scroll-section {
+    view-timeline-name: --section-view;
+    view-timeline-axis: block;
+  }
+
+  .scroll-section__title {
+    animation: scroll-section-title linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+  }
+}
+
+@keyframes scroll-section-title {
+  from {
+    opacity: 0.92;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-section__title {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

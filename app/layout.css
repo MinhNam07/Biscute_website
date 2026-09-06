@@ -1,0 +1,163 @@
+/* BISCUTE layout tokens — spacing scale, containers, section rhythm */
+
+:root {
+  /* Base spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Section vertical rhythm */
+  --section-space-sm: var(--space-12);
+  --section-space-md: var(--space-16);
+  --section-space-lg: var(--space-24);
+  --section-space-xl: var(--space-32);
+
+  /* Horizontal gutters */
+  --gutter-sm: var(--space-4);
+  --gutter-md: var(--space-6);
+  --gutter-lg: var(--space-8);
+  --gutter-xl: var(--space-12);
+
+  /* Containers */
+  --container-max: 1280px;
+  --container-outer: 1440px;
+
+  /* Grid gaps */
+  --grid-gap: var(--space-2);
+  --grid-gap-relaxed: var(--space-4);
+
+  /* Editorial optical overlaps */
+  --overlap-sm: var(--space-6);
+  --overlap-md: var(--space-12);
+  --overlap-lg: var(--space-16);
+}
+
+/* Section padding variants (used by SectionWrapper) */
+.section-spacing-default {
+  padding-block: var(--section-space-sm);
+}
+
+.section-spacing-featured,
+.section-spacing-standard {
+  padding-block: var(--section-space-sm);
+}
+
+.section-spacing-editorial {
+  padding-block: var(--section-space-sm);
+}
+
+.section-spacing-visit {
+  padding-block: var(--section-space-md);
+}
+
+@media (min-width: 640px) {
+  .section-spacing-default {
+    padding-block: var(--section-space-md);
+  }
+
+  .section-spacing-featured,
+  .section-spacing-standard {
+    padding-block: var(--section-space-md);
+  }
+
+  .section-spacing-editorial {
+    padding-block: var(--section-space-md);
+  }
+
+  .section-spacing-visit {
+    padding-block: var(--section-space-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing-default {
+    padding-block: var(--section-space-lg);
+  }
+
+  .section-spacing-featured,
+  .section-spacing-standard {
+    padding-block: var(--section-space-md);
+  }
+
+  .section-spacing-editorial {
+    padding-block: var(--section-space-lg);
+  }
+
+  .section-spacing-visit {
+    padding-block: var(--section-space-xl);
+  }
+}
+
+/* Section header → body rhythm */
+.section-header-gap {
+  margin-bottom: var(--space-8);
+}
+
+.section-header-gap-lg {
+  margin-bottom: var(--space-12);
+}
+
+/* Content container — token-driven gutters */
+.container-biscute {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter-sm);
+}
+
+@media (min-width: 640px) {
+  .container-biscute {
+    padding-inline: var(--gutter-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-biscute {
+    padding-inline: var(--gutter-lg);
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-biscute {
+    padding-inline: var(--gutter-xl);
+  }
+}
+
+/* Homepage product grid — 2 cols through tablet, 4 on desktop */
+.product-grid-homepage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--grid-gap-relaxed);
+}
+
+@media (min-width: 768px) {
+  .product-grid-homepage {
+    gap: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid-homepage {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Collections grid — imagery-forward 2 / 4 columns */
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--grid-gap-relaxed);
+}
+
+@media (min-width: 768px) {
+  .collections-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+}

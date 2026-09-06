@@ -39,11 +39,11 @@ export function SearchDrawer({ open, onOpenChange }: SearchDrawerProps) {
         </div>
 
         {query.length >= 2 && results.length === 0 && (
-          <p className="py-8 text-center font-medium text-biscute-chocolate/60">{t("noResults")}</p>
+          <p className="py-8 text-center type-meta text-biscute-chocolate/60">{t("noResults")}</p>
         )}
 
         {results.length > 0 && (
-          <p className="mb-3 text-sm font-bold uppercase tracking-wider text-biscute-chocolate/60">
+          <p className="type-label mb-3 text-biscute-chocolate/60">
             {t("results", { count: results.length })}
           </p>
         )}
@@ -66,8 +66,8 @@ export function SearchDrawer({ open, onOpenChange }: SearchDrawerProps) {
                 />
               </div>
               <div>
-                <p className="text-sm font-bold">{product.title[locale]}</p>
-                <p className="text-sm font-bold uppercase">{formatPrice(product.price, locale)}</p>
+                <p className="type-card-title normal-case">{product.title[locale]}</p>
+                <p className="type-meta">{formatPrice(product.price, locale)}</p>
               </div>
             </Link>
           ))}

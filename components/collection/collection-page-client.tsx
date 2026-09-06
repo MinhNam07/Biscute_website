@@ -43,11 +43,11 @@ function CollectionContent({ products, title, description }: CollectionContentPr
     <div className="bg-biscute-cream">
       <div className="section-divider container-biscute py-12 md:py-16 lg:py-24">
         <div className="mb-8 border-2 border-biscute-chocolate bg-biscute-pink p-6 text-biscute-white shadow-biscute-lg lg:border-4 lg:p-8">
-          <h1 className="font-display text-3xl font-black uppercase tracking-tighter sm:text-4xl lg:text-5xl">
+          <h1 className="type-page-title">
             {title}
           </h1>
-          <p className="mt-3 font-medium text-biscute-white/80">{description}</p>
-          <p className="mt-2 text-sm font-bold uppercase tracking-wider text-biscute-white/60">
+          <p className="type-body-lg mt-3 text-biscute-white/80">{description}</p>
+          <p className="type-meta mt-2 text-biscute-white/60">
             {t("products", { count: filtered.length })}
           </p>
         </div>
@@ -68,7 +68,7 @@ function CollectionContent({ products, title, description }: CollectionContentPr
 
 export function CollectionPageClient(props: CollectionContentProps) {
   return (
-    <Suspense fallback={<div className="container-biscute py-12 font-bold uppercase">Loading...</div>}>
+    <Suspense fallback={<div className="type-meta container-biscute py-12">Loading...</div>}>
       <CollectionContent {...props} />
     </Suspense>
   );

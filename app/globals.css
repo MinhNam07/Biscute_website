@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "./typography.css";
+@import "./layout.css";
 
 @font-face {
   font-family: "The Funy Time";
@@ -28,8 +30,8 @@
   --color-cream: var(--color-warm-cream);
   --color-chocolate: var(--color-dark-ink);
 
-  --container-max: 1280px;
-  --grid-gap: 8px;
+  /* Layout tokens defined in layout.css */
+  --grid-gap: var(--space-2);
   --motion-micro: 200ms;
   --motion-standard: 300ms;
   --motion-panel: 300ms;
@@ -49,6 +51,17 @@
   --color-biscute-white: var(--color-white);
   --font-display: var(--font-outfit), "Outfit", sans-serif;
   --font-body: var(--font-outfit), "Outfit", sans-serif;
+  --text-display: var(--type-display);
+  --text-page-title: var(--type-page-title);
+  --text-section: var(--type-section);
+  --text-subsection: var(--type-subsection);
+  --text-card-title: var(--type-card-title);
+  --text-body-lg: var(--type-body-lg);
+  --text-body: var(--type-body);
+  --text-meta: var(--type-meta);
+  --text-label: var(--type-label);
+  --text-nav: var(--type-nav);
+  --text-cta: var(--type-cta);
   --shadow-biscute-sm: var(--shadow-sm);
   --shadow-biscute-md: var(--shadow-md);
   --shadow-biscute-lg: var(--shadow-lg);
@@ -93,33 +106,11 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display);
-  font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -0.025em;
-  text-transform: uppercase;
 }
 
 :focus-visible {
   outline: 2px solid var(--color-dark-ink);
   outline-offset: 2px;
-}
-
-.container-biscute {
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: 16px;
-}
-
-@media (min-width: 640px) {
-  .container-biscute {
-    padding-inline: 24px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container-biscute {
-    padding-inline: 32px;
-  }
 }
 
 .section-divider {

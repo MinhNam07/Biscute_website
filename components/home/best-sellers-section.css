@@ -1,0 +1,152 @@
+/* Best sellers carousel — scroll-snap focus without decorative drift */
+
+@supports (animation-timeline: view()) {
+  .best-sellers-carousel {
+    display: block;
+  }
+
+  .best-sellers-fallback {
+    display: none;
+  }
+}
+
+.best-sellers-carousel {
+  display: none;
+}
+
+.best-sellers-fallback {
+  display: block;
+}
+
+.best-sellers-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-block: 1.25rem 1.75rem;
+  padding-inline: max(1rem, calc(50% - clamp(100px, 36vw, 140px)));
+  scrollbar-width: none;
+  scroll-timeline: --best-sellers inline;
+}
+
+.best-sellers-track::-webkit-scrollbar {
+  display: none;
+}
+
+.best-sellers-track:focus-visible {
+  outline: 2px solid var(--color-dark-ink);
+  outline-offset: 4px;
+}
+
+.best-sellers-card {
+  flex: 0 0 clamp(200px, 72vw, 280px);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.best-sellers-card article {
+  transition: box-shadow var(--motion-micro) var(--ease-ui);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .best-sellers-card:is(:hover, :focus-within) article {
+    transform: translateY(-4px);
+  }
+}
+
+.best-sellers-progress {
+  margin-top: 0.5rem;
+  height: 4px;
+  border: 2px solid var(--color-dark-ink);
+  background: var(--color-warm-cream);
+}
+
+.best-sellers-progress__bar {
+  height: 100%;
+  width: 0;
+  background: var(--color-mustard-yellow);
+  animation: best-sellers-progress linear both;
+  animation-timeline: --best-sellers;
+}
+
+@keyframes best-sellers-progress {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.best-sellers-edge {
+  pointer-events: none;
+  position: absolute;
+  inset-block: 0;
+  width: 3rem;
+  z-index: 1;
+}
+
+.best-sellers-edge--start {
+  left: 0;
+  background: linear-gradient(to right, var(--color-warm-cream), transparent);
+}
+
+.best-sellers-edge--end {
+  right: 0;
+  background: linear-gradient(to left, var(--color-warm-cream), transparent);
+}
+
+.best-sellers-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.best-sellers-nav__btn {
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-dark-ink);
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  transition:
+    background-color var(--motion-micro) var(--ease-ui),
+    transform var(--motion-micro) var(--ease-ui),
+    box-shadow var(--motion-micro) var(--ease-ui);
+}
+
+.best-sellers-nav__btn:hover {
+  background: var(--color-soft-yellow);
+}
+
+.best-sellers-nav__btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.best-sellers-nav__btn:disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .best-sellers-track {
+    scroll-behavior: auto;
+  }
+
+  .best-sellers-progress__bar {
+    animation: none !important;
+    width: 0 !important;
+  }
+
+  .best-sellers-card:is(:hover, :focus-within) article {
+    transform: none !important;
+  }
+}

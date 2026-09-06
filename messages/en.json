@@ -4,7 +4,7 @@
     "description": "Cute memories from Vietnam. Browse adorable souvenirs, apparel and gifts."
   },
   "announcement": {
-    "text": "3A, Pho Dinh Liet · Open 9AM–9PM",
+    "text": "3A P. Đinh Liệt · Open 09:00–23:00",
     "link": "Visit us"
   },
   "nav": {
@@ -17,10 +17,11 @@
     "menu": "Menu"
   },
   "hero": {
-    "title": "Cute memories from Vietnam.",
-    "subtitle": "Adorable souvenirs, easy to pack and take home.",
-    "ctaShop": "Browse products",
-    "ctaVisit": "Visit us"
+    "title": "Cute memories from <accent>Vietnam</accent>.",
+    "subtitle": "Playful Vietnam-inspired souvenirs designed through BISCUTE's own characters, artwork, and graphic language — easy to pack and bring home.",
+    "location": "Hanoi Old Quarter",
+    "ctaShop": "Explore Products",
+    "ctaVisit": "Visit BISCUTE ↗"
   },
   "categories": {
     "title": "Categories",
@@ -31,12 +32,39 @@
   "sections": {
     "bestSellers": "Best Sellers",
     "shopByCollection": "Shop by Collection",
+    "collections": "Collections",
+    "exploreProducts": "Explore products",
+    "featuredPicks": "Featured Picks",
+    "exploreAll": "Explore all products",
+    "exploreCollection": "Explore",
     "giftsByPrice": "Gifts by Price",
     "newArrivals": "New Arrivals",
-    "storeGallery": "@BISCUTE VIETNAM",
+    "storeGallery": "Our Store",
     "visit": "Visit BISCUTE",
     "related": "You May Also Like",
     "viewAll": "View all"
+  },
+  "home": {
+    "brandIntro": {
+      "title": "What is BISCUTE?",
+      "paragraph1": "BISCUTE is a playful contemporary Vietnamese souvenir brand in Hanoi's Old Quarter. Vietnam-inspired subjects come through BISCUTE's own characters, artwork, and graphic language — not generic tourism decoration.",
+      "paragraph2": "This site is a product catalogue for discovery, not online shopping. Browse what we make, then visit BISCUTE Vietnam to find it in person."
+    },
+    "differentiators": {
+      "title": "The BISCUTE Way",
+      "visualLanguage": {
+        "title": "BISCUTE Visual Language",
+        "body": "Vietnamese culture interpreted through playful characters and artwork that feel unmistakably BISCUTE — cute, contemporary, and designed to be remembered."
+      },
+      "travelFriendly": {
+        "title": "Made to Travel",
+        "body": "Souvenirs and gifts chosen with packing in mind — lightweight, easy to carry, and ready to bring home from your trip."
+      },
+      "cultureReimagined": {
+        "title": "Local Culture",
+        "body": "Places, food, and everyday culture become inspiration for products — seen through BISCUTE's perspective rather than traditional souvenir clichés."
+      }
+    }
   },
   "collections": {
     "hanoi": "Hanoi",
@@ -63,10 +91,7 @@
     "dimensions": "Dimensions",
     "origin": "Origin",
     "care": "Care",
-    "storeAvailability": "Store availability",
     "artworkStory": "Artwork story",
-    "inStock": "In stock",
-    "outOfStock": "Out of stock",
     "quantity": "Quantity",
     "color": "Color",
     "size": "Size"
@@ -96,10 +121,12 @@
   "visit": {
     "title": "Visit BISCUTE",
     "subtitle": "Cute memories start here.",
-    "address": "3A, Pho Dinh Liet, Hoan Kiem, Hanoi",
-    "hours": "Mon–Sun: 9:00 AM – 9:00 PM",
-    "directions": "Get directions",
-    "call": "Call store"
+    "storeName": "BISCUTE Vietnam",
+    "address": "3A P. Đinh Liệt, Hanoi Old Quarter,\nHoàn Kiếm, Hanoi, Vietnam",
+    "hours": "09:00–23:00",
+    "hoursLabel": "Opening hours",
+    "directions": "Open in Google Maps ↗",
+    "storePhotoPlaceholder": "Store photo coming soon"
   },
   "gifts": {
     "title": "Gifts",
@@ -108,10 +135,10 @@
     "under500k": "Gifts under 500K"
   },
   "footer": {
-    "shop": "Shop",
-    "about": "About",
-    "contact": "Contact",
-    "follow": "Follow",
+    "shop": "Products",
+    "visit": "Visit",
+    "tagline": "Cute memories from Vietnam.",
+    "hoursLabel": "Opening hours",
     "rights": "© 2026 BISCUTE VIETNAM. All rights reserved."
   },
   "loader": {

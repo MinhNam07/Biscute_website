@@ -1,0 +1,175 @@
+/* Homepage color roles — section atmosphere + semantic accents */
+
+.bg-biscute-accent-red {
+  background-color: var(--color-accent-red);
+}
+
+/* Hero text column — warm cream with a soft blue stamp wash */
+.hero-stamp-text-side {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-stamp-text-side::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      circle at 12% 88%,
+      color-mix(in oklab, var(--color-primary-blue) 14%, transparent) 0%,
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 88% 18%,
+      color-mix(in oklab, var(--color-mustard-yellow) 18%, transparent) 0%,
+      transparent 38%
+    );
+  pointer-events: none;
+}
+
+.hero-stamp-location {
+  color: var(--color-primary-blue);
+}
+
+.hero-stamp-accent {
+  color: var(--color-primary-blue);
+}
+
+/* Section title — brand color bar carries section identity */
+.section-title-accent {
+  position: relative;
+  padding-bottom: var(--space-3);
+}
+
+.section-title-accent::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 3rem;
+  height: 4px;
+  background: var(--color-primary-blue);
+}
+
+.section-title-accent--yellow::after {
+  background: var(--color-mustard-yellow);
+}
+
+.section-title-accent--red::after {
+  background: var(--color-accent-red);
+}
+
+.section-title-accent--deep::after {
+  background: var(--color-deep-blue);
+}
+
+.section-title-accent--white::after {
+  background: var(--color-soft-yellow);
+}
+
+/* Featured products — soft yellow band */
+.home-section-products {
+  background: var(--color-soft-yellow);
+}
+
+/* Collections — pale blue wash on cream */
+.home-section-collections {
+  background: color-mix(in oklab, var(--color-primary-blue) 6%, var(--color-warm-cream));
+}
+
+/* Collection cards — per-card atmospheric scrims (ink base + brand hue tint) */
+.collection-card__scrim {
+  background: linear-gradient(
+    to top,
+    color-mix(in oklab, var(--scrim-hue) 28%, var(--color-dark-ink)) 0%,
+    color-mix(in oklab, var(--scrim-hue) 14%, var(--color-dark-ink)) 46%,
+    transparent 100%
+  );
+}
+
+.collection-card--blue {
+  --scrim-hue: var(--color-primary-blue);
+}
+
+.collection-card--mustard {
+  --scrim-hue: var(--color-mustard-yellow);
+}
+
+.collection-card--red {
+  --scrim-hue: var(--color-accent-red);
+}
+
+.collection-card--deep {
+  --scrim-hue: var(--color-deep-blue);
+}
+
+.collection-card__stamp {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 10;
+}
+
+/* BISCUTE Way — row title color cycle */
+.biscute-way__row:nth-child(1) .biscute-way__heading {
+  color: var(--color-primary-blue);
+}
+
+.biscute-way__row:nth-child(2) .biscute-way__heading {
+  color: var(--color-accent-red);
+}
+
+.biscute-way__row:nth-child(3) .biscute-way__heading {
+  color: var(--color-deep-blue);
+}
+
+.biscute-way__text-panel {
+  padding: var(--space-6);
+  background: var(--color-white);
+  border: 2px solid var(--color-dark-ink);
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 1024px) {
+  .biscute-way__text-panel {
+    border-width: 4px;
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* Visit — photo placeholder stamp panel */
+.visit-photo-stamp {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--color-mustard-yellow) 0px,
+    var(--color-mustard-yellow) 20px,
+    var(--color-primary-blue) 20px,
+    var(--color-primary-blue) 52px
+  );
+}
+
+.visit-photo-stamp__inner {
+  margin: var(--space-4);
+  min-height: calc(100% - var(--space-8));
+  background: var(--color-white);
+  border: 2px solid var(--color-dark-ink);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 1024px) {
+  .visit-photo-stamp__inner {
+    border-width: 4px;
+  }
+}
+
+.visit-icon-badge--blue {
+  background: var(--color-primary-blue);
+  color: var(--color-white);
+}
+
+.visit-icon-badge--mustard {
+  background: var(--color-mustard-yellow);
+  color: var(--color-dark-ink);
+}

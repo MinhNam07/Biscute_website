@@ -14,7 +14,7 @@ export function PriceDisplay({ amount, compareAt, className }: PriceDisplayProps
 
   return (
     <div className={className}>
-      <span className="font-bold uppercase tracking-wider text-biscute-chocolate">
+      <span className="type-meta text-biscute-chocolate">
         {formatPrice(amount, locale)}
       </span>
       {compareAt && compareAt > amount && (

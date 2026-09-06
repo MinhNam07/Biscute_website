@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Menu, Search, X } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { GeometricLogo } from "@/components/brand/geometric-logo";
 import { SearchDrawer } from "./search-drawer";
 import { cn } from "@/lib/utils";
+import "./mobile-nav.css";
 
 const navLinks = [
   { href: "/shop", key: "shop" },
@@ -25,32 +26,60 @@ export function Header() {
 
   const switchLocale = locale === "vi" ? "en" : "vi";
 
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [mobileOpen]);
+
   return (
     <>
-      <header className="sticky top-0 z-40 border-b-2 border-biscute-chocolate bg-biscute-pink text-biscute-white lg:border-b-4">
-        <div className="container-biscute grid h-14 grid-cols-[1fr_auto_1fr] items-stretch gap-4 lg:h-16">
-          <div className="flex items-center gap-2 lg:gap-3">
-            <button
-              className="flex h-11 w-11 shrink-0 items-center justify-center border-2 border-biscute-chocolate bg-biscute-white text-biscute-chocolate shadow-biscute-sm btn-press lg:hidden"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label={t("menu")}
-              aria-expanded={mobileOpen}
-            >
-              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
+      <header className="mobile-header sticky top-0 z-40 border-b-2 border-biscute-chocolate bg-biscute-pink text-biscute-white lg:border-b-4">
+        <div className="container-biscute grid h-14 grid-cols-[auto_1fr_auto] items-center gap-2 lg:h-16 lg:grid-cols-[1fr_auto_1fr] lg:gap-4">
+          <button
+            className="relative flex h-11 w-11 shrink-0 items-center justify-center border-2 border-biscute-chocolate bg-biscute-white text-biscute-chocolate shadow-biscute-sm btn-press lg:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={t("menu")}
+            aria-expanded={mobileOpen}
+          >
+            <Menu
+              className={cn(
+                "menu-icon absolute h-5 w-5",
+                mobileOpen ? "menu-icon--open" : "menu-icon--closed"
+              )}
+              aria-hidden={mobileOpen}
+            />
+            <X
+              className={cn(
+                "menu-icon absolute h-5 w-5",
+                mobileOpen ? "menu-icon--closed" : "menu-icon--open"
+              )}
+              aria-hidden={!mobileOpen}
+            />
+          </button>
 
-            <Link href="/" className="-ml-1 transition-opacity hover:opacity-80 sm:-ml-2 lg:-ml-3">
-              <GeometricLogo />
-            </Link>
-          </div>
+          <Link
+            href="/"
+            className="flex justify-center transition-opacity hover:opacity-80 lg:col-start-1 lg:row-start-1 lg:justify-start"
+          >
+            <GeometricLogo />
+          </Link>
 
-          <nav className="hidden items-center justify-center gap-6 lg:flex" aria-label="Main navigation">
+          <nav
+            className="hidden items-center justify-center gap-6 lg:col-start-2 lg:row-start-1 lg:flex"
+            aria-label="Main navigation"
+          >
             {navLinks.map((link) => (
               <Link
                 key={link.key}
                 href={link.href}
                 className={cn(
-                  "text-xs font-bold uppercase tracking-widest transition-colors duration-200 hover:text-biscute-pale-pink",
+                  "type-nav transition-colors duration-200 hover:text-biscute-pale-pink",
                   pathname.startsWith(link.href) && "text-biscute-pale-pink underline decoration-4 underline-offset-4"
                 )}
               >
@@ -59,7 +88,7 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center justify-end gap-2">
+          <div className="flex items-center justify-end gap-2 lg:col-start-3 lg:row-start-1">
             <button
               onClick={() => setSearchOpen(true)}
               className="flex h-11 w-11 items-center justify-center border-2 border-biscute-chocolate bg-biscute-white text-biscute-chocolate shadow-biscute-sm btn-press hover:bg-biscute-pale-pink"
@@ -71,40 +100,53 @@ export function Header() {
             <Link
               href={pathname}
               locale={switchLocale}
-              className="flex h-11 items-center border-2 border-biscute-chocolate bg-biscute-white px-3 text-xs font-bold uppercase tracking-widest text-biscute-chocolate shadow-biscute-sm btn-press hover:bg-biscute-pale-pink"
+              className="type-label flex h-11 items-center border-2 border-biscute-chocolate bg-biscute-white px-3 text-biscute-chocolate shadow-biscute-sm btn-press hover:bg-biscute-pale-pink"
             >
               {switchLocale.toUpperCase()}
             </Link>
           </div>
         </div>
 
-        {mobileOpen && (
-          <nav
-            className="border-t-2 border-biscute-chocolate bg-biscute-pink px-4 py-4 text-biscute-white lg:hidden"
-            aria-label="Mobile navigation"
-          >
-            <div className="flex flex-col gap-1">
-              {navLinks.map((link) => (
+        <nav
+          className="mobile-nav-panel lg:hidden"
+          data-open={mobileOpen}
+          aria-label="Mobile navigation"
+          aria-hidden={!mobileOpen}
+          inert={!mobileOpen || undefined}
+        >
+          <div className="mobile-nav-panel__inner">
+            <div className="mobile-nav-panel__content border-t-2 border-biscute-chocolate bg-biscute-pink text-biscute-white">
+              <div className="mobile-nav-panel__links">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.key}
+                    href={link.href}
+                    tabIndex={mobileOpen ? undefined : -1}
+                    onClick={() => setMobileOpen(false)}
+                    className={cn(
+                      "mobile-nav-link type-nav flex min-h-11 items-center border-2 border-transparent px-4 transition-[transform,background-color,border-color] duration-200 hover:border-biscute-white hover:bg-biscute-deep-pink active:translate-x-0.5 active:translate-y-0.5",
+                      pathname.startsWith(link.href) &&
+                        "border-biscute-white bg-biscute-deep-pink text-biscute-pale-pink"
+                    )}
+                  >
+                    {t(link.key)}
+                  </Link>
+                ))}
+              </div>
+              <div className="mobile-nav-panel__locale border-t-2 border-biscute-chocolate/60">
                 <Link
-                  key={link.key}
-                  href={link.href}
+                  href={pathname}
+                  locale={switchLocale}
+                  tabIndex={mobileOpen ? undefined : -1}
                   onClick={() => setMobileOpen(false)}
-                  className="border-2 border-transparent px-3 py-3 text-sm font-bold uppercase tracking-wider hover:border-biscute-white hover:bg-biscute-deep-pink"
+                  className="mobile-nav-link type-nav flex min-h-11 items-center border-2 border-transparent px-4 transition-[transform,background-color,border-color] duration-200 hover:border-biscute-white hover:bg-biscute-deep-pink active:translate-x-0.5 active:translate-y-0.5"
                 >
-                  {t(link.key)}
+                  {switchLocale === "en" ? "English" : "Tiếng Việt"}
                 </Link>
-              ))}
-              <Link
-                href={pathname}
-                locale={switchLocale}
-                onClick={() => setMobileOpen(false)}
-                className="border-2 border-transparent px-3 py-3 text-sm font-bold uppercase tracking-wider hover:border-biscute-white hover:bg-biscute-deep-pink"
-              >
-                {switchLocale === "en" ? "English" : "Tiếng Việt"}
-              </Link>
+              </div>
             </div>
-          </nav>
-        )}
+          </div>
+        </nav>
       </header>
 
       <SearchDrawer open={searchOpen} onOpenChange={setSearchOpen} />

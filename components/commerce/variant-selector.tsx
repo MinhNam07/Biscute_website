@@ -32,7 +32,7 @@ export function VariantSelector({
   return (
     <div className="flex flex-col gap-4">
       <div>
-        <p className="mb-2 text-xs font-bold uppercase tracking-widest">{colorLabel}</p>
+        <p className="mb-2 type-label">{colorLabel}</p>
         <div className="flex flex-wrap gap-2">
           {colors.map((color) => {
             const variant = variants.find((v) => v.color === color);
@@ -41,7 +41,7 @@ export function VariantSelector({
                 key={color}
                 onClick={() => onColorChange(color)}
                 className={cn(
-                  "flex h-11 min-w-[44px] items-center gap-2 rounded-none border-2 px-3 text-sm font-bold uppercase transition-all duration-200",
+                  "type-cta flex h-11 min-w-[44px] items-center gap-2 rounded-none border-2 px-3 transition-all duration-200",
                   selectedColor === color
                     ? "border-biscute-chocolate bg-biscute-pink shadow-biscute-sm"
                     : "border-biscute-chocolate/30 hover:border-biscute-chocolate"
@@ -61,7 +61,7 @@ export function VariantSelector({
 
       {sizes.length > 1 && (
         <div>
-          <p className="mb-2 text-xs font-bold uppercase tracking-widest">{sizeLabel}</p>
+          <p className="mb-2 type-label">{sizeLabel}</p>
           <div className="flex flex-wrap gap-2">
             {sizes.map((size) => {
               const variant = variants.find(
@@ -73,7 +73,7 @@ export function VariantSelector({
                   onClick={() => onSizeChange(size)}
                   disabled={!variant?.available}
                   className={cn(
-                    "flex h-11 min-w-[44px] items-center justify-center rounded-none border-2 px-4 text-sm font-bold uppercase transition-all duration-200",
+                    "type-cta flex h-11 min-w-[44px] items-center justify-center rounded-none border-2 px-4 transition-all duration-200",
                     selectedSize === size
                       ? "border-biscute-chocolate bg-biscute-deep-pink text-biscute-cream shadow-biscute-sm"
                       : "border-biscute-chocolate/30 hover:border-biscute-chocolate",

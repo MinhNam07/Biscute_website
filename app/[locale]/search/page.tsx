@@ -19,21 +19,21 @@ function SearchResults() {
   return (
     <div className="bg-biscute-cream">
       <div className="section-divider container-biscute py-12 md:py-16 lg:py-24">
-        <h1 className="mb-8 font-display text-3xl font-black uppercase tracking-tighter sm:text-4xl">
+        <h1 className="type-page-title mb-8">
           {t("title")}
         </h1>
 
         {query.length < 2 && (
-          <p className="font-medium text-biscute-chocolate/60">{t("placeholder")}</p>
+          <p className="type-meta text-biscute-chocolate/60">{t("placeholder")}</p>
         )}
 
         {query.length >= 2 && results.length === 0 && (
-          <p className="py-12 text-center font-medium text-biscute-chocolate/60">{t("noResults")}</p>
+          <p className="type-meta py-12 text-center text-biscute-chocolate/60">{t("noResults")}</p>
         )}
 
         {results.length > 0 && (
           <>
-            <p className="mb-6 text-sm font-bold uppercase tracking-wider text-biscute-chocolate/60">
+            <p className="type-label mb-6 text-biscute-chocolate/60">
               {t("results", { count: results.length })}
             </p>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -58,8 +58,8 @@ function SearchResults() {
                     />
                   </div>
                   <div>
-                    <p className="font-bold uppercase">{product.title[locale]}</p>
-                    <p className="font-bold">{formatPrice(product.price, locale)}</p>
+                    <p className="type-card-title normal-case">{product.title[locale]}</p>
+                    <p className="type-meta">{formatPrice(product.price, locale)}</p>
                   </div>
                 </Link>
               ))}
@@ -73,7 +73,7 @@ function SearchResults() {
 
 export default function SearchPage() {
   return (
-    <Suspense fallback={<div className="container-biscute py-12 font-bold uppercase">Loading...</div>}>
+    <Suspense fallback={<div className="type-meta container-biscute py-12">Loading...</div>}>
       <SearchResults />
     </Suspense>
   );

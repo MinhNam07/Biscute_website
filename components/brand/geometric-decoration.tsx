@@ -4,7 +4,7 @@ type ShapeType = "circle" | "square" | "triangle";
 
 interface GeometricDecorationProps {
   shape?: ShapeType;
-  color?: "pink" | "pale" | "deep";
+  color?: "pink" | "pale" | "deep" | "red" | "mustard";
   size?: "sm" | "md" | "lg";
   className?: string;
   rotate?: boolean;
@@ -14,6 +14,8 @@ const colorMap = {
   pink: "bg-biscute-pink",
   pale: "bg-biscute-pale-pink",
   deep: "bg-biscute-deep-pink",
+  red: "bg-biscute-accent-red",
+  mustard: "bg-biscute-mustard",
 };
 
 const sizeMap = {

@@ -11,8 +11,8 @@ export default function NotFound() {
       <GeometricDecoration shape="circle" color="pink" size="lg" className="left-8 top-8 opacity-30" />
       <GeometricDecoration shape="square" color="deep" size="lg" rotate className="bottom-8 right-8 opacity-30" />
       <MascotState variant="error" />
-      <h1 className="font-display text-6xl font-black uppercase tracking-tighter sm:text-8xl">404</h1>
-      <p className="font-medium text-biscute-chocolate/80">Page not found</p>
+      <h1 className="type-display">404</h1>
+      <p className="type-body text-biscute-chocolate/80">Page not found</p>
       <Button variant="secondary" asChild>
         <Link href="/">Go home</Link>
       </Button>

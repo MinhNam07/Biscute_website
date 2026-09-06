@@ -25,7 +25,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         className={cn(
-          "inline-flex items-center justify-center border-2 border-biscute-chocolate font-bold uppercase tracking-wider transition-all duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-biscute-chocolate disabled:pointer-events-none disabled:opacity-50",
+          "inline-flex items-center justify-center border-2 border-biscute-chocolate type-cta transition-[background-color,transform,box-shadow,opacity] duration-[var(--motion-micro)] ease-[var(--ease-ui)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-biscute-chocolate disabled:pointer-events-none disabled:opacity-50",
           shape === "pill" ? "rounded-full" : "rounded-none",
           variant !== "ghost" && "shadow-biscute-md btn-press",
           {

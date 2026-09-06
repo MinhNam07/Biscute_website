@@ -10,7 +10,7 @@ export function MascotState({ variant = "loader", className }: MascotStateProps)
     <div className={cn("flex flex-col items-center gap-3", className)} aria-hidden="true">
       <svg
         viewBox="0 0 80 60"
-        className={cn("h-16 w-20", variant === "loader" && "animate-bounce-gentle")}
+        className={cn("h-16 w-20", variant === "loader" && "animate-mascot-float")}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >

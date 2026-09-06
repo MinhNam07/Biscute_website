@@ -13,6 +13,8 @@ export {
   getRelatedProducts,
 } from "./products";
 
+export { getFeaturedProducts, getThematicCollections } from "./homepage";
+
 export async function fetchProducts() {
   const { products } = await import("./products");
   return products;

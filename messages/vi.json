@@ -4,7 +4,7 @@
     "description": "Cute memories from Vietnam. Khám phá quà lưu niệm, thời trang và quà tặng dễ thương."
   },
   "announcement": {
-    "text": "3A, Phố Đinh Liệt · Mở cửa 9:00–21:00",
+    "text": "3A P. Đinh Liệt · Mở cửa 09:00–23:00",
     "link": "Ghé cửa hàng"
   },
   "nav": {
@@ -17,10 +17,11 @@
     "menu": "Menu"
   },
   "hero": {
-    "title": "Cute memories from Vietnam.",
-    "subtitle": "Quà lưu niệm dễ thương, dễ mang về.",
-    "ctaShop": "Xem sản phẩm",
-    "ctaVisit": "Ghé cửa hàng"
+    "title": "Cute memories from <accent>Vietnam</accent>.",
+    "subtitle": "Quà lưu niệm lấy cảm hứng từ Việt Nam, được thiết kế qua nhân vật, artwork và ngôn ngữ đồ họa riêng của BISCUTE — dễ mang về nhà.",
+    "location": "Phố cổ Hà Nội",
+    "ctaShop": "Khám phá sản phẩm",
+    "ctaVisit": "Ghé BISCUTE ↗"
   },
   "categories": {
     "title": "Danh mục",
@@ -31,12 +32,39 @@
   "sections": {
     "bestSellers": "Bán chạy",
     "shopByCollection": "Mua theo bộ sưu tập",
+    "collections": "Bộ sưu tập",
+    "exploreProducts": "Khám phá sản phẩm",
+    "featuredPicks": "Sản phẩm nổi bật",
+    "exploreAll": "Khám phá tất cả sản phẩm",
+    "exploreCollection": "Khám phá",
     "giftsByPrice": "Quà tặng theo giá",
     "newArrivals": "Hàng mới",
-    "storeGallery": "@BISCUTE VIETNAM",
+    "storeGallery": "Cửa hàng",
     "visit": "Ghé BISCUTE",
     "related": "Có thể bạn thích",
     "viewAll": "Xem tất cả"
+  },
+  "home": {
+    "brandIntro": {
+      "title": "BISCUTE là gì?",
+      "paragraph1": "BISCUTE là thương hiệu quà lưu niệm Việt Nam đương đại, vui tươi tại Phố cổ Hà Nội. Chủ đề Việt Nam được thể hiện qua nhân vật, artwork và ngôn ngữ đồ họa riêng của BISCUTE — không phải hình ảnh du lịch chung chung.",
+      "paragraph2": "Website này là catalogue để khám phá, không phải mua hàng online. Xem sản phẩm trước, rồi ghé BISCUTE Vietnam để tìm trực tiếp tại cửa hàng."
+    },
+    "differentiators": {
+      "title": "Phong cách BISCUTE",
+      "visualLanguage": {
+        "title": "Ngôn ngữ hình ảnh BISCUTE",
+        "body": "Văn hóa Việt được diễn giải qua nhân vật và artwork vui tươi, đương đại — dễ thương, dễ nhớ và mang dấu ấn BISCUTE."
+      },
+      "travelFriendly": {
+        "title": "Dễ mang về",
+        "body": "Quà lưu niệm và quà tặng được chọn với tư duy mang về — nhẹ, dễ xếp vào vali, sẵn sàng mang về từ chuyến đi."
+      },
+      "cultureReimagined": {
+        "title": "Văn hóa địa phương",
+        "body": "Địa danh, ẩm thực và văn hóa đời thường trở thành cảm hứng cho sản phẩm — qua góc nhìn BISCUTE thay vì cliché quà lưu niệm truyền thống."
+      }
+    }
   },
   "collections": {
     "hanoi": "Hà Nội",
@@ -63,10 +91,7 @@
     "dimensions": "Kích thước",
     "origin": "Xuất xứ",
     "care": "Bảo quản",
-    "storeAvailability": "Tình trạng cửa hàng",
     "artworkStory": "Câu chuyện artwork",
-    "inStock": "Còn hàng",
-    "outOfStock": "Hết hàng",
     "quantity": "Số lượng",
     "color": "Màu",
     "size": "Size"
@@ -96,10 +121,12 @@
   "visit": {
     "title": "Ghé BISCUTE",
     "subtitle": "Kỷ niệm dễ thương bắt đầu từ đây.",
-    "address": "3A, Phố Đinh Liệt",
-    "hours": "Thứ 2 – Chủ nhật: 9:00 – 21:00",
-    "directions": "Chỉ đường",
-    "call": "Gọi cửa hàng"
+    "storeName": "BISCUTE Vietnam",
+    "address": "3A P. Đinh Liệt, Phố cổ Hà Nội,\nHoàn Kiếm, Hà Nội, Việt Nam",
+    "hours": "09:00–23:00",
+    "hoursLabel": "Giờ mở cửa",
+    "directions": "Mở Google Maps ↗",
+    "storePhotoPlaceholder": "Ảnh cửa hàng sắp có"
   },
   "gifts": {
     "title": "Quà tặng",
@@ -108,10 +135,10 @@
     "under500k": "Quà dưới 500K"
   },
   "footer": {
-    "shop": "Cửa hàng",
-    "about": "Về BISCUTE",
-    "contact": "Liên hệ",
-    "follow": "Theo dõi",
+    "shop": "Sản phẩm",
+    "visit": "Ghé thăm",
+    "tagline": "Cute memories from Vietnam.",
+    "hoursLabel": "Giờ mở cửa",
     "rights": "© 2026 BISCUTE VIETNAM. All rights reserved."
   },
   "loader": {

@@ -1,42 +1,32 @@
 import { HeroSection } from "@/components/home/hero-section";
-import { CategoryShortcuts } from "@/components/home/category-shortcuts";
 import { ProductSection } from "@/components/home/product-section";
+import { Differentiators } from "@/components/home/differentiators";
 import { CollectionCards } from "@/components/home/collection-cards";
-import { GiftsByPrice } from "@/components/home/gifts-by-price";
-import { StoreGallery } from "@/components/home/store-gallery";
 import { StoreMap } from "@/components/location/store-map";
-import {
-  getBestSellers,
-  getNewArrivals,
-  getCategoryCounts,
-} from "@/lib/data";
+import { VisitStickyCta } from "@/components/navigation/visit-sticky-cta";
+import { getFeaturedProducts, getThematicCollections } from "@/lib/data";
 
 export default async function HomePage() {
-  const [bestSellers, newArrivals, counts] = await Promise.all([
-    Promise.resolve(getBestSellers()),
-    Promise.resolve(getNewArrivals()),
-    Promise.resolve(getCategoryCounts()),
+  const [featuredProducts, thematicCollections] = await Promise.all([
+    Promise.resolve(getFeaturedProducts(8)),
+    Promise.resolve(getThematicCollections()),
   ]);
+
+  const heroProducts = featuredProducts.slice(0, 4);
+  const catalogueProducts =
+    featuredProducts.length > 4
+      ? featuredProducts.slice(4, 8)
+      : featuredProducts.slice(0, 4);
 
   return (
     <>
-      <HeroSection />
-      <CategoryShortcuts counts={counts} />
-      <ProductSection
-        titleKey="bestSellers"
-        products={bestSellers.slice(0, 8)}
-        viewAllHref="/collections/best-sellers"
-        priorityCount={4}
-      />
-      <CollectionCards />
-      <GiftsByPrice />
-      <ProductSection
-        titleKey="newArrivals"
-        products={newArrivals.slice(0, 8)}
-        viewAllHref="/collections/new-arrivals"
-      />
-      <StoreGallery />
+      <HeroSection products={heroProducts} />
+      <ProductSection products={catalogueProducts} viewAllHref="/shop" priorityCount={4} />
+      <Differentiators products={featuredProducts.slice(0, 3)} />
+      <CollectionCards collections={thematicCollections} />
       <StoreMap />
+      <VisitStickyCta />
+      <div className="h-16 lg:hidden" aria-hidden />
     </>
   );
 }

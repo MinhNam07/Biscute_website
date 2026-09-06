@@ -25,7 +25,7 @@ function FilterChip({
     <button
       onClick={onClick}
       className={cn(
-        "rounded-none border-2 px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all duration-200",
+        "type-label rounded-none border-2 px-4 py-2 transition-all duration-200",
         active
           ? "border-biscute-chocolate bg-biscute-deep-pink text-biscute-cream shadow-biscute-sm"
           : "border-biscute-chocolate/30 hover:border-biscute-chocolate"
@@ -66,7 +66,7 @@ export function FilterDrawer({ open, onOpenChange }: FilterDrawerProps) {
     <Sheet open={open} onOpenChange={onOpenChange} title={t("title")} side="bottom">
       <div className="space-y-6 p-4">
         <div>
-          <p className="mb-2 text-xs font-bold uppercase tracking-widest">{t("sort")}</p>
+          <p className="type-label mb-2">{t("sort")}</p>
           <div className="flex flex-wrap gap-2">
             {[
               { value: "featured", label: t("sortFeatured") },
@@ -87,7 +87,7 @@ export function FilterDrawer({ open, onOpenChange }: FilterDrawerProps) {
         </div>
 
         <div>
-          <p className="mb-2 text-xs font-bold uppercase tracking-widest">{t("category")}</p>
+          <p className="type-label mb-2">{t("category")}</p>
           <div className="flex flex-wrap gap-2">
             {["souvenirs", "apparel", "gifts"].map((cat) => (
               <FilterChip
@@ -104,7 +104,7 @@ export function FilterDrawer({ open, onOpenChange }: FilterDrawerProps) {
         </div>
 
         <div>
-          <p className="mb-2 text-xs font-bold uppercase tracking-widest">{t("color")}</p>
+          <p className="type-label mb-2">{t("color")}</p>
           <div className="flex flex-wrap gap-2">
             {["Pink", "Cream", "Deep Pink"].map((color) => (
               <FilterChip
@@ -121,7 +121,7 @@ export function FilterDrawer({ open, onOpenChange }: FilterDrawerProps) {
         </div>
 
         <div>
-          <p className="mb-2 text-xs font-bold uppercase tracking-widest">{t("size")}</p>
+          <p className="type-label mb-2">{t("size")}</p>
           <div className="flex flex-wrap gap-2">
             {["S", "M", "L", "One Size"].map((size) => (
               <FilterChip

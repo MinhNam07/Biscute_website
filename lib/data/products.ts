@@ -6,26 +6,7 @@ import type {
 } from "@/lib/types";
 
 const img = (id: string, color: string) =>
-  `https://placehold.co/600x750/${color}/4A3535?text=${encodeURIComponent(id)}`;
-
-const stores = (
-  hanoi: boolean,
-  hcm: boolean,
-  danang: boolean
-): ProductMetafields["storeAvailability"] => [
-  {
-    name: { vi: "BISCUTE Hà Nội", en: "BISCUTE Hanoi" },
-    inStock: hanoi,
-  },
-  {
-    name: { vi: "BISCUTE TP.HCM", en: "BISCUTE Ho Chi Minh City" },
-    inStock: hcm,
-  },
-  {
-    name: { vi: "BISCUTE Đà Nẵng", en: "BISCUTE Da Nang" },
-    inStock: danang,
-  },
-];
+  `https://placehold.co/600x750/${color}/4A3535.png?text=${encodeURIComponent(id)}`;
 
 function meta(
   material: { vi: string; en: string },
@@ -37,10 +18,8 @@ function meta(
     easyToPack?: boolean;
     lightweight?: boolean;
     giftReady?: boolean;
-    stock?: [boolean, boolean, boolean];
   } = {}
 ): ProductMetafields {
-  const [hanoi = true, hcm = true, danang = true] = opts.stock ?? [];
   return {
     material,
     dimensions,
@@ -50,7 +29,6 @@ function meta(
     lightweight: opts.lightweight ?? true,
     giftReady: opts.giftReady ?? false,
     artworkStory: artwork,
-    storeAvailability: stores(hanoi, hcm, danang),
   };
 }
 
@@ -414,7 +392,7 @@ export const products: BiscuteProduct[] = [
         vi: "Một tô phở nóng hổi vào sáng sớm — niềm vui giản dị mà ai cũng nhớ khi rời Việt Nam.",
         en: "A steaming bowl of pho at dawn — simple joy everyone misses after leaving Vietnam.",
       },
-      { giftReady: true, stock: [true, true, false] }
+      { giftReady: true }
     ),
   },
   {
@@ -591,7 +569,7 @@ export const products: BiscuteProduct[] = [
         vi: "Làng lụa Hà Đông — nơi nghệ nhân dệt lụa đã truyền nghề qua hàng trăm năm.",
         en: "Ha Dong silk village — where artisans have passed down weaving for centuries.",
       },
-      { giftReady: true, stock: [true, false, true] }
+      { giftReady: true }
     ),
   },
   {
@@ -900,7 +878,7 @@ export const collections: Collection[] = [
     title: { vi: "Hàng Mới Về", en: "New Arrivals" },
     description: {
       vi: "Sản phẩm mới nhất vừa cập bến tại cửa hàng BISCUTE.",
-      en: "The latest products just arrived at BISCUTE stores.",
+      en: "The latest products just arrived at BISCUTE.",
     },
     productCount: countForCollection("new-arrivals"),
     image: img("new-arrivals", "FCF5D4"),

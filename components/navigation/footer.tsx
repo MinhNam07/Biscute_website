@@ -50,8 +50,18 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="type-label mb-3">{t("visit")}</p>
+            <p className="type-label mb-3">{t("explore")}</p>
             <ul className="type-meta space-y-2 text-biscute-pale-pink">
+              <li>
+                <Link href="/characters" className="hover:text-biscute-white">
+                  {tNav("characters")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-biscute-white">
+                  {tNav("about")}
+                </Link>
+              </li>
               <li>
                 <Link href="/visit" className="hover:text-biscute-white">
                   {tNav("visit")}

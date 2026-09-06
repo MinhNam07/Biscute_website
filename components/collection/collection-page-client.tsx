@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { SlidersHorizontal } from "lucide-react";
 import { ProductGrid } from "@/components/product/product-grid";
 import { FilterDrawer } from "@/components/collection/filter-drawer";
+import { PassportStampOnVisit } from "@/components/collection/passport-stamp-on-visit";
 import { Button } from "@/components/ui/button";
 import { filterProducts } from "@/lib/data";
 import type { BiscuteProduct, SortOption } from "@/lib/types";
@@ -14,9 +15,10 @@ interface CollectionContentProps {
   products: BiscuteProduct[];
   title: string;
   description: string;
+  handle?: string;
 }
 
-function CollectionContent({ products, title, description }: CollectionContentProps) {
+function CollectionContent({ products, title, description, handle }: CollectionContentProps) {
   const t = useTranslations("common");
   const searchParams = useSearchParams();
   const [filterOpen, setFilterOpen] = useState(false);
@@ -41,6 +43,7 @@ function CollectionContent({ products, title, description }: CollectionContentPr
 
   return (
     <div className="bg-biscute-cream">
+      {handle ? <PassportStampOnVisit handle={handle} /> : null}
       <div className="section-divider container-biscute py-12 md:py-16 lg:py-24">
         <div className="mb-8 border-2 border-biscute-chocolate bg-biscute-pink p-6 text-biscute-white shadow-biscute-lg lg:border-4 lg:p-8">
           <h1 className="type-page-title">

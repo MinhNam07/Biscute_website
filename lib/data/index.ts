@@ -15,6 +15,14 @@ export {
 
 export { getFeaturedProducts, getThematicCollections } from "./homepage";
 
+export {
+  characters,
+  getCharacters,
+  getCharacterBySlug,
+  getCharacterById,
+  getProductsByCharacter,
+} from "./characters";
+
 export async function fetchProducts() {
   const { products } = await import("./products");
   return products;

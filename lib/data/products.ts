@@ -45,7 +45,7 @@ export const products: BiscuteProduct[] = [
     compareAtPrice: 229000,
     images: [
       {
-        url: img("BV-001", "FD9DAA"),
+        url: img("ITEM 001", "FD9DAA"),
         alt: { vi: "Túi tote phở màu hồng", en: "Pink pho tote bag" },
       },
       {
@@ -62,17 +62,21 @@ export const products: BiscuteProduct[] = [
     collections: ["hanoi", "food-icons", "best-sellers"],
     tags: ["tote", "pho", "hanoi", "food", "souvenir"],
     category: "souvenirs",
-    metafields: meta(
-      { vi: "Canvas cotton 12oz", en: "12oz cotton canvas" },
-      "38 × 42 cm",
-      { vi: "Thiết kế tại Việt Nam, sản xuất tại TP.HCM", en: "Designed in Vietnam, made in Ho Chi Minh City" },
-      { vi: "Giặt tay, phơi trong bóng râm", en: "Hand wash, dry in shade" },
-      {
-        vi: "Lấy cảm hứng từ góc phố phở sáng sớm ở Hà Nội — nơi hương thảo quả và nước dùng ấm áp đánh thức thành phố.",
-        en: "Inspired by early-morning pho stalls in Hanoi — where star anise aroma and warm broth wake up the city.",
-      },
-      { giftReady: true }
-    ),
+    characterIds: ["char-bunny"],
+    metafields: {
+      ...meta(
+        { vi: "Canvas cotton 12oz", en: "12oz cotton canvas" },
+        "38 × 42 cm",
+        { vi: "Thiết kế tại Việt Nam, sản xuất tại TP.HCM", en: "Designed in Vietnam, made in Ho Chi Minh City" },
+        { vi: "Giặt tay, phơi trong bóng râm", en: "Hand wash, dry in shade" },
+        {
+          vi: "Lấy cảm hứng từ góc phố phở sáng sớm ở Hà Nội — nơi hương thảo quả và nước dùng ấm áp đánh thức thành phố.",
+          en: "Inspired by early-morning pho stalls in Hanoi — where star anise aroma and warm broth wake up the city.",
+        },
+        { giftReady: true }
+      ),
+      stats: { lightweight: 4, cuteness: 5, vietnamLevel: 5 },
+    },
   },
   {
     id: "BV-002",
@@ -85,7 +89,7 @@ export const products: BiscuteProduct[] = [
     price: 99000,
     images: [
       {
-        url: img("BV-002", "FCF5D4"),
+        url: img("ITEM 002", "FCF5D4"),
         alt: { vi: "Bộ nam châm bánh mì", en: "Bánh mì magnet set" },
       },
     ],
@@ -96,6 +100,7 @@ export const products: BiscuteProduct[] = [
     collections: ["food-icons"],
     tags: ["magnet", "banh-mi", "food", "kitchen"],
     category: "souvenirs",
+    characterIds: ["char-bunny"],
     metafields: meta(
       { vi: "Nhựa acrylic + nam châm", en: "Acrylic + magnet backing" },
       "4 × 5 cm mỗi miếng",
@@ -119,7 +124,7 @@ export const products: BiscuteProduct[] = [
     price: 79000,
     images: [
       {
-        url: img("BV-003", "FD9DAA"),
+        url: img("ITEM 003", "FD9DAA"),
         alt: { vi: "Móc khóa mèo hồng", en: "Pink cat keychain" },
       },
     ],
@@ -131,6 +136,7 @@ export const products: BiscuteProduct[] = [
     collections: ["cute-animals", "new-arrivals"],
     tags: ["keychain", "cat", "cute", "gift"],
     category: "gifts",
+    characterIds: ["char-duck", "char-cat"],
     metafields: meta(
       { vi: "Nhựa PVC mềm", en: "Soft PVC" },
       "5 × 3 cm",
@@ -154,7 +160,7 @@ export const products: BiscuteProduct[] = [
     price: 89000,
     images: [
       {
-        url: img("BV-004", "C9366B"),
+        url: img("ITEM 004", "C9366B"),
         alt: { vi: "Nam châm Cầu Rồng", en: "Dragon Bridge magnet" },
       },
     ],
@@ -165,6 +171,7 @@ export const products: BiscuteProduct[] = [
     collections: ["vietnam-culture", "best-sellers"],
     tags: ["magnet", "danang", "bridge", "landmark"],
     category: "souvenirs",
+    characterIds: ["char-cat"],
     metafields: meta(
       { vi: "Epoxy resin + nam châm", en: "Epoxy resin + magnet" },
       "8 × 4 cm",
@@ -189,7 +196,7 @@ export const products: BiscuteProduct[] = [
     compareAtPrice: 449000,
     images: [
       {
-        url: img("BV-005", "FD9DAA"),
+        url: img("ITEM 005", "FD9DAA"),
         alt: { vi: "Áo thun áo dài màu hồng", en: "Pink áo dài pattern tee" },
       },
       {
@@ -208,17 +215,21 @@ export const products: BiscuteProduct[] = [
     collections: ["vietnam-culture", "best-sellers"],
     tags: ["apparel", "ao-dai", "tee", "culture"],
     category: "apparel",
-    metafields: meta(
-      { vi: "100% cotton combed", en: "100% combed cotton" },
-      "Unisex fit",
-      { vi: "Dệt và may tại Việt Nam", en: "Woven and sewn in Vietnam" },
-      { vi: "Giặt máy 30°C, không tẩy", en: "Machine wash 30°C, do not bleach" },
-      {
-        vi: "Áo dài — trang phục biểu tượng của vẻ đẹp và duyên dáng Việt Nam qua từng thế hệ.",
-        en: "The áo dài — iconic attire embodying Vietnamese grace across generations.",
-      },
-      { lightweight: true, giftReady: true }
-    ),
+    characterIds: ["char-bear"],
+    metafields: {
+      ...meta(
+        { vi: "100% cotton combed", en: "100% combed cotton" },
+        "Unisex fit",
+        { vi: "Dệt và may tại Việt Nam", en: "Woven and sewn in Vietnam" },
+        { vi: "Giặt máy 30°C, không tẩy", en: "Machine wash 30°C, do not bleach" },
+        {
+          vi: "Áo dài — trang phục biểu tượng của vẻ đẹp và duyên dáng Việt Nam qua từng thế hệ.",
+          en: "The áo dài — iconic attire embodying Vietnamese grace across generations.",
+        },
+        { lightweight: true, giftReady: true }
+      ),
+      stats: { lightweight: 4, cuteness: 5, vietnamLevel: 5 },
+    },
   },
   {
     id: "BV-006",
@@ -231,7 +242,7 @@ export const products: BiscuteProduct[] = [
     price: 249000,
     images: [
       {
-        url: img("BV-006", "FD9DAA"),
+        url: img("ITEM 006", "FD9DAA"),
         alt: { vi: "Hộp quà hoa sen", en: "Lotus gift box" },
       },
     ],
@@ -243,6 +254,7 @@ export const products: BiscuteProduct[] = [
     collections: ["vietnam-culture", "gifts-under-500k"],
     tags: ["gift-box", "lotus", "present", "culture"],
     category: "gifts",
+    characterIds: ["char-bear"],
     metafields: meta(
       { vi: "Giấy kraft + in offset", en: "Kraft paper + offset print" },
       "20 × 15 × 8 cm",
@@ -266,7 +278,7 @@ export const products: BiscuteProduct[] = [
     price: 69000,
     images: [
       {
-        url: img("BV-007", "FCF5D4"),
+        url: img("ITEM 007", "FCF5D4"),
         alt: { vi: "Ghim cà phê trứng", en: "Egg coffee enamel pin" },
       },
     ],
@@ -277,6 +289,7 @@ export const products: BiscuteProduct[] = [
     collections: ["hanoi", "food-icons", "new-arrivals"],
     tags: ["pin", "coffee", "hanoi", "food"],
     category: "souvenirs",
+    characterIds: ["char-bunny"],
     metafields: meta(
       { vi: "Enamel + đồng mạ vàng", en: "Enamel + gold-plated brass" },
       "2.5 cm",
@@ -300,7 +313,7 @@ export const products: BiscuteProduct[] = [
     price: 279000,
     images: [
       {
-        url: img("BV-008", "C9366B"),
+        url: img("ITEM 008", "C9366B"),
         alt: { vi: "Túi tote nón lá", en: "Conical hat tote bag" },
       },
     ],
@@ -312,6 +325,7 @@ export const products: BiscuteProduct[] = [
     collections: ["vietnam-culture", "best-sellers", "gifts-under-500k"],
     tags: ["tote", "non-la", "culture", "souvenir"],
     category: "souvenirs",
+    characterIds: ["char-bear"],
     metafields: meta(
       { vi: "Canvas cotton tái chế", en: "Recycled cotton canvas" },
       "40 × 38 cm",
@@ -335,7 +349,7 @@ export const products: BiscuteProduct[] = [
     price: 85000,
     images: [
       {
-        url: img("BV-009", "FD9DAA"),
+        url: img("ITEM 009", "FD9DAA"),
         alt: { vi: "Nam châm múa rối nước", en: "Water puppet magnet" },
       },
     ],
@@ -346,6 +360,7 @@ export const products: BiscuteProduct[] = [
     collections: ["hanoi", "vietnam-culture"],
     tags: ["magnet", "puppet", "hanoi", "folk-art"],
     category: "souvenirs",
+    characterIds: ["char-cat"],
     metafields: meta(
       { vi: "Gỗ + sơn mài mini", en: "Wood + mini lacquer paint" },
       "6 × 5 cm",
@@ -369,7 +384,7 @@ export const products: BiscuteProduct[] = [
     price: 459000,
     images: [
       {
-        url: img("BV-010", "C9366B"),
+        url: img("ITEM 010", "C9366B"),
         alt: { vi: "Áo hoodie phở xanh", en: "Sky blue pho hoodie" },
       },
     ],
@@ -406,7 +421,7 @@ export const products: BiscuteProduct[] = [
     price: 75000,
     images: [
       {
-        url: img("BV-011", "FCF5D4"),
+        url: img("ITEM 011", "FCF5D4"),
         alt: { vi: "Móc khóa trâu", en: "Buffalo keychain" },
       },
     ],
@@ -417,6 +432,7 @@ export const products: BiscuteProduct[] = [
     collections: ["cute-animals", "vietnam-culture", "gifts-under-200k"],
     tags: ["keychain", "buffalo", "rural", "cute"],
     category: "souvenirs",
+    characterIds: ["char-duck"],
     metafields: meta(
       { vi: "Silicone + kim loại", en: "Silicone + metal" },
       "4 × 4 cm",
@@ -440,7 +456,7 @@ export const products: BiscuteProduct[] = [
     price: 129000,
     images: [
       {
-        url: img("BV-012", "C9366B"),
+        url: img("ITEM 012", "C9366B"),
         alt: { vi: "Bưu thiếp Vịnh Hạ Long", en: "Ha Long Bay postcards" },
       },
     ],
@@ -451,6 +467,7 @@ export const products: BiscuteProduct[] = [
     collections: ["vietnam-culture", "new-arrivals", "gifts-under-200k"],
     tags: ["postcard", "ha-long", "bay", "stationery"],
     category: "gifts",
+    characterIds: ["char-cat"],
     metafields: meta(
       { vi: "Giấy art 300gsm", en: "300gsm art paper" },
       "A6, 8 tấm",
@@ -474,7 +491,7 @@ export const products: BiscuteProduct[] = [
     price: 199000,
     images: [
       {
-        url: img("BV-013", "FD9DAA"),
+        url: img("ITEM 013", "FD9DAA"),
         alt: { vi: "Vịt xôi bông", en: "Sticky rice duck plush" },
       },
     ],
@@ -486,6 +503,7 @@ export const products: BiscuteProduct[] = [
     collections: ["cute-animals", "food-icons", "gifts-under-200k"],
     tags: ["plush", "duck", "food", "cute"],
     category: "gifts",
+    characterIds: ["char-duck"],
     metafields: meta(
       { vi: "Polyester plush + nhồi bông", en: "Polyester plush + cotton fill" },
       "18 cm",
@@ -509,7 +527,7 @@ export const products: BiscuteProduct[] = [
     price: 65000,
     images: [
       {
-        url: img("BV-014", "FD9DAA"),
+        url: img("ITEM 014", "FD9DAA"),
         alt: { vi: "Ghim xe điện Hà Nội", en: "Hanoi tram enamel pin" },
       },
     ],
@@ -520,6 +538,7 @@ export const products: BiscuteProduct[] = [
     collections: ["hanoi", "new-arrivals", "gifts-under-200k"],
     tags: ["pin", "tram", "hanoi", "vintage"],
     category: "souvenirs",
+    characterIds: ["char-cat"],
     metafields: meta(
       { vi: "Enamel cứng + thép không gỉ", en: "Hard enamel + stainless steel" },
       "3 cm",
@@ -544,7 +563,7 @@ export const products: BiscuteProduct[] = [
     compareAtPrice: 499000,
     images: [
       {
-        url: img("BV-015", "FD9DAA"),
+        url: img("ITEM 015", "FD9DAA"),
         alt: { vi: "Khăn lụa hoa sen hồng", en: "Pink lotus silk scarf" },
       },
       {
@@ -560,6 +579,7 @@ export const products: BiscuteProduct[] = [
     collections: ["vietnam-culture"],
     tags: ["scarf", "silk", "lotus", "accessory"],
     category: "apparel",
+    characterIds: ["char-bear"],
     metafields: meta(
       { vi: "Lụa tơ tằm Bảo Lộc", en: "Bao Loc mulberry silk" },
       "90 × 90 cm",
@@ -583,7 +603,7 @@ export const products: BiscuteProduct[] = [
     price: 59000,
     images: [
       {
-        url: img("BV-016", "FD9DAA"),
+        url: img("ITEM 016", "FD9DAA"),
         alt: { vi: "Bộ sticker mèo Sài Gòn", en: "Saigon cat sticker pack" },
       },
     ],
@@ -594,6 +614,7 @@ export const products: BiscuteProduct[] = [
     collections: ["cute-animals", "gifts-under-200k"],
     tags: ["sticker", "cat", "saigon", "vinyl"],
     category: "gifts",
+    characterIds: ["char-duck", "char-cat"],
     metafields: meta(
       { vi: "Vinyl chống nước", en: "Waterproof vinyl" },
       "3–6 cm, 12 miếng",
@@ -617,7 +638,7 @@ export const products: BiscuteProduct[] = [
     price: 299000,
     images: [
       {
-        url: img("BV-017", "FCF5D4"),
+        url: img("ITEM 017", "FCF5D4"),
         alt: { vi: "Túi tote bản đồ Việt Nam", en: "Vietnam map tote bag" },
       },
     ],
@@ -629,6 +650,7 @@ export const products: BiscuteProduct[] = [
     collections: ["vietnam-culture", "gifts-under-500k"],
     tags: ["tote", "map", "travel", "landmarks"],
     category: "souvenirs",
+    characterIds: ["char-cat"],
     metafields: meta(
       { vi: "Canvas organic cotton", en: "Organic cotton canvas" },
       "42 × 40 cm",
@@ -652,7 +674,7 @@ export const products: BiscuteProduct[] = [
     price: 79000,
     images: [
       {
-        url: img("BV-018", "C9366B"),
+        url: img("ITEM 018", "C9366B"),
         alt: { vi: "Nam châm gỏi cuốn", en: "Spring roll magnet" },
       },
     ],
@@ -663,6 +685,7 @@ export const products: BiscuteProduct[] = [
     collections: ["food-icons", "best-sellers", "gifts-under-200k"],
     tags: ["magnet", "spring-roll", "food", "fresh"],
     category: "souvenirs",
+    characterIds: ["char-bunny"],
     metafields: meta(
       { vi: "Resin trong + nam châm", en: "Clear resin + magnet" },
       "5 × 5 cm",
@@ -686,7 +709,7 @@ export const products: BiscuteProduct[] = [
     price: 149000,
     images: [
       {
-        url: img("BV-019", "FD9DAA"),
+        url: img("ITEM 019", "FD9DAA"),
         alt: { vi: "Bộ lì xì Tết", en: "Tet red envelope set" },
       },
     ],
@@ -721,7 +744,7 @@ export const products: BiscuteProduct[] = [
     price: 179000,
     images: [
       {
-        url: img("BV-020", "FCF5D4"),
+        url: img("ITEM 020", "FCF5D4"),
         alt: { vi: "Cốc sứ cà phê dừa", en: "Coconut coffee mug" },
       },
     ],
@@ -811,7 +834,10 @@ export const collections: Collection[] = [
       en: "Products inspired by the thousand-year-old capital.",
     },
     productCount: countForCollection("hanoi"),
-    image: img("hanoi", "FD9DAA"),
+    image: img("HANOI", "3EA9F5"),
+    adventureTitle: { vi: "HÀ NỘI\nCHAOS", en: "HANOI\nCHAOS" },
+    characterId: "char-cat",
+    accentColor: "#3EA9F5",
   },
   {
     handle: "food-icons",
@@ -821,7 +847,13 @@ export const collections: Collection[] = [
       en: "Pho, bánh mì, spring rolls, and iconic Vietnamese dishes.",
     },
     productCount: countForCollection("food-icons"),
-    image: img("food-icons", "FCF5D4"),
+    image: img("FOOD", "EF4136"),
+    adventureTitle: {
+      vi: "ĂN DỌC\nVIỆT NAM",
+      en: "EAT YOUR\nWAY THROUGH\nVIETNAM",
+    },
+    characterId: "char-bunny",
+    accentColor: "#EF4136",
   },
   {
     handle: "cute-animals",
@@ -831,7 +863,13 @@ export const collections: Collection[] = [
       en: "Cats, ducks, buffaloes, and adorable characters from BISCUTE.",
     },
     productCount: countForCollection("cute-animals"),
-    image: img("cute-animals", "FD9DAA"),
+    image: img("ANIMALS", "FFD940"),
+    adventureTitle: {
+      vi: "CHỈ CÓ\nTHÚ CƯNG",
+      en: "CUTE\nANIMALS\nONLY",
+    },
+    characterId: "char-duck",
+    accentColor: "#FFD940",
   },
   {
     handle: "vietnam-culture",
@@ -841,7 +879,13 @@ export const collections: Collection[] = [
       en: "Áo dài, conical hats, lotus flowers, and traditional cultural symbols.",
     },
     productCount: countForCollection("vietnam-culture"),
-    image: img("vietnam-culture", "C9366B"),
+    image: img("CULTURE", "FF8FB3"),
+    adventureTitle: {
+      vi: "RẤT\nVIỆT NAM",
+      en: "VERY\nVIETNAMESE\nTHINGS",
+    },
+    characterId: "char-bear",
+    accentColor: "#FF8FB3",
   },
   {
     handle: "gifts-under-200k",
@@ -1015,6 +1059,11 @@ export function getRelatedProducts(
     .filter((p) => p.id !== product.id)
     .map((p) => {
       let score = 0;
+      if (product.characterIds?.length) {
+        for (const id of product.characterIds) {
+          if (p.characterIds?.includes(id)) score += 5;
+        }
+      }
       if (p.category === product.category) score += 2;
       for (const col of p.collections) {
         if (product.collections.includes(col)) score += 3;

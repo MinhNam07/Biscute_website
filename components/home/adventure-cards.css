@@ -1,0 +1,80 @@
+/* Adventure cards — big typographic destination panels with a character peek */
+
+.adventure-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  min-height: 260px;
+  overflow: hidden;
+  padding: var(--space-6);
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-lg);
+  background: var(--adventure-accent, var(--color-primary-blue));
+  box-shadow: var(--shadow-md);
+  color: var(--color-dark-ink);
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform var(--motion-ui) var(--ease-expressive);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .adventure-card:hover {
+    transform: rotate(var(--tilt, 0deg)) translateY(-6px);
+  }
+}
+
+.adventure-card__index {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-6);
+}
+
+.adventure-card__title {
+  position: relative;
+  z-index: 2;
+  max-width: 12ch;
+}
+
+.adventure-card__meta {
+  position: relative;
+  z-index: 2;
+}
+
+.adventure-card__peek {
+  position: absolute;
+  top: var(--space-6);
+  right: calc(var(--space-4) * -1);
+  z-index: 1;
+  display: block;
+  width: 96px;
+  aspect-ratio: 1 / 1;
+  transition: transform var(--motion-ui) var(--ease-expressive);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .adventure-card:hover .adventure-card__peek {
+    transform: translateX(calc(var(--space-2) * -1)) rotate(-6deg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .adventure-card {
+    min-height: 320px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .adventure-card,
+  .adventure-card__peek {
+    transition: none !important;
+  }
+
+  .adventure-card:hover {
+    transform: rotate(var(--tilt, 0deg)) !important;
+  }
+
+  .adventure-card:hover .adventure-card__peek {
+    transform: none !important;
+  }
+}

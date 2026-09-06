@@ -32,6 +32,7 @@ export default async function CollectionPage({
       products={products}
       title={title}
       description={description}
+      handle={slug}
     />
   );
 }

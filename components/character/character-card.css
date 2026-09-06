@@ -1,0 +1,100 @@
+/* Character card — toy packaging: window box, ID strip, front/back thumbs */
+
+.character-card {
+  display: block;
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform var(--motion-ui) var(--ease-expressive);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .character-card:hover {
+    transform: rotate(var(--tilt, 0deg)) translateY(-6px);
+  }
+}
+
+.character-card__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+.character-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.character-card__level {
+  padding: 2px var(--space-2);
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-pill);
+  background: var(--char-secondary, var(--color-mustard-yellow));
+  color: var(--color-dark-ink);
+}
+
+/* Window — the blister-pack opening the character sits inside */
+.character-card__window {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-md);
+  background: color-mix(in oklab, var(--char-primary) 22%, var(--color-white));
+}
+
+.character-card__reveal {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: var(--space-3);
+  background: color-mix(in oklab, var(--color-dark-ink) 82%, transparent);
+  color: var(--color-warm-cream);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .character-card__reveal {
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+      opacity var(--motion-ui) var(--ease-ui),
+      transform var(--motion-ui) var(--ease-ui);
+  }
+
+  .character-card:hover .character-card__reveal,
+  .character-card:focus-visible .character-card__reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.character-card__thumbs {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.character-card__thumb {
+  position: relative;
+  display: block;
+  width: 44px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-sm);
+  background: var(--color-warm-cream);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character-card,
+  .character-card__reveal {
+    transition: none !important;
+  }
+
+  .character-card:hover {
+    transform: rotate(var(--tilt, 0deg)) !important;
+  }
+}

@@ -4,24 +4,70 @@
     "description": "Cute memories from Vietnam. Browse adorable souvenirs, apparel and gifts."
   },
   "announcement": {
-    "text": "3A P. Đinh Liệt · Open 09:00–23:00",
+    "ticker": "★ OPEN EVERYDAY 09:00–23:00  ●  3A ĐINH LIỆT  ★  HANOI OLD QUARTER  ●  COME SAY HI",
     "link": "Visit us"
   },
   "nav": {
     "shop": "Shop",
+    "shopAll": "All",
     "souvenirs": "Souvenirs",
     "apparel": "Apparel",
     "gifts": "Gifts",
-    "visit": "Visit Us",
+    "collections": "Collections",
+    "characters": "Characters",
+    "about": "About",
+    "visit": "Visit",
     "search": "Search",
     "menu": "Menu"
   },
   "hero": {
-    "title": "Cute memories from <accent>Vietnam</accent>.",
-    "subtitle": "Playful Vietnam-inspired souvenirs designed through BISCUTE's own characters, artwork, and graphic language — easy to pack and bring home.",
+    "title": "A LITTLE <accent>VIETNAM</accent>, A LOT OF BISCUTE.",
+    "subtitle": "Cute memories from Vietnam.",
     "location": "Hanoi Old Quarter",
-    "ctaShop": "Explore Products",
+    "ctaShop": "Shop the Chaos",
+    "ctaCrew": "Meet the Crew",
     "ctaVisit": "Visit BISCUTE ↗"
+  },
+  "crew": {
+    "title": "WHO DID YOU MEET?",
+    "subtitle": "The Biscute Crew",
+    "mood": "Mood",
+    "likes": "Likes",
+    "dislikes": "Dislikes",
+    "level": "LV. {level}",
+    "viewAll": "Meet everyone",
+    "shopPicks": "Shop {name}'s picks",
+    "species": "Species",
+    "dob": "DOB"
+  },
+  "adventures": {
+    "title": "CHOOSE YOUR ADVENTURE"
+  },
+  "suitcase": {
+    "title": "PACK YOUR SUITCASE",
+    "prompt": "Pick 3 things to take home",
+    "ready": "Your Vietnam Bag is ready ★",
+    "ctaVisit": "Open directions",
+    "ctaClear": "Unpack",
+    "slots": "{count}/3 packed",
+    "hint": "Drag or tap to pack"
+  },
+  "passport": {
+    "title": "BISCUTE TRAVEL PASSPORT",
+    "locked": "Visit a collection to stamp",
+    "complete": "You've seen too much. Here's a secret.",
+    "secret": "Ask for a free postcard sticker at 3A Đinh Liệt."
+  },
+  "ugc": {
+    "title": "SPOTTED IN THE WILD",
+    "cta": "Follow @biscutevn"
+  },
+  "drawn": {
+    "title": "DRAWN HERE. MADE TO GO EVERYWHERE.",
+    "subtitle": "From sketch to souvenir — how Biscute reimagines Vietnam.",
+    "stepSketch": "Sketch",
+    "stepArt": "Artwork",
+    "stepMerch": "Merch"
   },
   "categories": {
     "title": "Categories",
@@ -78,11 +124,23 @@
   },
   "product": {
     "viewDetails": "View details",
+    "view": "View",
     "visitStore": "Visit our store",
     "soldOut": "Sold Out",
     "new": "New",
     "bestSeller": "Best Seller",
     "limited": "Limited",
+    "crowdFav": "★ Crowd Fav",
+    "biscuteApproved": "Biscute Approved",
+    "catchIt": "Catch it before it runs away",
+    "freshOuttaOven": "Fresh outta the oven",
+    "itemFile": "ITEM FILE #{id}",
+    "itemNumber": "ITEM #{id}",
+    "statsTitle": "★ Product Stats ★",
+    "statLightweight": "Lightweight",
+    "statCuteness": "Cuteness",
+    "statVietnam": "Vietnam Level",
+    "howHappened": "How this little guy happened",
     "easyToPack": "Easy to pack",
     "lightweight": "Lightweight",
     "giftReady": "Gift-ready",
@@ -118,6 +176,11 @@
     "noResults": "No results found",
     "results": "{count} results"
   },
+  "about": {
+    "title": "About BISCUTE",
+    "p1": "BISCUTE is a playful character crew living in a slightly silly, colorful version of Vietnam. Souvenirs are what they bring home.",
+    "p2": "This site is a catalogue for discovery — visit us in Hanoi's Old Quarter to take the cute chaos home."
+  },
   "visit": {
     "title": "Visit BISCUTE",
     "subtitle": "Cute memories start here.",
@@ -126,7 +189,9 @@
     "hours": "09:00–23:00",
     "hoursLabel": "Opening hours",
     "directions": "Open in Google Maps ↗",
-    "storePhotoPlaceholder": "Store photo coming soon"
+    "storePhotoPlaceholder": "Store photo coming soon",
+    "postcardStamp": "BISCUTE · HANOI · OLD QUARTER",
+    "year": "HANOI · 2026"
   },
   "gifts": {
     "title": "Gifts",
@@ -137,12 +202,13 @@
   "footer": {
     "shop": "Products",
     "visit": "Visit",
+    "explore": "Explore",
     "tagline": "Cute memories from Vietnam.",
     "hoursLabel": "Opening hours",
     "rights": "© 2026 BISCUTE VIETNAM. All rights reserved."
   },
   "loader": {
-    "text": "Loading cute memories…"
+    "text": "Packing cute chaos…"
   },
   "common": {
     "products": "{count} products",

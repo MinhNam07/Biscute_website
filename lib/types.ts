@@ -30,6 +30,33 @@ export type ProductMetafields = {
   lightweight: boolean;
   giftReady: boolean;
   artworkStory: LocalizedString;
+  /** Decorative product stats (1–5). Optional play-layer data. */
+  stats?: {
+    lightweight: number;
+    cuteness: number;
+    vietnamLevel: number;
+  };
+};
+
+export type BiscuteCharacter = {
+  id: string;
+  slug: string;
+  name: LocalizedString;
+  species: LocalizedString;
+  dob?: string;
+  mood: LocalizedString;
+  likes: LocalizedString;
+  dislikes: LocalizedString;
+  level: number;
+  colors: { primary: string; secondary: string; accent: string };
+  images: {
+    portrait: string;
+    front?: string;
+    back?: string;
+    sticker?: string;
+  };
+  productHandles: string[];
+  collectionHandles: string[];
 };
 
 export type BiscuteProduct = {
@@ -46,6 +73,7 @@ export type BiscuteProduct = {
   tags: string[];
   category: "souvenirs" | "apparel" | "gifts";
   metafields: ProductMetafields;
+  characterIds?: string[];
 };
 
 export type Collection = {
@@ -54,6 +82,9 @@ export type Collection = {
   description: LocalizedString;
   productCount: number;
   image?: string;
+  adventureTitle?: LocalizedString;
+  characterId?: string;
+  accentColor?: string;
 };
 
 export type SortOption =

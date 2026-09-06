@@ -1,4 +1,4 @@
-/* Hero load entrance — one brand stamp moment + light fades */
+/* Hero — one full-bleed toy stage: giant character + floating product stickers */
 
 @keyframes hero-headline-stamp {
   from {
@@ -24,11 +24,11 @@
 
 @keyframes hero-panel-enter {
   from {
-    transform: translateX(12px);
+    transform: translateY(10px);
     opacity: 0.94;
   }
   to {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
@@ -37,8 +37,7 @@
   animation: hero-headline-stamp var(--motion-reveal) var(--ease-expressive) both;
 }
 
-.hero-stamp-subtitle,
-.hero-stamp-location {
+.hero-stamp-subtitle {
   animation: hero-fade-up var(--motion-ui) var(--ease-ui) both;
   animation-delay: 80ms;
 }
@@ -50,116 +49,154 @@
 
 .hero-stamp-panel {
   animation: hero-panel-enter var(--motion-reveal) var(--ease-expressive) both;
-  animation-delay: 80ms;
 }
 
-.hero-stamp-deco {
-  pointer-events: none;
-}
-
-.hero-stamp-deco--1 {
-  top: 12%;
-  right: 8%;
-}
-
-.hero-stamp-deco--2 {
-  top: 28%;
-  right: 18%;
-}
-
-.hero-stamp-deco--3 {
-  bottom: 18%;
-  right: 10%;
-}
-
-@media (min-width: 1024px) {
-  .hero-stamp-deco--1 {
-    top: 14%;
-    right: 12%;
-  }
-
-  .hero-stamp-deco--2 {
-    top: 32%;
-    right: 22%;
-  }
-
-  .hero-stamp-deco--3 {
-    bottom: 22%;
-    right: 14%;
-  }
-}
-
-/* Collage panel — single mustard field so product tiles carry the color */
-.hero-collage-panel-bg {
-  background: var(--color-mustard-yellow);
-}
-
-/* Product collage — asymmetric editorial grid */
-.hero-collage {
-  display: flex;
-  flex-direction: column;
-  min-height: 320px;
-}
-
-.hero-collage__grid {
+/* Stage — single blue field so the crew reads as the subject */
+.hero-stage {
+  position: relative;
   display: grid;
-  flex: 1;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-template-rows: repeat(6, minmax(0, 1fr));
-  gap: var(--grid-gap);
-  min-height: 320px;
+  gap: var(--space-8);
+  overflow: hidden;
+  padding: var(--space-8) var(--space-6) var(--space-6);
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-xl);
+  background: var(--color-primary-blue);
+  box-shadow: var(--shadow-lg);
 }
 
-.hero-collage__item {
-  min-height: 0;
-  min-width: 0;
+.hero-stage__text {
+  position: relative;
+  z-index: 2;
 }
 
-.hero-collage__item--1 {
-  grid-column: 1 / 4;
-  grid-row: 1 / 5;
+.hero-stage__location {
+  position: relative;
+  z-index: 3;
 }
 
-.hero-collage__item--2 {
-  grid-column: 4 / 7;
-  grid-row: 1 / 3;
+.hero-stage__accent {
+  color: var(--color-mustard-yellow);
 }
 
-.hero-collage__item--3 {
-  grid-column: 4 / 6;
-  grid-row: 3 / 7;
+/* Cast — character portrait plus orbiting product stickers */
+.hero-stage__cast {
+  position: relative;
+  min-height: 280px;
 }
 
-.hero-collage__item--4 {
-  grid-column: 1 / 4;
-  grid-row: 5 / 7;
+.hero-character {
+  position: relative;
+  width: min(78%, 320px);
+  margin-inline: auto;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-stage__stamp {
+  position: absolute;
+  top: 0;
+  right: var(--space-2);
+  z-index: 3;
+  background: var(--color-warm-cream);
+}
+
+.hero-float {
+  position: absolute;
+  z-index: 3;
+  display: block;
+  width: 86px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  transform: rotate(var(--float-rotate, 0deg));
+  transition: transform var(--motion-ui) var(--ease-expressive);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-float:hover {
+    transform: rotate(var(--float-rotate, 0deg)) translateY(-6px);
+  }
+}
+
+.hero-float--1 {
+  left: 0;
+  top: 12%;
+}
+
+.hero-float--2 {
+  right: 2%;
+  bottom: 20%;
+}
+
+.hero-float--3 {
+  left: 8%;
+  bottom: 2%;
 }
 
 @media (min-width: 640px) {
-  .hero-collage__grid {
-    min-height: 360px;
+  .hero-stage {
+    padding: var(--space-12) var(--space-8) var(--space-8);
+  }
+
+  .hero-float {
+    width: 104px;
   }
 }
 
 @media (min-width: 1024px) {
-  .hero-collage {
-    min-height: 480px;
+  .hero-stage {
+    grid-template-columns: 1.05fr 1fr;
+    align-items: center;
+    gap: var(--space-12);
+    padding: var(--space-16) var(--space-12);
+    border-width: 4px;
   }
 
-  .hero-collage__grid {
-    min-height: 440px;
-    gap: var(--grid-gap-relaxed);
+  .hero-stage__cast {
+    min-height: 420px;
+  }
+
+  .hero-character {
+    width: min(84%, 380px);
+  }
+
+  .hero-float {
+    width: 120px;
+  }
+
+  .hero-float--1 {
+    left: -6%;
+    top: 8%;
+  }
+
+  .hero-float--2 {
+    right: -4%;
+    bottom: 22%;
+  }
+
+  .hero-float--3 {
+    left: 2%;
+    bottom: -2%;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-stamp-headline,
   .hero-stamp-subtitle,
-  .hero-stamp-location,
   .hero-stamp-ctas,
   .hero-stamp-panel {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .hero-float {
+    transition: none !important;
   }
 }

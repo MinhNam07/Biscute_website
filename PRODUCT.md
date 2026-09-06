@@ -128,13 +128,23 @@ The website should present Vietnamese culture through BISCUTE's visual perspecti
 
 ## Brand Idea
 
-**Vietnamese culture, reimagined the BISCUTE way.**
+**BISCUTE Souvenir Club** — a playable souvenir world.
+
+Pipeline (character-first):
+
+```text
+Vietnam → Biscute characters → weird/cute interpretation → artwork → product
+```
+
+Characters lead culture; products are what the crew brings home from that world.
 
 Supporting direction:
 
-**Cute memories from Vietnam.**
+**Vietnamese culture, reimagined the BISCUTE way.**
 
-The tagline may be used as brand copy, but it should not replace the stronger product positioning above.
+Tagline (supporting, not hero-primary):
+
+**Cute memories from Vietnam.**
 
 ---
 

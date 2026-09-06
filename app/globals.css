@@ -9,20 +9,19 @@
 }
 
 :root {
-  /* BISCUTE Vietnam — Blue, Yellow & Red palette */
-  --color-primary-blue: #1857c8;
-  --color-deep-blue: #103a8c;
-  --color-mustard-yellow: #FFD831;
-  --color-soft-yellow: #ffee8c;
-  --color-accent-red: #d93a32;
-  --color-deep-red: #a92724;
-  --color-warm-cream: #f8f3e7;
-  --color-dark-ink: #2c2f36;
+  /* BISCUTE Souvenir Club palette — matches DESIGN.md */
+  --color-primary-blue: #3ea9f5;
+  --color-deep-blue: #2b8fd9;
+  --color-mustard-yellow: #ffd940;
+  --color-soft-yellow: #ffe99a;
+  --color-accent-red: #ef4136;
+  --color-deep-red: #c4342c;
+  --color-warm-cream: #fff8e9;
+  --color-dark-ink: #25211e;
   --color-white: #ffffff;
+  --color-bubble-pink: #ff8fb3;
+  --color-leaf: #72c85b;
 
-  /* Usage ratio: ~55% cream/white · 25% blue · 12% yellow · 8% red */
-
-  /* Component tokens (legacy names, new values) */
   --color-signature-pink: var(--color-primary-blue);
   --color-pale-pink: var(--color-soft-yellow);
   --color-deep-pink: var(--color-deep-blue);
@@ -30,14 +29,21 @@
   --color-cream: var(--color-warm-cream);
   --color-chocolate: var(--color-dark-ink);
 
-  /* Layout tokens defined in layout.css */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+  --radius-pill: 999px;
+
   --grid-gap: var(--space-2);
-  --motion-micro: 200ms;
-  --motion-standard: 300ms;
-  --motion-panel: 300ms;
-  --shadow-sm: 3px 3px 0px 0px #2c2f36;
-  --shadow-md: 4px 4px 0px 0px #2c2f36;
-  --shadow-lg: 8px 8px 0px 0px #2c2f36;
+  --motion-micro: 160ms;
+  --motion-standard: 240ms;
+  --motion-panel: 240ms;
+  --motion-flip: 400ms;
+  --shadow-sm: 3px 3px 0px 0px #25211e;
+  --shadow-md: 5px 6px 0px 0px #25211e;
+  --shadow-lg: 8px 8px 0px 0px #25211e;
+  --shadow-soft: 0 8px 24px rgba(37, 33, 30, 0.1);
 }
 
 @theme inline {
@@ -49,8 +55,16 @@
   --color-biscute-cream: var(--color-warm-cream);
   --color-biscute-chocolate: var(--color-dark-ink);
   --color-biscute-white: var(--color-white);
+  --color-biscute-red: var(--color-accent-red);
+  --color-biscute-bubble: var(--color-bubble-pink);
+  --color-biscute-leaf: var(--color-leaf);
+  --radius-biscute-sm: var(--radius-sm);
+  --radius-biscute-md: var(--radius-md);
+  --radius-biscute-lg: var(--radius-lg);
+  --radius-biscute-xl: var(--radius-xl);
   --font-display: var(--font-outfit), "Outfit", sans-serif;
   --font-body: var(--font-outfit), "Outfit", sans-serif;
+  --font-label: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --text-display: var(--type-display);
   --text-page-title: var(--type-page-title);
   --text-section: var(--type-section);
@@ -65,6 +79,7 @@
   --shadow-biscute-sm: var(--shadow-sm);
   --shadow-biscute-md: var(--shadow-md);
   --shadow-biscute-lg: var(--shadow-lg);
+  --shadow-biscute-soft: var(--shadow-soft);
 }
 
 * {
@@ -114,18 +129,12 @@ h6 {
 }
 
 .section-divider {
-  border-bottom: 4px solid var(--color-dark-ink);
+  border-bottom: 3px solid var(--color-dark-ink);
 }
 
 .border-biscute {
   border-width: 2px;
   border-color: var(--color-dark-ink);
-}
-
-@media (min-width: 1024px) {
-  .border-biscute {
-    border-width: 4px;
-  }
 }
 
 .shadow-biscute-sm {
@@ -140,14 +149,13 @@ h6 {
   box-shadow: var(--shadow-lg);
 }
 
+.shadow-biscute-soft {
+  box-shadow: var(--shadow-soft);
+}
+
 .btn-press:active {
   transform: translate(2px, 2px);
   box-shadow: none;
-}
-
-.pattern-dots {
-  background-image: radial-gradient(#ffffff 2px, transparent 2px);
-  background-size: 20px 20px;
 }
 
 .line-clamp-2 {
@@ -167,7 +175,7 @@ h6 {
   animation: spin-slow 1.5s linear infinite;
 }
 
-@keyframes bounce-gentle {
+@keyframes float-gentle {
   0%,
   100% {
     transform: translateY(0);
@@ -177,8 +185,8 @@ h6 {
   }
 }
 
-.animate-bounce-gentle {
-  animation: bounce-gentle 1.2s ease-in-out infinite;
+.animate-float-gentle {
+  animation: float-gentle 1.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
 @keyframes accordion-down {
@@ -210,20 +218,20 @@ h6 {
 .biscute-wordmark {
   display: inline-block;
   font-family: "The Funy Time", sans-serif;
-  font-size: 36px;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0;
   text-transform: uppercase;
-  color: #ffd831;
-  -webkit-text-stroke: 1.5px #103a8c;
-  filter: drop-shadow(2px 2px 0 #103a8c);
+  color: var(--color-mustard-yellow);
+  -webkit-text-stroke: 1.5px var(--color-deep-blue);
+  filter: drop-shadow(2px 2px 0 var(--color-deep-blue));
   background: repeating-linear-gradient(
     135deg,
-    #ffd831 0px,
-    #ffd831 10px,
-    #ffffff 10px,
-    #ffffff 20px
+    var(--color-mustard-yellow) 0px,
+    var(--color-mustard-yellow) 10px,
+    var(--color-white) 10px,
+    var(--color-white) 20px
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -237,15 +245,8 @@ h6 {
 
 @media (min-width: 640px) {
   .biscute-wordmark {
-    font-size: 45px;
-    -webkit-text-stroke: 2px #103a8c;
-    filter: drop-shadow(3px 3px 0 #103a8c);
-  }
-}
-
-@media (min-width: 1024px) {
-  .biscute-wordmark {
-    font-size: 56px;
+    -webkit-text-stroke: 2px var(--color-deep-blue);
+    filter: drop-shadow(3px 3px 0 var(--color-deep-blue));
   }
 }
 

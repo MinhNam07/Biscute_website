@@ -4,7 +4,7 @@
   --motion-micro: 160ms;
   --motion-ui: 240ms;
   --motion-reveal: 480ms;
-  /* Legacy aliases */
+  --motion-flip: 400ms;
   --motion-standard: var(--motion-ui);
   --motion-panel: var(--motion-ui);
   --ease-ui: cubic-bezier(0.4, 0, 0.2, 1);
@@ -16,16 +16,19 @@
 }
 
 .hover-lift {
-  transition: transform var(--motion-micro) var(--ease-ui);
+  transition: transform var(--motion-ui) var(--ease-expressive);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .hover-lift:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px) rotate(-1deg);
+  }
+
+  .hover-lift-alt:hover {
+    transform: translateY(-6px) rotate(1deg);
   }
 }
 
-/* Grayscale product images — full color on touch, reveal on hover for pointer-fine */
 .hover-grayscale img,
 img.hover-grayscale {
   filter: grayscale(1);
@@ -50,6 +53,36 @@ img.hover-grayscale {
   }
 }
 
+@keyframes character-idle {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+}
+
+.animate-character-idle {
+  animation: character-idle 6s var(--ease-ui) infinite;
+}
+
+@keyframes sticker-pop {
+  0% {
+    transform: scale(0.85);
+  }
+  60% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-sticker-pop {
+  animation: sticker-pop var(--motion-ui) var(--ease-expressive) both;
+}
+
 @keyframes mascot-float {
   0%,
   100% {
@@ -64,12 +97,32 @@ img.hover-grayscale {
   animation: mascot-float 1.4s var(--ease-ui) infinite;
 }
 
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  animation: ticker-scroll 28s linear infinite;
+}
+
+.card-flip {
+  transition: transform var(--motion-flip) var(--ease-ui);
+  transform-style: preserve-3d;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hover-lift {
+  .hover-lift,
+  .hover-lift-alt {
     transition: none !important;
   }
 
-  .hover-lift:hover {
+  .hover-lift:hover,
+  .hover-lift-alt:hover {
     transform: none !important;
   }
 
@@ -79,6 +132,11 @@ img.hover-grayscale {
     transition: none !important;
   }
 
+  .animate-character-idle,
+  .animate-sticker-pop,
+  .animate-mascot-float,
+  .animate-ticker,
+  .animate-spin-slow,
   .scroll-section__title,
   .scroll-section__body,
   .hero-stamp-headline,
@@ -88,9 +146,7 @@ img.hover-grayscale {
   .hero-stamp-panel,
   .best-sellers-card,
   .best-sellers-corner,
-  .best-sellers-progress__bar,
-  .animate-mascot-float,
-  .animate-spin-slow {
+  .best-sellers-progress__bar {
     animation: none !important;
   }
 }

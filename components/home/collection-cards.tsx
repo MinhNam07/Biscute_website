@@ -1,81 +1,95 @@
 "use client";
 
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { SectionWrapper } from "@/components/brand/section-wrapper";
-import { GeometricDecoration } from "@/components/brand/geometric-decoration";
-import type { Collection } from "@/lib/types";
+import { IdTag } from "@/components/brand/id-tag";
+import type { BiscuteCharacter, Collection } from "@/lib/types";
 import "./home-sections.css";
 import "./homepage-colors.css";
+import "./adventure-cards.css";
 
 interface CollectionCardsProps {
   collections: Collection[];
+  characters?: BiscuteCharacter[];
 }
 
-const cardVariants = ["blue", "mustard", "red", "deep"] as const;
-const stampColors = ["pink", "mustard", "red", "deep"] as const;
-const stampShapes = ["circle", "square", "triangle", "circle"] as const;
+const tilts = [-2, 1.5, -1.5, 2];
 
-export function CollectionCards({ collections }: CollectionCardsProps) {
+export function CollectionCards({
+  collections,
+  characters = [],
+}: CollectionCardsProps) {
   const locale = useLocale() as "vi" | "en";
-  const t = useTranslations("sections");
+  const t = useTranslations("adventures");
+  const ts = useTranslations("sections");
   const tc = useTranslations("collections");
 
   if (collections.length === 0) {
     return null;
   }
 
+  const charactersById = new Map(characters.map((c) => [c.id, c]));
+
   return (
-    <SectionWrapper bg="cream" spacing="standard" className="home-section-collections">
+    <SectionWrapper
+      id="adventures"
+      bg="cream"
+      spacing="standard"
+      className="home-section-collections"
+    >
       <h2 className="section-header-gap section-title-accent section-title-accent--red type-section-title">
-        {t("collections")}
+        {t("title")}
       </h2>
-      <div className="collections-grid">
+
+      <div className="adventures-rail">
         {collections.map((collection, i) => {
-          const variant = cardVariants[i % cardVariants.length];
-          const stampColor = stampColors[i % stampColors.length];
-          const stampShape = stampShapes[i % stampShapes.length];
           const label = tc.has(collection.handle as "hanoi")
             ? tc(collection.handle as "hanoi")
             : collection.title[locale];
-          const description = collection.description[locale];
+          const adventure = collection.adventureTitle?.[locale] ?? label;
+          const peek = collection.characterId
+            ? charactersById.get(collection.characterId)
+            : undefined;
 
           return (
             <Link
               key={collection.handle}
               href={`/collections/${collection.handle}`}
-              className={`collection-card collection-card--${variant} group hover-lift relative flex aspect-[3/4] flex-col justify-end overflow-hidden border-2 border-biscute-chocolate shadow-biscute-lg lg:border-4`}
+              className="adventure-card group"
+              style={
+                {
+                  "--tilt": `${tilts[i % tilts.length]}deg`,
+                  "--adventure-accent":
+                    collection.accentColor ?? "var(--color-primary-blue)",
+                } as CSSProperties
+              }
             >
-              <GeometricDecoration
-                shape={stampShape as "circle" | "square" | "triangle"}
-                color={stampColor as "pink" | "pale" | "deep" | "red" | "mustard"}
-                size="lg"
-                rotate={stampShape === "square"}
-                className="collection-card__stamp"
-              />
-              {collection.image ? (
-                <Image
-                  src={collection.image}
-                  alt={label}
-                  fill
-                  className="object-cover hover-grayscale"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-              ) : (
-                <div className="absolute inset-0 bg-biscute-pale-pink" aria-hidden />
-              )}
-              <div className="collection-card__scrim relative z-10 p-4 pt-16">
-                <h3 className="type-card-title text-biscute-white">
-                  {label}
-                </h3>
-                <p className="type-meta mt-1 line-clamp-2 text-biscute-cream/90">
-                  {description}
-                </p>
-                <span className="type-label mt-2 inline-block text-biscute-soft-yellow transition-colors group-hover:text-biscute-white">
-                  {t("exploreCollection")} →
+              <span className="adventure-card__index">
+                <IdTag>{String(i + 1).padStart(2, "0")}</IdTag>
+              </span>
+
+              <h3 className="adventure-card__title type-subsection-title whitespace-pre-line">
+                {adventure}
+              </h3>
+
+              <p className="adventure-card__meta type-meta">
+                {label} · {ts("exploreCollection")} →
+              </p>
+
+              {peek && (
+                <span className="adventure-card__peek" aria-hidden>
+                  <Image
+                    src={peek.images.sticker ?? peek.images.portrait}
+                    alt=""
+                    fill
+                    className="object-contain"
+                    sizes="96px"
+                  />
                 </span>
-              </div>
+              )}
             </Link>
           );
         })}

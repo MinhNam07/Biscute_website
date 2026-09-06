@@ -4,24 +4,70 @@
     "description": "Cute memories from Vietnam. Khám phá quà lưu niệm, thời trang và quà tặng dễ thương."
   },
   "announcement": {
-    "text": "3A P. Đinh Liệt · Mở cửa 09:00–23:00",
+    "ticker": "★ MỞ CỬA CẢ TUẦN 09:00–23:00  ●  3A ĐINH LIỆT  ★  PHỐ CỔ HÀ NỘI  ●  GHÉ CHƠI NHÉ",
     "link": "Ghé cửa hàng"
   },
   "nav": {
     "shop": "Cửa hàng",
+    "shopAll": "Tất cả",
     "souvenirs": "Quà lưu niệm",
     "apparel": "Thời trang",
     "gifts": "Quà tặng",
+    "collections": "Bộ sưu tập",
+    "characters": "Nhân vật",
+    "about": "Về BISCUTE",
     "visit": "Ghé thăm",
     "search": "Tìm kiếm",
     "menu": "Menu"
   },
   "hero": {
-    "title": "Cute memories from <accent>Vietnam</accent>.",
-    "subtitle": "Quà lưu niệm lấy cảm hứng từ Việt Nam, được thiết kế qua nhân vật, artwork và ngôn ngữ đồ họa riêng của BISCUTE — dễ mang về nhà.",
+    "title": "MỘT CHÚT <accent>VIỆT NAM</accent>, THẬT NHIỀU BISCUTE.",
+    "subtitle": "Kỷ niệm dễ thương từ Việt Nam.",
     "location": "Phố cổ Hà Nội",
-    "ctaShop": "Khám phá sản phẩm",
+    "ctaShop": "Lượn một vòng",
+    "ctaCrew": "Gặp cả hội",
     "ctaVisit": "Ghé BISCUTE ↗"
+  },
+  "crew": {
+    "title": "BẠN ĐÃ GẶP AI?",
+    "subtitle": "Hội Biscute",
+    "mood": "Tâm trạng",
+    "likes": "Thích",
+    "dislikes": "Không thích",
+    "level": "LV. {level}",
+    "viewAll": "Gặp cả hội",
+    "shopPicks": "Xem đồ {name} chọn",
+    "species": "Loài",
+    "dob": "Ngày sinh"
+  },
+  "adventures": {
+    "title": "CHỌN CHUYẾN ĐI CỦA BẠN"
+  },
+  "suitcase": {
+    "title": "XẾP VALI ĐI",
+    "prompt": "Chọn 3 món để mang về",
+    "ready": "Túi Việt Nam của bạn đã sẵn sàng ★",
+    "ctaVisit": "Mở chỉ đường",
+    "ctaClear": "Dỡ vali",
+    "slots": "{count}/3 đã xếp",
+    "hint": "Kéo hoặc chạm để xếp"
+  },
+  "passport": {
+    "title": "HỘ CHIẾU DU LỊCH BISCUTE",
+    "locked": "Ghé một bộ sưu tập để lấy dấu",
+    "complete": "Bạn xem hơi nhiều rồi đấy. Tặng bạn một bí mật.",
+    "secret": "Hỏi lấy sticker bưu thiếp miễn phí tại 3A Đinh Liệt."
+  },
+  "ugc": {
+    "title": "BẮT GẶP NGOÀI ĐỜI",
+    "cta": "Theo dõi @biscutevn"
+  },
+  "drawn": {
+    "title": "VẼ Ở ĐÂY. ĐI KHẮP MỌI NƠI.",
+    "subtitle": "Từ nét vẽ đến quà lưu niệm — BISCUTE kể lại Việt Nam theo cách riêng.",
+    "stepSketch": "Phác thảo",
+    "stepArt": "Artwork",
+    "stepMerch": "Sản phẩm"
   },
   "categories": {
     "title": "Danh mục",
@@ -78,11 +124,23 @@
   },
   "product": {
     "viewDetails": "Xem chi tiết",
+    "view": "Xem",
     "visitStore": "Ghé cửa hàng",
     "soldOut": "Hết hàng",
     "new": "Mới",
     "bestSeller": "Bán chạy",
     "limited": "Giới hạn",
+    "crowdFav": "★ Được yêu thích",
+    "biscuteApproved": "BISCUTE chứng nhận",
+    "catchIt": "Nhanh tay kẻo hết",
+    "freshOuttaOven": "Mới ra lò",
+    "itemFile": "HỒ SƠ SẢN PHẨM #{id}",
+    "itemNumber": "MÃ #{id}",
+    "statsTitle": "★ Chỉ số sản phẩm ★",
+    "statLightweight": "Độ nhẹ",
+    "statCuteness": "Độ dễ thương",
+    "statVietnam": "Độ Việt Nam",
+    "howHappened": "Bạn nhỏ này ra đời thế nào",
     "easyToPack": "Dễ mang về",
     "lightweight": "Nhẹ",
     "giftReady": "Sẵn quà tặng",
@@ -118,6 +176,11 @@
     "noResults": "Không tìm thấy kết quả",
     "results": "{count} kết quả"
   },
+  "about": {
+    "title": "Về BISCUTE",
+    "p1": "BISCUTE là một hội nhân vật vui tươi sống trong phiên bản Việt Nam hơi ngộ và đầy màu sắc. Quà lưu niệm là những gì họ mang về nhà.",
+    "p2": "Website này là catalogue để khám phá — ghé chúng tôi ở Phố cổ Hà Nội để mang mớ dễ thương này về."
+  },
   "visit": {
     "title": "Ghé BISCUTE",
     "subtitle": "Kỷ niệm dễ thương bắt đầu từ đây.",
@@ -126,7 +189,9 @@
     "hours": "09:00–23:00",
     "hoursLabel": "Giờ mở cửa",
     "directions": "Mở Google Maps ↗",
-    "storePhotoPlaceholder": "Ảnh cửa hàng sắp có"
+    "storePhotoPlaceholder": "Ảnh cửa hàng sắp có",
+    "postcardStamp": "BISCUTE · HÀ NỘI · PHỐ CỔ",
+    "year": "HÀ NỘI · 2026"
   },
   "gifts": {
     "title": "Quà tặng",
@@ -137,12 +202,13 @@
   "footer": {
     "shop": "Sản phẩm",
     "visit": "Ghé thăm",
+    "explore": "Khám phá",
     "tagline": "Cute memories from Vietnam.",
     "hoursLabel": "Giờ mở cửa",
     "rights": "© 2026 BISCUTE VIETNAM. All rights reserved."
   },
   "loader": {
-    "text": "Đang tải kỷ niệm dễ thương…"
+    "text": "Đang xếp mớ dễ thương…"
   },
   "common": {
     "products": "{count} sản phẩm",

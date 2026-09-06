@@ -1,0 +1,519 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-06T17:15:00.000Z",
+  "title": "Design System: BISCUTE Souvenir Club",
+  "extensions": {
+    "colorMeta": {
+      "primary-blue": {
+        "role": "primary",
+        "displayName": "Biscute Blue",
+        "canonical": "#3EA9F5",
+        "tonalRamp": [
+          "#0a3a5c",
+          "#145a8a",
+          "#1e7ab8",
+          "#2B8FD9",
+          "#3EA9F5",
+          "#65bcf7",
+          "#8ccff9",
+          "#b3e2fb",
+          "#d9f0fd",
+          "#eef8fe"
+        ]
+      },
+      "deep-blue": {
+        "role": "primary",
+        "displayName": "Deep Blue",
+        "canonical": "#2B8FD9",
+        "tonalRamp": [
+          "#0a2f4a",
+          "#124870",
+          "#1a6196",
+          "#2278bc",
+          "#2B8FD9",
+          "#55a5e1",
+          "#7fbbe8",
+          "#a9d1f0",
+          "#d4e8f7",
+          "#eaf4fb"
+        ]
+      },
+      "mustard-yellow": {
+        "role": "secondary",
+        "displayName": "Egg Yolk",
+        "canonical": "#FFD940",
+        "tonalRamp": [
+          "#4d4200",
+          "#735f00",
+          "#997d00",
+          "#bf9c00",
+          "#e5ba00",
+          "#FFD940",
+          "#ffe166",
+          "#ffe88c",
+          "#fff0b3",
+          "#fff7d9"
+        ]
+      },
+      "soft-yellow": {
+        "role": "secondary",
+        "displayName": "Soft Egg",
+        "canonical": "#FFE99A",
+        "tonalRamp": [
+          "#4d462e",
+          "#736945",
+          "#998c5c",
+          "#bfaf73",
+          "#e5d28a",
+          "#FFE99A",
+          "#ffedae",
+          "#fff2c2",
+          "#fff6d6",
+          "#fffaeb"
+        ]
+      },
+      "accent-red": {
+        "role": "tertiary",
+        "displayName": "Tomato",
+        "canonical": "#EF4136",
+        "tonalRamp": [
+          "#471310",
+          "#6b1d18",
+          "#8f2720",
+          "#b33128",
+          "#d73b30",
+          "#EF4136",
+          "#f2675e",
+          "#f58d86",
+          "#f8b3ae",
+          "#fcd9d7"
+        ]
+      },
+      "deep-red": {
+        "role": "tertiary",
+        "displayName": "Deep Tomato",
+        "canonical": "#C4342C",
+        "tonalRamp": [
+          "#3a0f0d",
+          "#581713",
+          "#761f1a",
+          "#942720",
+          "#b22f26",
+          "#C4342C",
+          "#d05d56",
+          "#dc8680",
+          "#e7afaa",
+          "#f3d7d5"
+        ]
+      },
+      "warm-cream": {
+        "role": "neutral",
+        "displayName": "Milk",
+        "canonical": "#FFF8E9",
+        "tonalRamp": [
+          "#4d4a45",
+          "#716e68",
+          "#95928b",
+          "#b9b6ae",
+          "#dddad1",
+          "#FFF8E9",
+          "#fff9ed",
+          "#fffaf1",
+          "#fffcf6",
+          "#fffdfb"
+        ]
+      },
+      "dark-ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#25211E",
+        "tonalRamp": [
+          "#0b0a09",
+          "#11100f",
+          "#171614",
+          "#1d1b19",
+          "#23201e",
+          "#25211E",
+          "#514d4b",
+          "#7c7978",
+          "#a8a6a5",
+          "#d3d2d2"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#4d4d4d",
+          "#737373",
+          "#999999",
+          "#bfbfbf",
+          "#e5e5e5",
+          "#ffffff",
+          "#ffffff",
+          "#ffffff",
+          "#ffffff",
+          "#ffffff"
+        ]
+      },
+      "bubble-pink": {
+        "role": "character",
+        "displayName": "Bubble Pink",
+        "canonical": "#FF8FB3",
+        "tonalRamp": [
+          "#4d2b36",
+          "#734050",
+          "#99566b",
+          "#bf6b85",
+          "#e5809f",
+          "#FF8FB3",
+          "#ffa5c2",
+          "#ffbcd1",
+          "#ffd2e0",
+          "#ffe9f0"
+        ]
+      },
+      "leaf": {
+        "role": "character",
+        "displayName": "Leaf",
+        "canonical": "#72C85B",
+        "tonalRamp": [
+          "#223c1b",
+          "#345a29",
+          "#457836",
+          "#579644",
+          "#68b451",
+          "#72C85B",
+          "#8ed37c",
+          "#aade9d",
+          "#c6e9be",
+          "#e3f4de"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headlines only. One per viewport. Class: .type-display"
+      },
+      "page-title": {
+        "displayName": "Page Title",
+        "purpose": "Inner-page h1. Class: .type-page-title"
+      },
+      "section": {
+        "displayName": "Section Title",
+        "purpose": "Homepage and content section h2. Class: .type-section-title"
+      },
+      "subsection": {
+        "displayName": "Subsection",
+        "purpose": "In-section h3, gift tiers, drawer titles. Class: .type-subsection-title"
+      },
+      "card-title": {
+        "displayName": "Card Title",
+        "purpose": "Product and collection names. Class: .type-card-title"
+      },
+      "body-lg": {
+        "displayName": "Body Large",
+        "purpose": "Hero subtitle, lead paragraphs. Class: .type-body-lg"
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions, accordion content. Class: .type-body"
+      },
+      "meta": {
+        "displayName": "Metadata",
+        "purpose": "Prices, counts, footer links. Class: .type-meta"
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Badges, filter groups, footer headers. Class: .type-label"
+      },
+      "nav": {
+        "displayName": "Navigation",
+        "purpose": "Header and mobile nav links. Class: .type-nav"
+      },
+      "cta": {
+        "displayName": "CTA",
+        "purpose": "Buttons and action links. Class: .type-cta"
+      },
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "BISCUTE logo exclusively. Never used elsewhere."
+      }
+    },
+    "shadows": [
+      {
+        "name": "biscute-sm",
+        "value": "3px 3px 0px 0px #25211E",
+        "purpose": "Badges, small stickers."
+      },
+      {
+        "name": "biscute-md",
+        "value": "5px 6px 0px 0px #25211E",
+        "purpose": "Playful cards, toy panels."
+      },
+      {
+        "name": "biscute-lg",
+        "value": "8px 8px 0px 0px #25211E",
+        "purpose": "Large playful surfaces."
+      },
+      {
+        "name": "biscute-soft",
+        "value": "0 8px 24px rgba(37, 33, 30, 0.1)",
+        "purpose": "Shop grid calm lift."
+      }
+    ],
+    "motion": [
+      {
+        "name": "micro",
+        "value": "160ms ease-out",
+        "purpose": "Button press, hover feedback, card lifts, image crossfades."
+      },
+      {
+        "name": "ui",
+        "value": "240ms ease-out",
+        "purpose": "Navigation drawer, modal, accordion, filter state."
+      },
+      {
+        "name": "reveal",
+        "value": "480ms ease-out",
+        "purpose": "Hero brand moment, selective section title entrance."
+      },
+      {
+        "name": "ease-ui",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default easing for interface feedback."
+      },
+      {
+        "name": "ease-expressive",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Reserved for hero and brand moments."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ],
+    "layoutMeta": {
+      "spacingScale": [
+        "4px",
+        "8px",
+        "12px",
+        "16px",
+        "24px",
+        "32px",
+        "48px",
+        "64px",
+        "96px",
+        "128px"
+      ],
+      "sectionVariants": {
+        "default": {
+          "mobile": "48px",
+          "sm": "64px",
+          "lg": "96px"
+        },
+        "featured": {
+          "mobile": "48px",
+          "sm": "64px",
+          "lg": "64px"
+        },
+        "editorial": {
+          "mobile": "48px",
+          "sm": "64px",
+          "lg": "96px"
+        },
+        "standard": {
+          "mobile": "48px",
+          "sm": "64px",
+          "lg": "64px"
+        },
+        "visit": {
+          "mobile": "64px",
+          "sm": "96px",
+          "lg": "128px"
+        }
+      },
+      "gutters": {
+        "sm": "16px",
+        "md": "24px",
+        "lg": "32px",
+        "xl": "48px"
+      },
+      "containerMax": "1280px",
+      "containerOuter": "1440px",
+      "gridGap": "8px",
+      "gridGapRelaxed": "16px"
+    },
+    "dos": [
+      "Do use hard offset shadows on playful cards; soft shadow on shop grid.",
+      "Do use soft radii (12\u201340px) on panels and product images.",
+      "Do keep one dominant color per section.",
+      "Do lead with characters, then culture, then product.",
+      "Do keep Visit/Directions as primary conversion."
+    ],
+    "donts": [
+      "Don't clone CULCAT or copy G\u00f3i G\u00e9m layouts.",
+      "Don't add cart/checkout.",
+      "Don't rainbow one viewport.",
+      "Don't make the shop grid into an arcade.",
+      "Don't use The Funy Time outside the wordmark."
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA \u2014 shop, browse, add to cart actions.",
+      "html": "<button class=\"ds-btn-primary\">BROWSE PRODUCTS</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 32px; background: #1857c8; color: #ffffff; border: 2px solid #2c2f36; border-radius: 0; font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 4px 4px 0px 0px #2c2f36; cursor: pointer; transition: background 200ms ease-out, transform 200ms ease-out, box-shadow 200ms ease-out; } .ds-btn-primary:hover { background: #103a8c; } .ds-btn-primary:active { transform: translate(2px, 2px); box-shadow: none; } .ds-btn-primary:focus-visible { outline: 2px solid #2c2f36; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary actions \u2014 alternate CTAs, promotional buttons.",
+      "html": "<button class=\"ds-btn-secondary\">VISIT US</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 32px; background: #FFD831; color: #2c2f36; border: 2px solid #2c2f36; border-radius: 0; font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 4px 4px 0px 0px #2c2f36; cursor: pointer; transition: background 200ms ease-out, transform 200ms ease-out, box-shadow 200ms ease-out; } .ds-btn-secondary:hover { background: rgba(255, 216, 49, 0.9); } .ds-btn-secondary:active { transform: translate(2px, 2px); box-shadow: none; } .ds-btn-secondary:focus-visible { outline: 2px solid #2c2f36; outline-offset: 2px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Tertiary CTA on cream backgrounds \u2014 pairs with primary.",
+      "html": "<button class=\"ds-btn-outline\">VISIT US</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 32px; background: #ffffff; color: #2c2f36; border: 2px solid #2c2f36; border-radius: 0; font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 4px 4px 0px 0px #2c2f36; cursor: pointer; transition: background 200ms ease-out, transform 200ms ease-out, box-shadow 200ms ease-out; } .ds-btn-outline:hover { background: rgba(255, 255, 255, 0.9); } .ds-btn-outline:active { transform: translate(2px, 2px); box-shadow: none; } .ds-btn-outline:focus-visible { outline: 2px solid #2c2f36; outline-offset: 2px; }"
+    },
+    {
+      "name": "Icon Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "44\u00d744px square icon button for header actions (search, menu).",
+      "html": "<button class=\"ds-btn-icon\" aria-label=\"Search\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#2c2f36\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg></button>",
+      "css": ".ds-btn-icon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #ffffff; color: #2c2f36; border: 2px solid #2c2f36; border-radius: 0; box-shadow: 3px 3px 0px 0px #2c2f36; cursor: pointer; transition: background 200ms ease-out, transform 200ms ease-out, box-shadow 200ms ease-out; } .ds-btn-icon:hover { background: #ffee8c; } .ds-btn-icon:active { transform: translate(2px, 2px); box-shadow: none; } .ds-btn-icon:focus-visible { outline: 2px solid #2c2f36; outline-offset: 2px; }"
+    },
+    {
+      "name": "Best Seller Badge",
+      "kind": "chip",
+      "refersTo": "badge-best-seller",
+      "description": "Product badge for best-selling items.",
+      "html": "<span class=\"ds-badge\">BEST SELLER</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; padding: 2px 10px; background: #1857c8; color: #ffffff; border: 2px solid #2c2f36; border-radius: 0; font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; box-shadow: 3px 3px 0px 0px #2c2f36; }"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": "button-primary",
+      "description": "E-commerce product card with geometric corner decoration and grayscale-to-color hover.",
+      "html": "<article class=\"ds-product-card\"><div class=\"ds-product-card-image\"><span class=\"ds-corner-deco\" aria-hidden=\"true\"></span><div class=\"ds-product-card-placeholder\"></div><span class=\"ds-badge\">NEW</span></div><h3 class=\"ds-product-card-title\">BANH MI MAGNET SET</h3><p class=\"ds-product-card-price\">\u20ab120,000</p></article>",
+      "css": ".ds-product-card { display: flex; flex-direction: column; gap: 12px; font-family: 'Outfit', sans-serif; transition: transform 200ms ease-out; } .ds-product-card:hover { transform: translateY(-4px); } .ds-product-card-image { position: relative; border: 2px solid #2c2f36; background: #ffffff; box-shadow: 8px 8px 0px 0px #2c2f36; } .ds-corner-deco { position: absolute; top: 8px; right: 8px; width: 12px; height: 12px; background: #1857c8; border-radius: 50%; } .ds-product-card-placeholder { aspect-ratio: 4/5; background: linear-gradient(135deg, #e8e4dc 0%, #d4cfc5 100%); filter: grayscale(1); transition: filter 200ms ease-out; } .ds-product-card:hover .ds-product-card-placeholder { filter: grayscale(0); } .ds-product-card .ds-badge { position: absolute; top: 8px; left: 8px; } .ds-product-card-title { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; line-height: 1.25; color: #2c2f36; margin: 0; } .ds-product-card-price { font-size: 0.875rem; font-weight: 700; color: #2c2f36; margin: 0; }"
+    },
+    {
+      "name": "Accordion Item",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "FAQ / product detail accordion with color-inverting open state.",
+      "html": "<div class=\"ds-accordion\"><button class=\"ds-accordion-trigger\">SHIPPING INFO<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"m6 9 6 6 6-6\"/></svg></button><div class=\"ds-accordion-content\"><p>Free shipping on orders over \u20ab500,000 within Vietnam.</p></div></div>",
+      "css": ".ds-accordion { overflow: hidden; border: 2px solid #2c2f36; background: #ffffff; box-shadow: 4px 4px 0px 0px #2c2f36; font-family: 'Outfit', sans-serif; } .ds-accordion-trigger { display: flex; width: 100%; align-items: center; justify-content: space-between; padding: 16px; background: #ffffff; color: #2c2f36; border: none; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: background 200ms ease-out, color 200ms ease-out; } .ds-accordion-trigger:hover { background: #f8f3e7; } .ds-accordion-trigger[aria-expanded='true'] { background: #103a8c; color: #ffffff; } .ds-accordion-content { border-top: 2px solid #2c2f36; background: #ffee8c; padding: 16px; color: #2c2f36; font-size: 1rem; font-weight: 500; line-height: 1.625; } .ds-accordion-content p { margin: 0; }"
+    },
+    {
+      "name": "Announcement Bar",
+      "kind": "custom",
+      "refersTo": "button-secondary",
+      "description": "Top-of-page store info bar with mustard background.",
+      "html": "<div class=\"ds-announcement\"><span>3A, PHO DINH LIET \u00b7 OPEN 9AM\u20139PM</span><span class=\"ds-announcement-dot\">\u00b7</span><a href=\"#\">VISIT US</a></div>",
+      "css": ".ds-announcement { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 16px; background: #FFD831; color: #2c2f36; border-bottom: 2px solid #2c2f36; font-family: 'Outfit', sans-serif; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; } .ds-announcement a { color: #2c2f36; text-decoration: underline; text-underline-offset: 2px; } .ds-announcement a:hover { text-decoration: none; } .ds-announcement-dot { opacity: 0.6; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "button-primary",
+      "description": "Desktop header navigation link on blue background.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-link ds-nav-link--active\">SHOP</a><a href=\"#\" class=\"ds-nav-link\">SOUVENIRS</a><a href=\"#\" class=\"ds-nav-link\">APPAREL</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 24px; font-family: 'Outfit', sans-serif; } .ds-nav-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #ffffff; text-decoration: none; transition: color 200ms ease-out; } .ds-nav-link:hover { color: #ffee8c; } .ds-nav-link--active { color: #ffee8c; text-decoration: underline; text-decoration-thickness: 4px; text-underline-offset: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Playful Passport Stamp",
+    "overview": "BISCUTE Vietnam is a souvenir shop that feels like a collectible you picked up on your trip \u2014 bold, graphic, and unapologetically cute. The visual language borrows from neo-brutalism: hard offset shadows instead of soft blur, square corners as the default, thick ink borders that scale up on desktop, and a palette anchored in Vietnam's national colors (blue, yellow, red) on a warm cream ground. Geometry is a recurring motif \u2014 circles, squares, and triangles appear as corner decorations on cards and as hero accents, giving every surface a handmade-sticker quality.\n\nThe system is built for Persuade mode: this is an e-commerce storefront where design is the product. Every section alternates saturated color blocks (pink/blue header, mustard announcement, deep-blue footer) against cream and white breathing room. Typography is loud and confident \u2014 all-caps Outfit at black weight for headlines, wide tracking on labels \u2014 while body copy stays friendly and medium-weight. Product photography starts grayscale and reveals color on hover, a deliberate \"unwrap the gift\" moment.",
+    "keyCharacteristics": [
+      "Neo-brutalist hard shadows (offset, zero blur) on every elevated surface",
+      "Square-by-default geometry; pills reserved for CTAs inside product cards",
+      "Vietnam-flag palette: ~55% cream/white, ~25% blue, ~12% yellow, ~8% red",
+      "Thick ink borders (2px mobile \u2192 4px desktop) as the primary depth cue",
+      "Geometric corner decorations rotate across card index (circle / square / triangle)",
+      "\"The Funy Time\" display font reserved exclusively for the BISCUTE wordmark",
+      "Legacy token names (biscute-pink) map to blue \u2014 do not reintroduce actual pink"
+    ],
+    "rules": [
+      {
+        "name": "The One Ink Rule",
+        "body": "All borders, shadows, focus rings, and outlines use Dark Ink (#2c2f36). Never introduce a second border color or a blurred shadow.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ratio Rule",
+        "body": "Respect the documented usage ratio: ~55% cream/white \u00b7 25% blue \u00b7 12% yellow \u00b7 8% red. Red never dominates a viewport; blue never fills more than one major band per scroll depth.",
+        "section": "colors"
+      },
+      {
+        "name": "The Selective Caps Rule",
+        "body": "Uppercase is for headings, short labels, nav, badges, and CTAs. Body copy, descriptions, and metadata use sentence case.",
+        "section": "typography"
+      },
+      {
+        "name": "The Weight Ladder Rule",
+        "body": "Only display type uses 900. Section headings use 800. Card titles use 700. Do not default all headings to black weight.",
+        "section": "typography"
+      },
+      {
+        "name": "The Wordmark Exclusivity Rule",
+        "body": "\"The Funy Time\" appears only in .biscute-wordmark. No other text uses this font.",
+        "section": "typography"
+      },
+      {
+        "name": "The Press Rule",
+        "body": "Interactive elements with shadows use .btn-press: on :active, translate(2px, 2px) and remove shadow. The element physically \"presses into\" the surface.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No-Blur Rule",
+        "body": "Shadows are always 0px blur with a solid ink offset. Soft ambient shadows are forbidden.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use hard offset shadows (3px 3px 0, 4px 4px 0, 8px 8px 0) with Dark Ink \u2014 never blur.",
+      "Do keep corners square (rounded-none) on all structural elements; reserve rounded-full for pill CTAs and color swatches only.",
+      "Do scale borders from 2px to 4px at the lg breakpoint on major containers.",
+      "Do alternate section backgrounds via SectionWrapper (cream, pink/blue, pale-yellow, mustard, deep-blue, white).",
+      "Do apply .btn-press active state on all shadowed interactive elements.",
+      "Do start product images in grayscale and reveal color on hover.",
+      "Do respect the color usage ratio and keep red as a punctual accent."
+    ],
+    "donts": [
+      "Don't use soft/blurred box-shadows or gradient shadows \u2014 they break the print-sticker metaphor.",
+      "Don't use \"The Funy Time\" font outside the BISCUTE wordmark.",
+      "Don't introduce rounded corners on cards, accordions, sheets, or inputs.",
+      "Don't use actual pink anywhere \u2014 legacy biscute-pink tokens map to blue.",
+      "Don't add a second border or outline color beyond Dark Ink (#2c2f36).",
+      "Don't sentence-case headings \u2014 section and page headings remain uppercase via .type-* classes."
+    ]
+  }
+}

@@ -1,3 +1,5 @@
+"use client";
+
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib/utils";
 import { forwardRef, type ButtonHTMLAttributes } from "react";
@@ -5,7 +7,7 @@ import { forwardRef, type ButtonHTMLAttributes } from "react";
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "pale" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
-  shape?: "square" | "pill";
+  shape?: "square" | "pill" | "soft";
   asChild?: boolean;
 }
 
@@ -15,7 +17,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       variant = "primary",
       size = "md",
-      shape = "square",
+      shape = "soft",
       asChild = false,
       ...props
     },
@@ -26,7 +28,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         className={cn(
           "inline-flex items-center justify-center border-2 border-biscute-chocolate type-cta transition-[background-color,transform,box-shadow,opacity] duration-[var(--motion-micro)] ease-[var(--ease-ui)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-biscute-chocolate disabled:pointer-events-none disabled:opacity-50",
-          shape === "pill" ? "rounded-full" : "rounded-none",
+          shape === "pill" && "rounded-full",
+          shape === "soft" && "rounded-[var(--radius-md)]",
+          shape === "square" && "rounded-none",
           variant !== "ghost" && "shadow-biscute-md btn-press",
           {
             "bg-biscute-pink text-biscute-white hover:bg-biscute-deep-pink":

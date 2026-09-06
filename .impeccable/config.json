@@ -1,0 +1,9 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [
+      "lib/data/products.ts"
+    ],
+    "ignoreValues": []
+  }
+}

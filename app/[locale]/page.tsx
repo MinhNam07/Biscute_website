@@ -26,7 +26,7 @@ export default async function HomePage() {
     featuredProducts.length > 4
       ? featuredProducts.slice(4, 8)
       : featuredProducts.slice(0, 4);
-  const suitcaseProducts = featuredProducts.slice(0, 6);
+  const suitcaseProducts = featuredProducts.slice(0, 8);
 
   return (
     <>

@@ -1,45 +1,51 @@
-/* Travel passport rubber stamps — unique silhouettes, shared ink family */
+/* Travel passport rubber stamps — illustrated seals with physical ink feel */
 
 .travel-stamp {
   --stamp-ink: var(--color-accent-red);
   --stamp-rotate: 0deg;
+  --stamp-nudge-y: 0px;
   position: relative;
   display: flex;
   width: 100%;
-  max-width: 9.5rem;
+  max-width: 11rem;
   flex-direction: column;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   text-align: center;
   user-select: none;
+  transform: translateY(var(--stamp-nudge-y));
 }
 
 .travel-stamp--hanoi {
   --stamp-ink: var(--color-deep-blue);
   --stamp-rotate: -3deg;
+  --stamp-nudge-y: 4px;
 }
 
 .travel-stamp--food {
   --stamp-ink: var(--color-accent-red);
-  --stamp-rotate: 3deg;
+  --stamp-rotate: 2deg;
+  --stamp-nudge-y: 8px;
 }
 
 .travel-stamp--animals {
-  --stamp-ink: color-mix(in oklab, var(--color-mustard-yellow) 55%, var(--color-dark-ink));
-  --stamp-rotate: -2deg;
+  --stamp-ink: color-mix(in oklab, var(--color-mustard-yellow) 48%, var(--color-dark-ink));
+  --stamp-rotate: -1deg;
+  --stamp-nudge-y: 3px;
 }
 
 .travel-stamp--tet {
   --stamp-ink: var(--color-deep-red);
-  --stamp-rotate: 4deg;
+  --stamp-rotate: 3deg;
+  --stamp-nudge-y: 6px;
 }
 
 .travel-stamp__ink {
   position: relative;
   display: grid;
   place-items: center;
-  width: 5.75rem;
-  height: 5.75rem;
+  width: 7rem;
+  height: 7rem;
   color: var(--stamp-ink);
   transform: rotate(var(--stamp-rotate));
 }
@@ -47,23 +53,14 @@
 .travel-stamp__art {
   width: 100%;
   height: 100%;
-  opacity: 0.92;
-}
-
-.travel-stamp__mark {
-  position: absolute;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  opacity: 0.55;
+  overflow: visible;
 }
 
 .travel-stamp__label {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-dark-ink);
 }
@@ -74,44 +71,52 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--color-dark-ink) 55%, transparent);
+  color: color-mix(in oklab, var(--color-dark-ink) 72%, transparent);
 }
 
+/* Unstamped: collectible presence, clearly unearned */
 .travel-stamp--ghost .travel-stamp__ink {
-  opacity: 0.28;
+  opacity: 0.5;
 }
 
 .travel-stamp--ghost .travel-stamp__art {
-  opacity: 0.75;
+  opacity: 0.92;
 }
 
 .travel-stamp--ghost .travel-stamp__label {
-  color: color-mix(in oklab, var(--color-dark-ink) 45%, transparent);
+  opacity: 0.78;
+  color: var(--color-dark-ink);
+}
+
+.travel-stamp--ghost .travel-stamp__status {
+  opacity: 0.78;
+  color: color-mix(in oklab, var(--stamp-ink) 55%, var(--color-dark-ink));
 }
 
 .travel-stamp--inked .travel-stamp__ink {
-  opacity: 0.95;
+  opacity: 0.97;
 }
 
 .travel-stamp--inked .travel-stamp__status {
   color: var(--stamp-ink);
+  opacity: 1;
 }
 
 .travel-stamp--press .travel-stamp__ink {
-  /* Rubber-stamp hit: keyframe overshoot; expo ease (no elastic bezier). */
   animation: travel-stamp-press 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .travel-stamp--press .travel-stamp__ink::after {
   content: "";
   position: absolute;
-  inset: 18% 22%;
+  inset: 12% 16%;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 20% 30%, currentColor 0 1.2px, transparent 1.4px),
-    radial-gradient(circle at 75% 40%, currentColor 0 1px, transparent 1.2px),
-    radial-gradient(circle at 45% 78%, currentColor 0 1.1px, transparent 1.3px),
-    radial-gradient(circle at 68% 70%, currentColor 0 0.9px, transparent 1.1px);
+    radial-gradient(circle at 18% 28%, currentColor 0 1.3px, transparent 1.5px),
+    radial-gradient(circle at 78% 36%, currentColor 0 1.1px, transparent 1.3px),
+    radial-gradient(circle at 42% 76%, currentColor 0 1.2px, transparent 1.4px),
+    radial-gradient(circle at 70% 68%, currentColor 0 0.95px, transparent 1.15px),
+    radial-gradient(circle at 55% 20%, currentColor 0 0.85px, transparent 1.05px);
   opacity: 0;
   animation: travel-stamp-ink-specks 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
   pointer-events: none;
@@ -127,7 +132,7 @@
     transform: rotate(calc(var(--stamp-rotate) + 2deg)) scale(0.94);
   }
   100% {
-    opacity: 0.95;
+    opacity: 0.97;
     transform: rotate(var(--stamp-rotate)) scale(1);
   }
 }
@@ -142,7 +147,7 @@
   }
   100% {
     opacity: 0;
-    transform: scale(1.35);
+    transform: scale(1.4);
   }
 }
 
@@ -151,11 +156,20 @@
   .travel-stamp--press .travel-stamp__ink::after {
     animation: none;
   }
+
+  .travel-stamp--press .travel-stamp__ink {
+    opacity: 0.97;
+    transform: rotate(var(--stamp-rotate)) scale(1);
+  }
 }
 
 @media (min-width: 640px) {
+  .travel-stamp {
+    max-width: 12rem;
+  }
+
   .travel-stamp__ink {
-    width: 6.5rem;
-    height: 6.5rem;
+    width: 8.25rem;
+    height: 8.25rem;
   }
 }

@@ -85,7 +85,9 @@ function toView(snap: StoreSnapshot): PassportProgressView {
     total: PASSPORT_IDS.length,
     complete: isPassportComplete(snap.progress),
     remaining: remainingToUnlock(snap.progress),
-    rewardUnlocked: Boolean(snap.progress.rewardUnlockedAt),
+    rewardUnlocked:
+      Boolean(snap.progress.rewardUnlockedAt) ||
+      isPassportComplete(snap.progress),
     newlyStamped: snap.newlyStamped,
     justUnlocked: snap.justUnlocked,
     sessionEpoch: snap.sessionEpoch,
@@ -98,7 +100,7 @@ function toView(snap: StoreSnapshot): PassportProgressView {
   return view;
 }
 
-/** Live passport progress — survives refresh; reacts immediately to marks. */
+/** Live passport progress for the current page visit (resets on refresh). */
 export function usePassportProgress(): PassportProgressView {
   const snap = useSyncExternalStore(
     subscribeProgress,

@@ -1,9 +1,8 @@
 /**
- * Biscute Travel Passport — client progress store.
+ * Biscute Travel Passport — in-memory progress for the current page visit.
  *
- * Progress is intentionally device/browser-local (localStorage).
- * There is no cross-device sync. A future account/backend can replace
- * `passportStorage` without rewriting Passport UI consumers.
+ * Progress resets on full page refresh / new visit. Soft client navigations
+ * within the same visit keep stamps. No localStorage persistence.
  */
 
 export const PASSPORT_IDS = ["hanoi", "food", "animals", "tet"] as const;
@@ -19,16 +18,16 @@ export type PassportCollectionMeta = {
 
 export const PASSPORT_COLLECTIONS: readonly PassportCollectionMeta[] = [
   { id: "hanoi", routeHandle: "hanoi", label: "HANOI", rotate: -3 },
-  { id: "food", routeHandle: "food-icons", label: "FOOD", rotate: 3 },
-  { id: "animals", routeHandle: "cute-animals", label: "ANIMALS", rotate: -2 },
-  { id: "tet", routeHandle: "vietnam-culture", label: "TET", rotate: 4 },
+  { id: "food", routeHandle: "food-icons", label: "FOOD", rotate: 2 },
+  { id: "animals", routeHandle: "cute-animals", label: "ANIMALS", rotate: -1 },
+  { id: "tet", routeHandle: "vietnam-culture", label: "TET", rotate: 3 },
 ] as const;
 
 const ROUTE_TO_ID: Record<string, PassportId> = Object.fromEntries(
   PASSPORT_COLLECTIONS.map((c) => [c.routeHandle, c.id])
 ) as Record<string, PassportId>;
 
-/** Legacy handles from `biscute-passport-stamps` array schema. */
+/** Legacy handles from older stamp schemas. */
 const LEGACY_HANDLE_TO_ID: Record<string, PassportId> = {
   hanoi: "hanoi",
   "food-icons": "food",
@@ -46,8 +45,10 @@ export interface PassportProgress {
   rewardUnlockedAt?: string;
 }
 
-const STORAGE_KEY = "biscute.travel-passport.v1";
-const LEGACY_KEY = "biscute-passport-stamps";
+const LEGACY_STORAGE_KEYS = [
+  "biscute.travel-passport.v1",
+  "biscute-passport-stamps",
+] as const;
 const CHANGE_EVENT = "biscute-passport-change";
 
 function emptyStamps(): Record<PassportId, boolean> {
@@ -80,7 +81,7 @@ export function routeHandleToPassportId(
   handle: string | undefined | null
 ): PassportId | null {
   if (!handle) return null;
-  return ROUTE_TO_ID[handle] ?? null;
+  return ROUTE_TO_ID[handle] ?? LEGACY_HANDLE_TO_ID[handle] ?? null;
 }
 
 export function passportIdToRouteHandle(id: PassportId): string {
@@ -103,138 +104,17 @@ export function remainingToUnlock(progress: PassportProgress): number {
   return Math.max(0, PASSPORT_IDS.length - countStamped(progress));
 }
 
-function normalizeProgress(raw: unknown): PassportProgress | null {
-  if (!raw || typeof raw !== "object") return null;
-  const obj = raw as Record<string, unknown>;
-  if (obj.version !== 1) return null;
-  if (!obj.stamps || typeof obj.stamps !== "object") return null;
-
-  const stamps = emptyStamps();
-  const stampedAt: Partial<Record<PassportId, string>> = {};
-  const rawStamps = obj.stamps as Record<string, unknown>;
-  const rawAt =
-    obj.stampedAt && typeof obj.stampedAt === "object"
-      ? (obj.stampedAt as Record<string, unknown>)
-      : {};
-
-  for (const id of PASSPORT_IDS) {
-    stamps[id] = rawStamps[id] === true;
-    const at = rawAt[id];
-    if (typeof at === "string" && at.length > 0) stampedAt[id] = at;
-  }
-
-  const progress: PassportProgress = {
-    version: 1,
-    stamps,
-    stampedAt,
-  };
-
-  if (typeof obj.rewardUnlockedAt === "string" && obj.rewardUnlockedAt) {
-    progress.rewardUnlockedAt = obj.rewardUnlockedAt;
-  } else if (isPassportComplete(progress)) {
-    // Recover unlock timestamp if stamps are complete but field missing.
-    progress.rewardUnlockedAt =
-      stampedAt.tet ??
-      stampedAt.animals ??
-      stampedAt.food ??
-      stampedAt.hanoi ??
-      new Date().toISOString();
-  }
-
-  return progress;
-}
-
-function migrateLegacyArray(raw: string | null): PassportProgress | null {
-  if (!raw) return null;
-  try {
-    const parsed = JSON.parse(raw) as unknown;
-    if (!Array.isArray(parsed)) return null;
-    const progress = createEmptyProgress();
-    let any = false;
-    for (const item of parsed) {
-      if (typeof item !== "string") continue;
-      const id = LEGACY_HANDLE_TO_ID[item];
-      if (!id) continue;
-      progress.stamps[id] = true;
-      if (!progress.stampedAt[id]) {
-        progress.stampedAt[id] = new Date().toISOString();
-      }
-      any = true;
-    }
-    if (!any) return null;
-    if (isPassportComplete(progress)) {
-      progress.rewardUnlockedAt = new Date().toISOString();
-    }
-    return progress;
-  } catch {
-    return null;
-  }
-}
-
-function readRaw(key: string): string | null {
-  if (typeof window === "undefined") return null;
-  try {
-    return localStorage.getItem(key);
-  } catch {
-    return null;
-  }
-}
-
-function writeRaw(key: string, value: string): boolean {
-  if (typeof window === "undefined") return false;
-  try {
-    localStorage.setItem(key, value);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-function removeRaw(key: string): void {
+/** One-time cleanup of older persistent passport keys. */
+function clearLegacyStorage(): void {
   if (typeof window === "undefined") return;
   try {
-    localStorage.removeItem(key);
+    for (const key of LEGACY_STORAGE_KEYS) {
+      window.localStorage.removeItem(key);
+    }
   } catch {
     // ignore
   }
 }
-
-/**
- * Storage adapter — swap later for an account/backend without rewriting UI.
- * Limitation: localStorage is per-device / per-browser only.
- */
-export const passportStorage = {
-  load(): PassportProgress {
-    const current = readRaw(STORAGE_KEY);
-    if (current) {
-      try {
-        const normalized = normalizeProgress(JSON.parse(current) as unknown);
-        if (normalized) return normalized;
-      } catch {
-        // fall through to clean passport
-      }
-      return createEmptyProgress();
-    }
-
-    const migrated = migrateLegacyArray(readRaw(LEGACY_KEY));
-    if (migrated) {
-      passportStorage.save(migrated);
-      removeRaw(LEGACY_KEY);
-      return migrated;
-    }
-
-    return createEmptyProgress();
-  },
-
-  save(progress: PassportProgress): boolean {
-    return writeRaw(STORAGE_KEY, JSON.stringify(progress));
-  },
-
-  reset(): void {
-    removeRaw(STORAGE_KEY);
-    removeRaw(LEGACY_KEY);
-  },
-};
 
 /** Session-only: stamps earned this page lifetime (for press animation). */
 const EMPTY_NEWLY: PassportId[] = [];
@@ -255,20 +135,16 @@ function notify() {
 function ensureHydrated(): PassportProgress {
   if (typeof window === "undefined") return createEmptyProgress();
   if (!hydrated) {
-    snapshot = passportStorage.load();
+    clearLegacyStorage();
+    snapshot = createEmptyProgress();
     hydrated = true;
   }
   return snapshot;
 }
 
-function commit(next: PassportProgress, options?: { persist?: boolean }) {
+function commit(next: PassportProgress) {
   snapshot = next;
   hydrated = true;
-  const persist = options?.persist !== false;
-  if (persist) {
-    passportStorage.save(next);
-  }
-  // Always notify — even if storage write fails — so UI updates this session.
   notify();
   return snapshot;
 }
@@ -326,14 +202,6 @@ export function markCollectionViewed(collectionId: string): PassportProgress {
   return commit(next);
 }
 
-export function resetPassport(): PassportProgress {
-  sessionNewlyStamped = EMPTY_NEWLY;
-  sessionJustUnlocked = false;
-  sessionEpoch += 1;
-  passportStorage.reset();
-  return commit(createEmptyProgress(), { persist: true });
-}
-
 export function consumeNewlyStamped(): PassportId[] {
   const ids = sessionNewlyStamped;
   if (ids.length > 0) {
@@ -369,28 +237,12 @@ export function getSessionEpoch(): number {
 export function subscribeProgress(onChange: () => void): () => void {
   if (typeof window === "undefined") return () => {};
 
-  const onStorage = (event: StorageEvent) => {
-    if (event.key === STORAGE_KEY || event.key === LEGACY_KEY || event.key === null) {
-      hydrated = false;
-      onChange();
-    }
-  };
   const onLocal = () => onChange();
-  const onPageShow = (event: PageTransitionEvent) => {
-    if (event.persisted) {
-      hydrated = false;
-      onChange();
-    }
-  };
 
   window.addEventListener(CHANGE_EVENT, onLocal);
-  window.addEventListener("storage", onStorage);
-  window.addEventListener("pageshow", onPageShow);
 
   return () => {
     window.removeEventListener(CHANGE_EVENT, onLocal);
-    window.removeEventListener("storage", onStorage);
-    window.removeEventListener("pageshow", onPageShow);
   };
 }
 

@@ -1,41 +1,130 @@
-/** Vietnam Bag — local wishlist for Pack Your Suitcase (no cart). */
+/** Vietnam Bag — temporary Pack Your Suitcase selection (session only, no cart). */
 
 const KEY = "biscute-vietnam-bag";
+export const SUITCASE_CAPACITY = 3;
 
-export function getVietnamBag(): string[] {
-  if (typeof window === "undefined") return [];
+export type SuitcaseState = {
+  packedItemIds: string[];
+};
+
+export type PackResult =
+  | { ok: true; state: SuitcaseState }
+  | { ok: false; reason: "full" | "already"; state: SuitcaseState };
+
+function emptyState(): SuitcaseState {
+  return { packedItemIds: [] };
+}
+
+function normalizeIds(ids: unknown): string[] {
+  if (!Array.isArray(ids)) return [];
+  const unique: string[] = [];
+  for (const id of ids) {
+    if (typeof id !== "string" || unique.includes(id)) continue;
+    unique.push(id);
+    if (unique.length >= SUITCASE_CAPACITY) break;
+  }
+  return unique;
+}
+
+function readStorage(): SuitcaseState {
+  if (typeof window === "undefined") return emptyState();
   try {
-    const raw = localStorage.getItem(KEY);
-    if (!raw) return [];
+    // Suitcase is session-scoped; drop any legacy indefinite localStorage copy.
+    try {
+      localStorage.removeItem(KEY);
+    } catch {
+      /* ignore */
+    }
+
+    const raw = sessionStorage.getItem(KEY);
+    if (!raw) return emptyState();
     const parsed = JSON.parse(raw) as unknown;
-    return Array.isArray(parsed)
-      ? parsed.filter((x): x is string => typeof x === "string")
-      : [];
+    if (Array.isArray(parsed)) {
+      return { packedItemIds: normalizeIds(parsed) };
+    }
+    if (
+      parsed &&
+      typeof parsed === "object" &&
+      "packedItemIds" in parsed
+    ) {
+      return {
+        packedItemIds: normalizeIds(
+          (parsed as { packedItemIds: unknown }).packedItemIds
+        ),
+      };
+    }
+    return emptyState();
   } catch {
-    return [];
+    return emptyState();
   }
 }
 
-export function setVietnamBag(handles: string[]): void {
+function writeStorage(state: SuitcaseState): void {
   if (typeof window === "undefined") return;
-  localStorage.setItem(KEY, JSON.stringify(handles.slice(0, 3)));
+  sessionStorage.setItem(
+    KEY,
+    JSON.stringify({
+      packedItemIds: state.packedItemIds.slice(0, SUITCASE_CAPACITY),
+    })
+  );
 }
 
-export function clearVietnamBag(): void {
-  if (typeof window === "undefined") return;
-  localStorage.removeItem(KEY);
+export function getSuitcaseState(): SuitcaseState {
+  return readStorage();
 }
 
+/** @deprecated Prefer getSuitcaseState().packedItemIds */
+export function getVietnamBag(): string[] {
+  return getSuitcaseState().packedItemIds;
+}
+
+export function setSuitcaseState(state: SuitcaseState): SuitcaseState {
+  const next: SuitcaseState = {
+    packedItemIds: normalizeIds(state.packedItemIds),
+  };
+  writeStorage(next);
+  return next;
+}
+
+export function setVietnamBag(handles: string[]): SuitcaseState {
+  return setSuitcaseState({ packedItemIds: handles });
+}
+
+export function clearVietnamBag(): SuitcaseState {
+  const next = emptyState();
+  if (typeof window !== "undefined") {
+    sessionStorage.removeItem(KEY);
+  }
+  return next;
+}
+
+export function packItem(id: string): PackResult {
+  const current = getSuitcaseState();
+  if (current.packedItemIds.includes(id)) {
+    return { ok: false, reason: "already", state: current };
+  }
+  if (current.packedItemIds.length >= SUITCASE_CAPACITY) {
+    return { ok: false, reason: "full", state: current };
+  }
+  const state = setSuitcaseState({
+    packedItemIds: [...current.packedItemIds, id],
+  });
+  return { ok: true, state };
+}
+
+export function unpackItem(id: string): SuitcaseState {
+  return setSuitcaseState({
+    packedItemIds: getSuitcaseState().packedItemIds.filter((h) => h !== id),
+  });
+}
+
+/** @deprecated Prefer packItem */
 export function addToVietnamBag(handle: string): string[] {
-  const current = getVietnamBag();
-  if (current.includes(handle) || current.length >= 3) return current;
-  const next = [...current, handle];
-  setVietnamBag(next);
-  return next;
+  const result = packItem(handle);
+  return result.state.packedItemIds;
 }
 
+/** @deprecated Prefer unpackItem */
 export function removeFromVietnamBag(handle: string): string[] {
-  const next = getVietnamBag().filter((h) => h !== handle);
-  setVietnamBag(next);
-  return next;
+  return unpackItem(handle).packedItemIds;
 }

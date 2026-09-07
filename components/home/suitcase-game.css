@@ -1,0 +1,508 @@
+/* Suitcase drop target — toy rolling luggage on mustard band */
+
+.suitcase-bag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 320px;
+  margin-inline: auto;
+}
+
+.suitcase-bag[data-shake="true"] .suitcase-bag__shell {
+  animation: suitcase-shake 480ms var(--ease-expressive);
+}
+
+.suitcase-bag[data-impact="true"] .suitcase-bag__shell {
+  animation: suitcase-impact 220ms var(--ease-expressive);
+}
+
+/* Telescopic trolley handle */
+.suitcase-bag__trolley {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 46%;
+  margin-bottom: -4px;
+}
+
+.suitcase-bag__grip {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 18px;
+  border: 3px solid var(--color-dark-ink);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, white 22%, var(--color-primary-blue)) 0%,
+    var(--color-primary-blue) 55%,
+    var(--color-deep-blue) 100%
+  );
+  box-shadow: 2px 2px 0 var(--color-dark-ink);
+}
+
+.suitcase-bag__grip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-pill);
+  background: var(--color-mustard-yellow);
+  transform: translate(-50%, -50%);
+}
+
+.suitcase-bag__poles {
+  display: flex;
+  justify-content: space-between;
+  width: 62%;
+  height: 52px;
+  margin-top: -2px;
+  padding-inline: 2px;
+}
+
+.suitcase-bag__pole {
+  position: relative;
+  width: 10px;
+  height: 100%;
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-sm);
+  background:
+    repeating-linear-gradient(
+      180deg,
+      var(--color-warm-cream) 0 10px,
+      color-mix(in oklab, var(--color-dark-ink) 14%, var(--color-warm-cream)) 10px 12px
+    );
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, white 35%, transparent);
+}
+
+.suitcase-bag__shell {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 3px solid var(--color-dark-ink);
+  border-radius: var(--radius-lg);
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 18px,
+      color-mix(in oklab, var(--color-dark-ink) 8%, transparent) 18px 19px
+    ),
+    linear-gradient(
+      160deg,
+      color-mix(in oklab, white 18%, var(--color-primary-blue)) 0%,
+      var(--color-primary-blue) 45%,
+      var(--color-deep-blue) 100%
+    );
+  box-shadow: var(--shadow-md);
+  padding: var(--space-4);
+  padding-top: var(--space-5);
+  transform-origin: 50% 85%;
+}
+
+.suitcase-bag__latches {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.suitcase-bag__latch {
+  width: 14px;
+  height: 28px;
+  margin-inline: -8px;
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-sm);
+  background: var(--color-mustard-yellow);
+  box-shadow: 1px 2px 0 var(--color-dark-ink);
+}
+
+.suitcase-bag__tag {
+  position: absolute;
+  top: 18px;
+  right: -14px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 44px;
+  rotate: 12deg;
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-sm);
+  background: var(--color-warm-cream);
+  box-shadow: 2px 3px 0 var(--color-dark-ink);
+  color: var(--color-dark-ink);
+  perspective: 400px;
+  transition: transform 280ms var(--ease-expressive);
+}
+
+.suitcase-bag__tag::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 2px;
+  height: 10px;
+  background: var(--color-dark-ink);
+  transform: translateX(-50%);
+}
+
+.suitcase-bag__tag-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  padding: 4px;
+  font-size: var(--type-label);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-align: center;
+  scale: 0.85;
+  backface-visibility: hidden;
+  transition: opacity 200ms var(--ease-ui), transform 280ms var(--ease-expressive);
+}
+
+.suitcase-bag__tag-face--ready {
+  opacity: 0;
+  transform: rotateY(180deg);
+}
+
+.suitcase-bag__tag[data-ready="true"] {
+  animation: suitcase-tag-wiggle 520ms var(--ease-expressive);
+  background: color-mix(in oklab, var(--color-mustard-yellow) 55%, var(--color-warm-cream));
+}
+
+.suitcase-bag__tag[data-ready="true"] .suitcase-bag__tag-face--idle {
+  opacity: 0;
+  transform: rotateY(-180deg);
+}
+
+.suitcase-bag__tag[data-ready="true"] .suitcase-bag__tag-face--ready {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+
+.suitcase-bag__wheels {
+  position: absolute;
+  bottom: -10px;
+  left: 18%;
+  right: 18%;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.suitcase-bag__wheel {
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--color-dark-ink);
+  border-radius: var(--radius-pill);
+  background: var(--color-dark-ink);
+  box-shadow: inset 0 0 0 4px var(--color-warm-cream);
+}
+
+.suitcase-bag__interior {
+  position: relative;
+  display: flex;
+  min-height: 280px;
+  flex-direction: column;
+  gap: var(--space-3);
+  border: 2px solid color-mix(in oklab, var(--color-dark-ink) 22%, transparent);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(
+      ellipse at 50% 20%,
+      color-mix(in oklab, white 55%, var(--color-warm-cream)) 0%,
+      var(--color-warm-cream) 70%
+    );
+  padding: var(--space-3);
+  text-align: center;
+  transition:
+    border-color var(--motion-micro) var(--ease-ui),
+    background-color var(--motion-micro) var(--ease-ui);
+}
+
+.suitcase-bag__interior[data-ready="true"] {
+  border-color: var(--color-dark-ink);
+  background: color-mix(in oklab, var(--color-mustard-yellow) 22%, var(--color-warm-cream));
+}
+
+.suitcase-bag__status {
+  color: var(--color-dark-ink);
+  letter-spacing: 0.06em;
+}
+
+.suitcase-bag__bay {
+  position: relative;
+  flex: 1;
+  display: flex;
+  min-height: 148px;
+  align-items: center;
+  justify-content: center;
+}
+
+.suitcase-bag__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  width: 100%;
+  min-height: 112px;
+  padding: var(--space-3);
+  border: 1.5px dashed color-mix(in oklab, var(--color-dark-ink) 18%, transparent);
+  border-radius: var(--radius-md);
+  color: color-mix(in oklab, var(--color-dark-ink) 55%, transparent);
+}
+
+.suitcase-bag__empty-title {
+  letter-spacing: 0.08em;
+}
+
+.suitcase-bag__empty-hint {
+  opacity: 0.75;
+}
+
+.suitcase-bag__souvenirs {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  min-height: 128px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.suitcase-bag__souvenir {
+  position: relative;
+  margin-inline: -10px;
+  rotate: var(--souvenir-rotate, 0deg);
+  z-index: calc(1 + var(--souvenir-index, 0));
+  filter: drop-shadow(2px 3px 0 color-mix(in oklab, var(--color-dark-ink) 35%, transparent));
+  transition:
+    opacity 220ms var(--ease-ui),
+    transform 280ms var(--ease-expressive);
+}
+
+.suitcase-bag__souvenir[data-entering="true"] {
+  animation: suitcase-souvenir-settle 420ms var(--ease-expressive) both;
+}
+
+.suitcase-bag__souvenir[data-exiting="true"] {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.85);
+}
+
+.suitcase-bag__souvenir-btn {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.suitcase-bag__souvenir-btn:focus-visible {
+  outline: 2px solid var(--color-dark-ink);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.suitcase-bag__souvenir-img {
+  width: 72px;
+  height: auto;
+  max-height: 96px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.suitcase-bag__full {
+  position: absolute;
+  inset: 12px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-md);
+  background: color-mix(in oklab, var(--color-warm-cream) 92%, white);
+  box-shadow: 3px 4px 0 var(--color-dark-ink);
+  animation: suitcase-full-pop 280ms var(--ease-expressive) both;
+  pointer-events: none;
+}
+
+.suitcase-bag__full-title {
+  letter-spacing: 0.06em;
+  color: var(--color-deep-red);
+}
+
+.suitcase-bag__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  animation: suitcase-actions-in 360ms var(--ease-expressive) both;
+}
+
+.suitcase-bag__ready-body {
+  max-width: 18rem;
+  color: color-mix(in oklab, var(--color-dark-ink) 75%, transparent);
+}
+
+.suitcase-bag__unpack-all {
+  align-self: center;
+  opacity: 0.7;
+}
+
+.suitcase-fly-clone {
+  box-shadow: 3px 4px 0 color-mix(in oklab, var(--color-dark-ink) 40%, transparent);
+}
+
+@keyframes suitcase-shake {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-5px) rotate(-1.5deg);
+  }
+  40% {
+    transform: translateX(5px) rotate(1.5deg);
+  }
+  60% {
+    transform: translateX(-4px) rotate(-1deg);
+  }
+  80% {
+    transform: translateX(3px) rotate(0.8deg);
+  }
+}
+
+@keyframes suitcase-impact {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  40% {
+    transform: scale(1.03) rotate(-1.2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes suitcase-tag-wiggle {
+  0% {
+    transform: rotate(12deg) scale(1);
+  }
+  30% {
+    transform: rotate(18deg) scale(1.06);
+  }
+  55% {
+    transform: rotate(6deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(12deg) scale(1);
+  }
+}
+
+@keyframes suitcase-souvenir-settle {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px) scale(1.15);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(3px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes suitcase-full-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes suitcase-actions-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .suitcase-bag {
+    margin-inline: 0;
+    max-width: none;
+    align-self: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Pull bag up so wheels line up with product card bottoms
+     (rail height also includes carousel nav below the cards). */
+  .suitcase-bag {
+    margin-top: calc(-1 * (2.75rem + var(--space-2) + var(--space-4) + var(--space-3)));
+  }
+
+  .suitcase-bag__poles {
+    height: 56px;
+  }
+
+  .suitcase-bag__interior {
+    min-height: 320px;
+    padding: var(--space-4);
+  }
+
+  .suitcase-bag__souvenir-img {
+    width: 84px;
+    max-height: 110px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .suitcase-bag__interior,
+  .suitcase-bag__tag,
+  .suitcase-bag__tag-face,
+  .suitcase-bag__souvenir,
+  .suitcase-bag__actions,
+  .suitcase-bag__full {
+    transition: none;
+    animation: none !important;
+  }
+
+  .suitcase-bag[data-shake="true"] .suitcase-bag__shell,
+  .suitcase-bag[data-impact="true"] .suitcase-bag__shell {
+    animation: none;
+  }
+
+  .suitcase-bag__souvenir[data-exiting="true"] {
+    opacity: 0;
+  }
+}

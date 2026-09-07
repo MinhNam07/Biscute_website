@@ -1,0 +1,31 @@
+{
+  "title": "Post Office frame + SVG watermarks",
+  "question": "helo.html làm khung; 3 watermark webp → SVG elements. Cách nào đúng ý bạn?",
+  "options": [
+    {
+      "id": "wire-postal-frame",
+      "label": "PostalFrame + SVG",
+      "kicker": "RECOMMENDED",
+      "thesis": "Đổi passport sang PostalFrame (perforation CSS kiểu helo), chuyển lotus/tower webp thành SVG thật, bỏ sheet raster.",
+      "viewport": "Sheet sống bằng CSS mask + SVG watermarks + chrome AIR MAIL / ISSUE / postmark.",
+      "risk": "Layout hunt stamps phải fit lại trong content well của frame."
+    },
+    {
+      "id": "assets-only",
+      "label": "Chỉ đổi asset",
+      "thesis": "Giữ sheet raster hiện tại; chỉ vectorize 3 webp → SVG và nhét vào PostalBackground / frame sẵn có.",
+      "viewport": "Cùng bố cục; watermark sắc nét hơn khi scale.",
+      "risk": "helo.html gần như không ảnh hưởng khung thật."
+    },
+    {
+      "id": "helo-rebuild",
+      "label": "Rebuild theo helo",
+      "thesis": "Port gần sát helo.html (wrapper trắng, scallop mask cố định, postmark circle, wave draw) rồi gắn SVG watermarks + stamp hunt.",
+      "viewport": "Postcard chrome helo + nội dung hunt bên trong.",
+      "risk": "Lệch khỏi approved comp / DESIGN.md perforation ratios."
+    }
+  ],
+  "reroll": false,
+  "canon": false,
+  "steer": true
+}

@@ -378,7 +378,7 @@ export function SuitcaseGame({ products }: SuitcaseGameProps) {
             onScroll={updateScrollState}
             onKeyDown={handleTrackKeyDown}
           >
-            {options.map((product, index) => {
+            {options.map((product) => {
               const selected = packedItemIds.includes(product.handle);
               const stamping = stampingId === product.handle;
               return (
@@ -387,7 +387,6 @@ export function SuitcaseGame({ products }: SuitcaseGameProps) {
                   type="button"
                   role="listitem"
                   data-suitcase-card
-                  data-tilt={String((index % 3) - 1)}
                   draggable={dragEnabled && !selected}
                   onDragStart={(e) => onDragStart(e, product.handle)}
                   onClick={(e) =>
@@ -403,7 +402,7 @@ export function SuitcaseGame({ products }: SuitcaseGameProps) {
                       : t("packItem", { name: product.title[locale] })
                   }
                 >
-                  <span className="suitcase-chip__tape" aria-hidden />
+                  <span className="suitcase-chip__doodle" aria-hidden />
                   <div className="suitcase-chip__image">
                     <div
                       data-suitcase-chip-art
@@ -413,13 +412,16 @@ export function SuitcaseGame({ products }: SuitcaseGameProps) {
                         src={product.images[0].url}
                         alt={product.images[0].alt[locale]}
                         fill
-                        className="object-contain"
+                        className="object-cover"
                         sizes="(max-width: 640px) 42vw, (max-width: 1280px) 28vw, 220px"
                       />
                     </div>
                   </div>
                   <span className="suitcase-chip__label type-meta line-clamp-2">
                     {product.title[locale]}
+                  </span>
+                  <span className="suitcase-chip__invite type-label" aria-hidden>
+                    {selected ? t("unpackHint") : t("packMe")}
                   </span>
                   {selected || stamping ? (
                     <span className="suitcase-chip__stamp type-label" aria-hidden>

@@ -9,6 +9,11 @@ type TravelStampProps = {
   label: string;
   exploreLabel: string;
   stampedLabel: string;
+  cancelBrand?: string;
+  cancelOffice?: string;
+  cancelPlace?: string;
+  cancelCountry?: string;
+  cancelDate?: string;
   className?: string;
 };
 
@@ -558,6 +563,11 @@ export function TravelStamp({
   label,
   exploreLabel,
   stampedLabel,
+  cancelBrand = "BISCUTE",
+  cancelOffice = "POST OFFICE",
+  cancelPlace = "HANOI",
+  cancelCountry = "VIETNAM",
+  cancelDate,
   className,
 }: TravelStampProps) {
   return (
@@ -573,6 +583,25 @@ export function TravelStamp({
     >
       <div className="travel-stamp__ink" aria-hidden>
         <StampArt id={id} />
+        <span
+          className={cn(
+            "travel-stamp__cancel",
+            !stamped && "travel-stamp__cancel--idle"
+          )}
+          aria-hidden={!stamped}
+        >
+          <span className="travel-stamp__cancel-ring" />
+          <span className="travel-stamp__cancel-copy">
+            <span>{cancelBrand}</span>
+            <span>{cancelOffice}</span>
+            <span>{cancelPlace}</span>
+            <span>{cancelCountry}</span>
+            {cancelDate ? (
+              <span className="travel-stamp__cancel-date">{cancelDate}</span>
+            ) : null}
+          </span>
+          <span className="travel-stamp__cancel-waves" />
+        </span>
       </div>
       <span className="travel-stamp__label">{label}</span>
       <span className="travel-stamp__status">

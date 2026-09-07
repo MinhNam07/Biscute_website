@@ -4,6 +4,13 @@
     "ignoreFiles": [
       "lib/data/products.ts"
     ],
-    "ignoreValues": []
+    "ignoreValues": [
+      {
+        "rule": "bounce-easing",
+        "value": "suitcase-chip-wobble",
+        "createdAt": "2026-09-07T07:41:00.295Z",
+        "reason": "User requested one-time hover wobble 0→-1.5→+0.8→-1deg for suitcase cards"
+      }
+    ]
   }
 }

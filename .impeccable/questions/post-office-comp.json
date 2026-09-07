@@ -1,0 +1,38 @@
+{
+  "title": "Post Office composition",
+  "question": "Chọn composition nào để build (Mock + độ sâu)?",
+  "options": [
+    {
+      "id": "comp-a",
+      "label": "Hàng tem một dòng",
+      "kicker": "COMP A",
+      "thesis": "Bốn tem một hàng — gần mock gốc nhất, dễ đọc progress.",
+      "viewport": "Masthead → row of 4 → progress → tear → Special Delivery.",
+      "risk": "Mobile phải xếp lại; tem nhỏ hơn trên desktop rộng.",
+      "hero": ".impeccable/mocks/post-office-comp-a-row.png",
+      "sketch": ".impeccable/mocks/post-office-comp-a-row.png"
+    },
+    {
+      "id": "comp-b",
+      "label": "Album tem 2×2",
+      "kicker": "COMP B",
+      "thesis": "Lưới album dày hơn, mực lộn xộn, LOCKED có mép peel.",
+      "viewport": "Masthead → 2×2 album grid → tear → Special Delivery peel seal.",
+      "risk": "Dễ giống bản hiện tại nếu không đẩy chất liệu.",
+      "hero": ".impeccable/mocks/post-office-comp-b-album.png",
+      "sketch": ".impeccable/mocks/post-office-comp-b-album.png"
+    },
+    {
+      "id": "comp-c",
+      "label": "Phong bì air-mail",
+      "kicker": "COMP C",
+      "thesis": "Viền tem + dải sọc air-mail; tem quạt lệch; progress kiểu postal meter.",
+      "viewport": "Stripe strip → title → fan stamps → meter → sealed delivery.",
+      "risk": "Form phức tạp hơn; responsive fan khó giữ.",
+      "hero": ".impeccable/mocks/post-office-comp-c-envelope.png",
+      "sketch": ".impeccable/mocks/post-office-comp-c-envelope.png"
+    }
+  ],
+  "reroll": false,
+  "steer": true
+}

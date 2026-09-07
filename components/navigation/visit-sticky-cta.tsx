@@ -5,23 +5,50 @@ import { useTranslations } from "next-intl";
 import { ExternalLink } from "lucide-react";
 import { STORE_MAPS_URL } from "@/lib/constants/store";
 
+function isInStickyConflict(el: Element | null): boolean {
+  if (!el) return false;
+  const rect = el.getBoundingClientRect();
+  const stickyZoneTop = window.innerHeight - 96;
+  return rect.top < window.innerHeight - 8 && rect.bottom > stickyZoneTop;
+}
+
+/**
+ * Mobile sticky Visit CTA. Hides when the real Visit section OR the Post Office
+ * reward parcel would sit under the bar.
+ */
 export function VisitStickyCta() {
   const t = useTranslations("hero");
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const visitSection = document.getElementById("visit-biscute");
-    if (!visitSection) return;
+    const sync = () => {
+      const visitSection = document.getElementById("visit-biscute");
+      const passportReward = document.getElementById("passport-reward");
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setVisible(!entry.isIntersecting);
-      },
-      { threshold: 0.15 }
-    );
+      let visitCovered = false;
+      if (visitSection) {
+        const rect = visitSection.getBoundingClientRect();
+        visitCovered =
+          rect.top < window.innerHeight * 0.85 && rect.bottom > 0;
+      }
 
-    observer.observe(visitSection);
-    return () => observer.disconnect();
+      const rewardCovered = isInStickyConflict(passportReward);
+      setVisible(!(visitCovered || rewardCovered));
+    };
+
+    sync();
+    window.addEventListener("scroll", sync, { passive: true });
+    window.addEventListener("resize", sync);
+    // Passport mounts as a sibling — re-check after layout settles.
+    const raf = window.requestAnimationFrame(sync);
+    const timer = window.setTimeout(sync, 120);
+
+    return () => {
+      window.removeEventListener("scroll", sync);
+      window.removeEventListener("resize", sync);
+      window.cancelAnimationFrame(raf);
+      window.clearTimeout(timer);
+    };
   }, []);
 
   if (!visible) return null;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import {
   consumeJustUnlocked,
   consumeNewlyStamped,
@@ -12,6 +12,7 @@ import {
   PASSPORT_IDS,
   peekJustUnlocked,
   peekNewlyStamped,
+  rehydrateFromStorage,
   remainingToUnlock,
   subscribeProgress,
   type PassportId,
@@ -100,7 +101,7 @@ function toView(snap: StoreSnapshot): PassportProgressView {
   return view;
 }
 
-/** Live passport progress for the current page visit (resets on refresh). */
+/** Live passport progress for this page lifetime (cleared on full refresh). */
 export function usePassportProgress(): PassportProgressView {
   const snap = useSyncExternalStore(
     subscribeProgress,
@@ -108,12 +109,16 @@ export function usePassportProgress(): PassportProgressView {
     readServerSnapshot
   );
 
+  useEffect(() => {
+    rehydrateFromStorage();
+  }, []);
+
   return toView(snap);
 }
 
 /**
  * After the Passport UI has applied first-earn / unlock animations,
- * clear session flags so reloads do not replay them.
+ * clear session flags so they do not replay on soft navigations.
  */
 export function acknowledgePassportAnimations(): void {
   consumeNewlyStamped();

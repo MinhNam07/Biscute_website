@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-06T17:15:00.000Z",
-  "title": "Design System: BISCUTE Souvenir Club",
+  "generatedAt": "2026-09-07T12:00:00.000Z",
+  "title": "Design System: BISCUTE Post Office",
   "extensions": {
     "colorMeta": {
       "primary-blue": {
@@ -16,9 +16,7 @@
           "#3EA9F5",
           "#65bcf7",
           "#8ccff9",
-          "#b3e2fb",
-          "#d9f0fd",
-          "#eef8fe"
+          "#b3e2fb"
         ]
       },
       "deep-blue": {
@@ -33,9 +31,7 @@
           "#2B8FD9",
           "#55a5e1",
           "#7fbbe8",
-          "#a9d1f0",
-          "#d4e8f7",
-          "#eaf4fb"
+          "#a9d1f0"
         ]
       },
       "mustard-yellow": {
@@ -50,9 +46,7 @@
           "#e5ba00",
           "#FFD940",
           "#ffe166",
-          "#ffe88c",
-          "#fff0b3",
-          "#fff7d9"
+          "#ffe88c"
         ]
       },
       "soft-yellow": {
@@ -67,9 +61,7 @@
           "#e5d28a",
           "#FFE99A",
           "#ffedae",
-          "#fff2c2",
-          "#fff6d6",
-          "#fffaeb"
+          "#fff2c2"
         ]
       },
       "accent-red": {
@@ -78,15 +70,13 @@
         "canonical": "#EF4136",
         "tonalRamp": [
           "#471310",
-          "#6b1d18",
-          "#8f2720",
-          "#b33128",
-          "#d73b30",
+          "#6b1c18",
+          "#8f2620",
+          "#b33028",
           "#EF4136",
           "#f2675e",
           "#f58d86",
-          "#f8b3ae",
-          "#fcd9d7"
+          "#f8b3ae"
         ]
       },
       "deep-red": {
@@ -94,50 +84,44 @@
         "displayName": "Deep Tomato",
         "canonical": "#C4342C",
         "tonalRamp": [
-          "#3a0f0d",
-          "#581713",
-          "#761f1a",
-          "#942720",
-          "#b22f26",
+          "#3a100d",
+          "#581813",
+          "#76201a",
+          "#942820",
           "#C4342C",
           "#d05d56",
           "#dc8680",
-          "#e7afaa",
-          "#f3d7d5"
+          "#e8afaa"
         ]
       },
       "warm-cream": {
         "role": "neutral",
-        "displayName": "Milk",
+        "displayName": "Milk Cream",
         "canonical": "#FFF8E9",
         "tonalRamp": [
-          "#4d4a45",
-          "#716e68",
-          "#95928b",
-          "#b9b6ae",
-          "#dddad1",
-          "#FFF8E9",
-          "#fff9ed",
-          "#fffaf1",
-          "#fffcf6",
-          "#fffdfb"
+          "#3d3a34",
+          "#5c574e",
+          "#7a7468",
+          "#999182",
+          "#b8ae9c",
+          "#d6cbb6",
+          "#eee4d0",
+          "#FFF8E9"
         ]
       },
       "dark-ink": {
         "role": "neutral",
-        "displayName": "Ink",
+        "displayName": "Dark Ink",
         "canonical": "#25211E",
         "tonalRamp": [
-          "#0b0a09",
-          "#11100f",
-          "#171614",
-          "#1d1b19",
-          "#23201e",
           "#25211E",
-          "#514d4b",
-          "#7c7978",
-          "#a8a6a5",
-          "#d3d2d2"
+          "#3a342f",
+          "#504740",
+          "#655a51",
+          "#7b6d62",
+          "#a89f96",
+          "#d4cfc9",
+          "#f2efeb"
         ]
       },
       "white": {
@@ -145,15 +129,13 @@
         "displayName": "White",
         "canonical": "#ffffff",
         "tonalRamp": [
-          "#4d4d4d",
-          "#737373",
-          "#999999",
-          "#bfbfbf",
-          "#e5e5e5",
-          "#ffffff",
-          "#ffffff",
-          "#ffffff",
-          "#ffffff",
+          "#25211E",
+          "#4a4540",
+          "#6f6963",
+          "#948e87",
+          "#b9b3ab",
+          "#ded9d2",
+          "#f5f2ed",
           "#ffffff"
         ]
       },
@@ -162,16 +144,14 @@
         "displayName": "Bubble Pink",
         "canonical": "#FF8FB3",
         "tonalRamp": [
-          "#4d2b36",
-          "#734050",
-          "#99566b",
-          "#bf6b85",
-          "#e5809f",
+          "#4d1528",
+          "#73233c",
+          "#993150",
+          "#bf3f64",
+          "#e54d78",
           "#FF8FB3",
-          "#ffa5c2",
-          "#ffbcd1",
-          "#ffd2e0",
-          "#ffe9f0"
+          "#ffabc5",
+          "#ffc7d7"
         ]
       },
       "leaf": {
@@ -179,200 +159,137 @@
         "displayName": "Leaf",
         "canonical": "#72C85B",
         "tonalRamp": [
-          "#223c1b",
-          "#345a29",
-          "#457836",
-          "#579644",
-          "#68b451",
+          "#1a3a14",
+          "#28571e",
+          "#367428",
+          "#449132",
+          "#52ae3c",
           "#72C85B",
-          "#8ed37c",
-          "#aade9d",
-          "#c6e9be",
-          "#e3f4de"
+          "#95d680",
+          "#b8e4a5"
         ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Hero headlines only. One per viewport. Class: .type-display"
+        "purpose": "Site heroes only — not Post Office sheet title."
       },
       "page-title": {
         "displayName": "Page Title",
-        "purpose": "Inner-page h1. Class: .type-page-title"
+        "purpose": "BISCUTE POST OFFICE and other section page titles in Outfit ink."
       },
       "section": {
-        "displayName": "Section Title",
-        "purpose": "Homepage and content section h2. Class: .type-section-title"
+        "displayName": "Section",
+        "purpose": "Unlocked Special Delivery headline."
       },
       "subsection": {
         "displayName": "Subsection",
-        "purpose": "In-section h3, gift tiers, drawer titles. Class: .type-subsection-title"
-      },
-      "card-title": {
-        "displayName": "Card Title",
-        "purpose": "Product and collection names. Class: .type-card-title"
+        "purpose": "Supporting headlines; unlocked claim body sizing."
       },
       "body-lg": {
         "displayName": "Body Large",
-        "purpose": "Hero subtitle, lead paragraphs. Class: .type-body-lg"
+        "purpose": "Sheet lede (uppercase) and large body copy."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Descriptions, accordion content. Class: .type-body"
+        "purpose": "Locked parcel instructions and general reading."
       },
       "meta": {
-        "displayName": "Metadata",
-        "purpose": "Prices, counts, footer links. Class: .type-meta"
+        "displayName": "Meta",
+        "purpose": "Remaining-stamp hint under LOCKED."
       },
       "label": {
-        "displayName": "Label",
-        "purpose": "Badges, filter groups, footer headers. Class: .type-label"
+        "displayName": "Postal Label",
+        "purpose": "Monospace AIR MAIL, ISSUE, product line, progress, cancel copy, LOCKED."
       },
       "nav": {
-        "displayName": "Navigation",
-        "purpose": "Header and mobile nav links. Class: .type-nav"
+        "displayName": "Nav",
+        "purpose": "Site navigation — outside the sheet masthead."
       },
       "cta": {
         "displayName": "CTA",
-        "purpose": "Buttons and action links. Class: .type-cta"
+        "purpose": "Shop Visit / Directions controls."
       },
       "wordmark": {
         "displayName": "Wordmark",
-        "purpose": "BISCUTE logo exclusively. Never used elsewhere."
+        "purpose": "The Funy Time brand mark only."
+      },
+      "card-title": {
+        "displayName": "Card Title",
+        "purpose": "Catalogue product titles."
       }
     },
     "shadows": [
       {
-        "name": "biscute-sm",
-        "value": "3px 3px 0px 0px #25211E",
-        "purpose": "Badges, small stickers."
+        "name": "sheet-lift",
+        "value": "drop-shadow(10px 11px 0 #25211E)",
+        "purpose": "Oversized perforated stamp sheet only."
       },
       {
-        "name": "biscute-md",
+        "name": "sheet-inset-edge",
+        "value": "inset 0 0 0 2.5px #25211E",
+        "purpose": "Ink edge on the cream sheet face."
+      },
+      {
+        "name": "play-card-md",
         "value": "5px 6px 0px 0px #25211E",
-        "purpose": "Playful cards, toy panels."
+        "purpose": "Toy / play panels outside Post Office."
       },
       {
-        "name": "biscute-lg",
-        "value": "8px 8px 0px 0px #25211E",
-        "purpose": "Large playful surfaces."
-      },
-      {
-        "name": "biscute-soft",
+        "name": "soft-shop",
         "value": "0 8px 24px rgba(37, 33, 30, 0.1)",
-        "purpose": "Shop grid calm lift."
+        "purpose": "Calm product-grid lift."
       }
     ],
     "motion": [
       {
-        "name": "micro",
-        "value": "160ms ease-out",
-        "purpose": "Button press, hover feedback, card lifts, image crossfades."
+        "name": "stamp-press",
+        "value": "480ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "TravelStamp ink land + cancel-in when a collection is newly stamped."
       },
       {
-        "name": "ui",
-        "value": "240ms ease-out",
-        "purpose": "Navigation drawer, modal, accordion, filter state."
+        "name": "secret-shake",
+        "value": "160ms cubic-bezier(0.36, 0.07, 0.19, 0.97)",
+        "purpose": "Special Delivery parcel shake before peel."
       },
       {
-        "name": "reveal",
-        "value": "480ms ease-out",
-        "purpose": "Hero brand moment, selective section title entrance."
+        "name": "secret-peel",
+        "value": "280ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Special Delivery parcel peel-open on unlock."
       },
       {
-        "name": "ease-ui",
-        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
-        "purpose": "Default easing for interface feedback."
-      },
-      {
-        "name": "ease-expressive",
-        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Reserved for hero and brand moments."
+        "name": "reduced-motion",
+        "value": "prefer none / instant open",
+        "purpose": "Disable sheet tilt, slot nudges, press, shake, and peel under prefers-reduced-motion."
       }
     ],
     "breakpoints": [
+      { "name": "stamp-4across", "value": "640px" },
+      { "name": "sheet-wide", "value": "900px" },
+      { "name": "sheet-desktop", "value": "1024px" }
+    ],
+    "assets": [
       {
-        "name": "sm",
-        "value": "640px"
+        "name": "paper-grain",
+        "path": "/textures/post-office-paper-grain.webp",
+        "purpose": "Multiply parchment tile on the sheet face (opacity ~0.22)."
       },
       {
-        "name": "md",
-        "value": "768px"
+        "name": "wm-lotus",
+        "path": "/textures/post-office-wm-lotus.webp",
+        "purpose": "Large lotus watermark, bottom-left print."
       },
       {
-        "name": "lg",
-        "value": "1024px"
+        "name": "wm-lotus-sm",
+        "path": "/textures/post-office-wm-lotus-sm.webp",
+        "purpose": "Small lotus watermark, mid-right print."
       },
       {
-        "name": "xl",
-        "value": "1280px"
+        "name": "wm-tower",
+        "path": "/textures/post-office-wm-tower.webp",
+        "purpose": "Tháp Rùa watermark, bottom-right print."
       }
-    ],
-    "layoutMeta": {
-      "spacingScale": [
-        "4px",
-        "8px",
-        "12px",
-        "16px",
-        "24px",
-        "32px",
-        "48px",
-        "64px",
-        "96px",
-        "128px"
-      ],
-      "sectionVariants": {
-        "default": {
-          "mobile": "48px",
-          "sm": "64px",
-          "lg": "96px"
-        },
-        "featured": {
-          "mobile": "48px",
-          "sm": "64px",
-          "lg": "64px"
-        },
-        "editorial": {
-          "mobile": "48px",
-          "sm": "64px",
-          "lg": "96px"
-        },
-        "standard": {
-          "mobile": "48px",
-          "sm": "64px",
-          "lg": "64px"
-        },
-        "visit": {
-          "mobile": "64px",
-          "sm": "96px",
-          "lg": "128px"
-        }
-      },
-      "gutters": {
-        "sm": "16px",
-        "md": "24px",
-        "lg": "32px",
-        "xl": "48px"
-      },
-      "containerMax": "1280px",
-      "containerOuter": "1440px",
-      "gridGap": "8px",
-      "gridGapRelaxed": "16px"
-    },
-    "dos": [
-      "Do use hard offset shadows on playful cards; soft shadow on shop grid.",
-      "Do use soft radii (12\u201340px) on panels and product images.",
-      "Do keep one dominant color per section.",
-      "Do lead with characters, then culture, then product.",
-      "Do keep Visit/Directions as primary conversion."
-    ],
-    "donts": [
-      "Don't clone CULCAT or copy G\u00f3i G\u00e9m layouts.",
-      "Don't add cart/checkout.",
-      "Don't rainbow one viewport.",
-      "Don't make the shop grid into an arcade.",
-      "Don't use The Funy Time outside the wordmark."
     ]
   },
   "components": [
@@ -380,140 +297,128 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Main CTA \u2014 shop, browse, add to cart actions.",
-      "html": "<button class=\"ds-btn-primary\">BROWSE PRODUCTS</button>",
-      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 32px; background: #1857c8; color: #ffffff; border: 2px solid #2c2f36; border-radius: 0; font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 4px 4px 0px 0px #2c2f36; cursor: pointer; transition: background 200ms ease-out, transform 200ms ease-out, box-shadow 200ms ease-out; } .ds-btn-primary:hover { background: #103a8c; } .ds-btn-primary:active { transform: translate(2px, 2px); box-shadow: none; } .ds-btn-primary:focus-visible { outline: 2px solid #2c2f36; outline-offset: 2px; }"
+      "description": "Shop primary CTA — blue fill, soft radius, outside the stamp sheet.",
+      "html": "<button class=\"ds-btn-primary\">OPEN DIRECTIONS</button>",
+      "css": ".ds-btn-primary { background: #3EA9F5; color: #ffffff; padding: 0 32px; height: 48px; border: none; border-radius: 20px; font-family: Outfit, sans-serif; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s; } .ds-btn-primary:hover { background: #2B8FD9; } .ds-btn-primary:focus-visible { outline: 2px solid #25211E; outline-offset: 3px; }"
     },
     {
       "name": "Secondary Button",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Secondary actions \u2014 alternate CTAs, promotional buttons.",
-      "html": "<button class=\"ds-btn-secondary\">VISIT US</button>",
-      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 32px; background: #FFD831; color: #2c2f36; border: 2px solid #2c2f36; border-radius: 0; font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 4px 4px 0px 0px #2c2f36; cursor: pointer; transition: background 200ms ease-out, transform 200ms ease-out, box-shadow 200ms ease-out; } .ds-btn-secondary:hover { background: rgba(255, 216, 49, 0.9); } .ds-btn-secondary:active { transform: translate(2px, 2px); box-shadow: none; } .ds-btn-secondary:focus-visible { outline: 2px solid #2c2f36; outline-offset: 2px; }"
+      "description": "Egg-yolk secondary CTA for announcement energy.",
+      "html": "<button class=\"ds-btn-secondary\">EXPLORE PRODUCTS</button>",
+      "css": ".ds-btn-secondary { background: #FFD940; color: #25211E; padding: 0 32px; height: 48px; border: none; border-radius: 20px; font-family: Outfit, sans-serif; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.04em; cursor: pointer; transition: filter 0.2s; } .ds-btn-secondary:hover { filter: brightness(0.96); } .ds-btn-secondary:focus-visible { outline: 2px solid #25211E; outline-offset: 3px; }"
     },
     {
       "name": "Outline Button",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Tertiary CTA on cream backgrounds \u2014 pairs with primary.",
-      "html": "<button class=\"ds-btn-outline\">VISIT US</button>",
-      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 32px; background: #ffffff; color: #2c2f36; border: 2px solid #2c2f36; border-radius: 0; font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 4px 4px 0px 0px #2c2f36; cursor: pointer; transition: background 200ms ease-out, transform 200ms ease-out, box-shadow 200ms ease-out; } .ds-btn-outline:hover { background: rgba(255, 255, 255, 0.9); } .ds-btn-outline:active { transform: translate(2px, 2px); box-shadow: none; } .ds-btn-outline:focus-visible { outline: 2px solid #2c2f36; outline-offset: 2px; }"
+      "description": "White outline control for calm shop actions.",
+      "html": "<button class=\"ds-btn-outline\">VIEW PRODUCT</button>",
+      "css": ".ds-btn-outline { background: #ffffff; color: #25211E; padding: 0 32px; height: 48px; border: 2px solid #25211E; border-radius: 20px; font-family: Outfit, sans-serif; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s; } .ds-btn-outline:hover { background: #FFF8E9; } .ds-btn-outline:focus-visible { outline: 2px solid #2B8FD9; outline-offset: 3px; }"
     },
     {
-      "name": "Icon Button",
-      "kind": "button",
-      "refersTo": "button-primary",
-      "description": "44\u00d744px square icon button for header actions (search, menu).",
-      "html": "<button class=\"ds-btn-icon\" aria-label=\"Search\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#2c2f36\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg></button>",
-      "css": ".ds-btn-icon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #ffffff; color: #2c2f36; border: 2px solid #2c2f36; border-radius: 0; box-shadow: 3px 3px 0px 0px #2c2f36; cursor: pointer; transition: background 200ms ease-out, transform 200ms ease-out, box-shadow 200ms ease-out; } .ds-btn-icon:hover { background: #ffee8c; } .ds-btn-icon:active { transform: translate(2px, 2px); box-shadow: none; } .ds-btn-icon:focus-visible { outline: 2px solid #2c2f36; outline-offset: 2px; }"
+      "name": "Perforated Stamp Sheet",
+      "kind": "custom",
+      "refersTo": "stamp-sheet",
+      "description": "Oversized cream postal sheet with perforation edge, grain, and ink lift.",
+      "html": "<div class=\"ds-stamp-sheet\"><div class=\"ds-stamp-sheet__mast\"><span>AIR MAIL · BISCUTE · HANOI</span><span class=\"ds-stamp-sheet__issue\">ISSUE NO. 04</span></div><h2 class=\"ds-stamp-sheet__title\">BISCUTE POST OFFICE</h2><p class=\"ds-stamp-sheet__product\">LITTLE VIETNAM STAMP HUNT</p><p class=\"ds-stamp-sheet__lede\">COLLECT LITTLE VIETNAM, ONE STAMP AT A TIME.</p></div>",
+      "css": ".ds-stamp-sheet { max-width: 28rem; margin: 1rem auto; padding: 1.25rem 1.25rem 1rem; background: linear-gradient(168deg, color-mix(in oklab, #FFF8E9 96%, white) 0%, #FFF8E9 48%, color-mix(in oklab, #FFD940 5%, #FFF8E9) 100%); color: #25211E; box-shadow: inset 0 0 0 2.5px #25211E; filter: drop-shadow(10px 11px 0 #25211E); transform: rotate(0.45deg); text-align: center; font-family: Outfit, sans-serif; } .ds-stamp-sheet__mast { display: flex; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.5rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; color: color-mix(in oklab, #25211E 62%, transparent); } .ds-stamp-sheet__issue { color: #C4342C; letter-spacing: 0.12em; } .ds-stamp-sheet__title { margin: 0; font-weight: 800; font-size: 1.75rem; line-height: 0.98; letter-spacing: -0.02em; } .ds-stamp-sheet__product { margin: 0.35rem 0 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; color: #2B8FD9; } .ds-stamp-sheet__lede { margin: 0.5rem auto 0; max-width: 28ch; font-weight: 700; font-size: 0.95rem; line-height: 1.18; letter-spacing: 0.04em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Travel Stamp Ghost",
+      "kind": "custom",
+      "refersTo": "travel-stamp-ghost",
+      "description": "Uncollected seal — pastel ghost ink, deep-blue visit status.",
+      "html": "<div class=\"ds-stamp ds-stamp--ghost\"><div class=\"ds-stamp__ink\" aria-hidden><svg viewBox=\"0 0 100 100\" width=\"72\" height=\"72\"><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\"/><circle cx=\"50\" cy=\"50\" r=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-dasharray=\"2.2 1.8\" opacity=\"0.7\"/><path d=\"M32 58 V42 H68 V58 M28 42 L50 28 L72 42\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg></div><span class=\"ds-stamp__label\">HANOI</span><span class=\"ds-stamp__status\">VISIT COLLECTION</span></div>",
+      "css": ".ds-stamp { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; width: 7.5rem; text-align: center; user-select: none; } .ds-stamp__ink { width: 4.5rem; height: 4.5rem; display: grid; place-items: center; transform: rotate(-2deg); } .ds-stamp--ghost .ds-stamp__ink { color: color-mix(in oklab, #3EA9F5 48%, #c5dceb); opacity: 0.78; filter: saturate(0.9) contrast(0.94); } .ds-stamp__label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #25211E; } .ds-stamp__status { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; } .ds-stamp--ghost .ds-stamp__status { color: #2B8FD9; } .ds-stamp:hover .ds-stamp__ink { filter: saturate(1) contrast(1); } .ds-stamp:focus-within { outline: 2px solid #FF8FB3; outline-offset: 4px; }"
+    },
+    {
+      "name": "Travel Stamp Inked",
+      "kind": "custom",
+      "refersTo": "travel-stamp-inked",
+      "description": "Collected seal — saturated ink plus multiply postal cancel.",
+      "html": "<div class=\"ds-stamp ds-stamp--inked\"><div class=\"ds-stamp__ink\" aria-hidden><svg viewBox=\"0 0 100 100\" width=\"72\" height=\"72\"><circle cx=\"50\" cy=\"50\" r=\"38\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\"/><circle cx=\"50\" cy=\"50\" r=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-dasharray=\"2.2 1.8\" opacity=\"0.7\"/><path d=\"M32 58 V42 H68 V58 M28 42 L50 28 L72 42\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg><span class=\"ds-stamp__cancel\">HANOI</span></div><span class=\"ds-stamp__label\">HANOI</span><span class=\"ds-stamp__status\">COLLECTED</span></div>",
+      "css": ".ds-stamp { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.35rem; width: 7.5rem; text-align: center; } .ds-stamp__ink { position: relative; width: 4.5rem; height: 4.5rem; display: grid; place-items: center; transform: rotate(-2deg); } .ds-stamp--inked .ds-stamp__ink { color: #2B8FD9; filter: contrast(1.1) saturate(1.18); } .ds-stamp__cancel { position: absolute; right: -18%; bottom: -12%; width: 2.4rem; height: 2.4rem; border: 2px solid color-mix(in oklab, #25211E 94%, transparent); border-radius: 50%; display: grid; place-items: center; font-family: ui-monospace, Menlo, monospace; font-size: 0.45rem; font-weight: 700; letter-spacing: 0.04em; color: #25211E; transform: rotate(-16deg); mix-blend-mode: multiply; opacity: 0.88; } .ds-stamp__label { font-family: ui-monospace, Menlo, monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #25211E; } .ds-stamp__status { font-family: ui-monospace, Menlo, monospace; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #2B8FD9; } .ds-stamp--inked:hover .ds-stamp__cancel { opacity: 1; } .ds-stamp:focus-within { outline: 2px solid #3EA9F5; outline-offset: 4px; }"
+    },
+    {
+      "name": "Special Delivery Locked",
+      "kind": "custom",
+      "refersTo": "special-delivery-locked",
+      "description": "Sealed parcel under the tear — SPECIAL DELIVERY chrome + LOCKED ink mark.",
+      "html": "<div class=\"ds-delivery\"><p class=\"ds-delivery__chrome\">SPECIAL DELIVERY</p><p class=\"ds-delivery__locked\">LOCKED</p><p class=\"ds-delivery__body\">Collect all four stamps to reveal what's inside.</p><p class=\"ds-delivery__hint\">4 stamps still out for delivery.</p></div>",
+      "css": ".ds-delivery { max-width: 22rem; margin: 0 auto; padding: 0.75rem 0.5rem; text-align: center; background: transparent; color: #25211E; font-family: Outfit, sans-serif; } .ds-delivery__chrome { margin: 0; font-family: ui-monospace, Menlo, monospace; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; color: #C4342C; } .ds-delivery__locked { display: inline-block; margin: 0.5rem 0 0; padding: 0.4rem 1.1rem; border: 2px solid #25211E; background: color-mix(in oklab, #FFF8E9 92%, white); font-family: ui-monospace, Menlo, monospace; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.22em; transform: rotate(-0.5deg); } .ds-delivery__body { margin: 0.75rem auto 0; max-width: 32ch; font-size: 1rem; font-weight: 500; line-height: 1.625; color: color-mix(in oklab, #25211E 78%, transparent); } .ds-delivery__hint { margin: 0.35rem 0 0; font-size: 0.875rem; color: color-mix(in oklab, #25211E 48%, transparent); } .ds-delivery:hover .ds-delivery__locked { background: #FFF8E9; } .ds-delivery:focus-within .ds-delivery__locked { outline: 2px solid #2B8FD9; outline-offset: 3px; }"
     },
     {
       "name": "Best Seller Badge",
       "kind": "chip",
       "refersTo": "badge-best-seller",
-      "description": "Product badge for best-selling items.",
+      "description": "Shop badge — only when product data supports the claim.",
       "html": "<span class=\"ds-badge\">BEST SELLER</span>",
-      "css": ".ds-badge { display: inline-flex; align-items: center; padding: 2px 10px; background: #1857c8; color: #ffffff; border: 2px solid #2c2f36; border-radius: 0; font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; box-shadow: 3px 3px 0px 0px #2c2f36; }"
-    },
-    {
-      "name": "Product Card",
-      "kind": "card",
-      "refersTo": "button-primary",
-      "description": "E-commerce product card with geometric corner decoration and grayscale-to-color hover.",
-      "html": "<article class=\"ds-product-card\"><div class=\"ds-product-card-image\"><span class=\"ds-corner-deco\" aria-hidden=\"true\"></span><div class=\"ds-product-card-placeholder\"></div><span class=\"ds-badge\">NEW</span></div><h3 class=\"ds-product-card-title\">BANH MI MAGNET SET</h3><p class=\"ds-product-card-price\">\u20ab120,000</p></article>",
-      "css": ".ds-product-card { display: flex; flex-direction: column; gap: 12px; font-family: 'Outfit', sans-serif; transition: transform 200ms ease-out; } .ds-product-card:hover { transform: translateY(-4px); } .ds-product-card-image { position: relative; border: 2px solid #2c2f36; background: #ffffff; box-shadow: 8px 8px 0px 0px #2c2f36; } .ds-corner-deco { position: absolute; top: 8px; right: 8px; width: 12px; height: 12px; background: #1857c8; border-radius: 50%; } .ds-product-card-placeholder { aspect-ratio: 4/5; background: linear-gradient(135deg, #e8e4dc 0%, #d4cfc5 100%); filter: grayscale(1); transition: filter 200ms ease-out; } .ds-product-card:hover .ds-product-card-placeholder { filter: grayscale(0); } .ds-product-card .ds-badge { position: absolute; top: 8px; left: 8px; } .ds-product-card-title { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; line-height: 1.25; color: #2c2f36; margin: 0; } .ds-product-card-price { font-size: 0.875rem; font-weight: 700; color: #2c2f36; margin: 0; }"
-    },
-    {
-      "name": "Accordion Item",
-      "kind": "custom",
-      "refersTo": "button-primary",
-      "description": "FAQ / product detail accordion with color-inverting open state.",
-      "html": "<div class=\"ds-accordion\"><button class=\"ds-accordion-trigger\">SHIPPING INFO<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"m6 9 6 6 6-6\"/></svg></button><div class=\"ds-accordion-content\"><p>Free shipping on orders over \u20ab500,000 within Vietnam.</p></div></div>",
-      "css": ".ds-accordion { overflow: hidden; border: 2px solid #2c2f36; background: #ffffff; box-shadow: 4px 4px 0px 0px #2c2f36; font-family: 'Outfit', sans-serif; } .ds-accordion-trigger { display: flex; width: 100%; align-items: center; justify-content: space-between; padding: 16px; background: #ffffff; color: #2c2f36; border: none; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: background 200ms ease-out, color 200ms ease-out; } .ds-accordion-trigger:hover { background: #f8f3e7; } .ds-accordion-trigger[aria-expanded='true'] { background: #103a8c; color: #ffffff; } .ds-accordion-content { border-top: 2px solid #2c2f36; background: #ffee8c; padding: 16px; color: #2c2f36; font-size: 1rem; font-weight: 500; line-height: 1.625; } .ds-accordion-content p { margin: 0; }"
-    },
-    {
-      "name": "Announcement Bar",
-      "kind": "custom",
-      "refersTo": "button-secondary",
-      "description": "Top-of-page store info bar with mustard background.",
-      "html": "<div class=\"ds-announcement\"><span>3A, PHO DINH LIET \u00b7 OPEN 9AM\u20139PM</span><span class=\"ds-announcement-dot\">\u00b7</span><a href=\"#\">VISIT US</a></div>",
-      "css": ".ds-announcement { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 16px; background: #FFD831; color: #2c2f36; border-bottom: 2px solid #2c2f36; font-family: 'Outfit', sans-serif; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; } .ds-announcement a { color: #2c2f36; text-decoration: underline; text-underline-offset: 2px; } .ds-announcement a:hover { text-decoration: none; } .ds-announcement-dot { opacity: 0.6; }"
-    },
-    {
-      "name": "Nav Link",
-      "kind": "nav",
-      "refersTo": "button-primary",
-      "description": "Desktop header navigation link on blue background.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-link ds-nav-link--active\">SHOP</a><a href=\"#\" class=\"ds-nav-link\">SOUVENIRS</a><a href=\"#\" class=\"ds-nav-link\">APPAREL</a></nav>",
-      "css": ".ds-nav { display: flex; align-items: center; gap: 24px; font-family: 'Outfit', sans-serif; } .ds-nav-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #ffffff; text-decoration: none; transition: color 200ms ease-out; } .ds-nav-link:hover { color: #ffee8c; } .ds-nav-link--active { color: #ffee8c; text-decoration: underline; text-decoration-thickness: 4px; text-underline-offset: 4px; }"
+      "css": ".ds-badge { display: inline-block; background: #3EA9F5; color: #ffffff; padding: 2px 10px; border-radius: 12px; font-family: ui-monospace, Menlo, monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; } .ds-badge:hover { filter: brightness(1.05); } .ds-badge:focus-visible { outline: 2px solid #25211E; outline-offset: 2px; }"
     }
   ],
   "narrative": {
-    "northStar": "The Playful Passport Stamp",
-    "overview": "BISCUTE Vietnam is a souvenir shop that feels like a collectible you picked up on your trip \u2014 bold, graphic, and unapologetically cute. The visual language borrows from neo-brutalism: hard offset shadows instead of soft blur, square corners as the default, thick ink borders that scale up on desktop, and a palette anchored in Vietnam's national colors (blue, yellow, red) on a warm cream ground. Geometry is a recurring motif \u2014 circles, squares, and triangles appear as corner decorations on cards and as hero accents, giving every surface a handmade-sticker quality.\n\nThe system is built for Persuade mode: this is an e-commerce storefront where design is the product. Every section alternates saturated color blocks (pink/blue header, mustard announcement, deep-blue footer) against cream and white breathing room. Typography is loud and confident \u2014 all-caps Outfit at black weight for headlines, wide tracking on labels \u2014 while body copy stays friendly and medium-weight. Product photography starts grayscale and reveals color on hover, a deliberate \"unwrap the gift\" moment.",
+    "northStar": "Oversized Souvenir Postage Stamp",
+    "overview": "BISCUTE's play surface reads as one perforated cream postal sheet — paper grain, Vietnam watermarks at print opacity, Outfit ink titles, monospace air-mail chrome — where collections become rubber seals you ink, not a 2×2 card grid or toy-arcade dashboard. Shop conversion (product, price, Visit / Directions) stays outside that sheet grammar and remains calm and clear.\n\nThe Post Office sheet is the durable visual authority for collectible / passport energy. Soft shop radii and soft product lift remain on catalogue surfaces; they do not redefine the stamp sheet. Hard ink drop-shadow belongs to the sheet as a single oversized stamp object (`10px 11px 0` dark ink), not as a default card treatment across the site.",
     "keyCharacteristics": [
-      "Neo-brutalist hard shadows (offset, zero blur) on every elevated surface",
-      "Square-by-default geometry; pills reserved for CTAs inside product cards",
-      "Vietnam-flag palette: ~55% cream/white, ~25% blue, ~12% yellow, ~8% red",
-      "Thick ink borders (2px mobile \u2192 4px desktop) as the primary depth cue",
-      "Geometric corner decorations rotate across card index (circle / square / triangle)",
-      "\"The Funy Time\" display font reserved exclusively for the BISCUTE wordmark",
-      "Legacy token names (biscute-pink) map to blue \u2014 do not reintroduce actual pink"
+      "One composition: perforated cream sheet with tear-off Special Delivery parcel",
+      "Paper grain texture + low-opacity lotus / tower / map watermarks under content",
+      "Ghost pastel seals vs saturated ink + multiply cancel when collected",
+      "Masthead: AIR MAIL · BISCUTE · HANOI + waves; red ISSUE vs gray Hanoi cancel mark",
+      "Outfit ink titles; monospace postal chrome; deep-blue product line",
+      "2×2 stamps on mobile → 4-across from 640px; progress → perforated tear → LOCKED / unlock"
     ],
     "rules": [
       {
-        "name": "The One Ink Rule",
-        "body": "All borders, shadows, focus rings, and outlines use Dark Ink (#2c2f36). Never introduce a second border color or a blurred shadow.",
+        "name": "The Postal Ink Rule",
+        "body": "On the stamp sheet, color is ink on paper: multiply blend, off-register cancels, ghost pastels for uncollected seals — never grayed-out disabled cards.",
         "section": "colors"
       },
       {
-        "name": "The Ratio Rule",
-        "body": "Respect the documented usage ratio: ~55% cream/white \u00b7 25% blue \u00b7 12% yellow \u00b7 8% red. Red never dominates a viewport; blue never fills more than one major band per scroll depth.",
+        "name": "The Section Dominant Rule",
+        "body": "Each major band picks one dominant color; accents stay secondary.",
         "section": "colors"
       },
       {
-        "name": "The Selective Caps Rule",
-        "body": "Uppercase is for headings, short labels, nav, badges, and CTAs. Body copy, descriptions, and metadata use sentence case.",
+        "name": "The Character Color Rule",
+        "body": "Pink and green appear on character surfaces, not global chrome or postal mastheads.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Voice Rule",
+        "body": "Outfit carries narrative ink; monospace carries postal apparatus. Do not set ISSUE / LOCKED / progress in Outfit.",
         "section": "typography"
       },
       {
-        "name": "The Weight Ladder Rule",
-        "body": "Only display type uses 900. Section headings use 800. Card titles use 700. Do not default all headings to black weight.",
-        "section": "typography"
+        "name": "The One Sheet Rule",
+        "body": "The first Post Office viewport is one perforated object, not a dashboard of cards, stats, or promo chips.",
+        "section": "layout"
       },
       {
-        "name": "The Wordmark Exclusivity Rule",
-        "body": "\"The Funy Time\" appears only in .biscute-wordmark. No other text uses this font.",
-        "section": "typography"
-      },
-      {
-        "name": "The Press Rule",
-        "body": "Interactive elements with shadows use .btn-press: on :active, translate(2px, 2px) and remove shadow. The element physically \"presses into\" the surface.",
+        "name": "The Paper Depth Rule",
+        "body": "Post Office depth = perforation mask + grain + watermarks + ink cancel. Blur stacks and floating glass are out of world.",
         "section": "elevation"
       },
       {
-        "name": "The No-Blur Rule",
-        "body": "Shadows are always 0px blur with a solid ink offset. Soft ambient shadows are forbidden.",
-        "section": "elevation"
+        "name": "The Perforation Rule",
+        "body": "If it lives on the Post Office sheet, edge language is punched paper or rubber seal — not soft UI radius.",
+        "section": "shapes"
       }
     ],
     "dos": [
-      "Do use hard offset shadows (3px 3px 0, 4px 4px 0, 8px 8px 0) with Dark Ink \u2014 never blur.",
-      "Do keep corners square (rounded-none) on all structural elements; reserve rounded-full for pill CTAs and color swatches only.",
-      "Do scale borders from 2px to 4px at the lg breakpoint on major containers.",
-      "Do alternate section backgrounds via SectionWrapper (cream, pink/blue, pale-yellow, mustard, deep-blue, white).",
-      "Do apply .btn-press active state on all shadowed interactive elements.",
-      "Do start product images in grayscale and reveal color on hover.",
-      "Do respect the color usage ratio and keep red as a punctual accent."
+      "Do treat Post Office as one oversized perforated stamp sheet with grain (`/textures/post-office-paper-grain.webp`) and watermarks (`post-office-wm-lotus.webp`, `post-office-wm-lotus-sm.webp`, `post-office-wm-tower.webp` + SVG map/clouds/cancel).",
+      "Do keep ghost pastel vs inked+multiply cancel as the only collectible states.",
+      "Do keep ISSUE in deep red and the decorative Hanoi cancel watermark in gray ink so they never compete.",
+      "Do use 2×2 → 4-across stamp hunt, then progress, tear, and LOCKED / Special Delivery.",
+      "Do keep Visit / Directions as primary conversion outside the play sheet."
     ],
     "donts": [
-      "Don't use soft/blurred box-shadows or gradient shadows \u2014 they break the print-sticker metaphor.",
-      "Don't use \"The Funy Time\" font outside the BISCUTE wordmark.",
-      "Don't introduce rounded corners on cards, accordions, sheets, or inputs.",
-      "Don't use actual pink anywhere \u2014 legacy biscute-pink tokens map to blue.",
-      "Don't add a second border or outline color beyond Dark Ink (#2c2f36).",
-      "Don't sentence-case headings \u2014 section and page headings remain uppercase via .type-* classes."
+      "Don't present collections as a neo-brutalist 2×2 card grid or generic souvenir-club dashboard on this surface.",
+      "Don't replace perforation / grain / postal watermarks with flat cream panels or soft card stacks.",
+      "Don't gray-wash uncollected stamps; use ghost pastel ink.",
+      "Don't put cart, checkout, or scarcity pressure on the sheet.",
+      "Don't animate every control or block browse/Visit CTAs with play motion."
     ]
   }
 }

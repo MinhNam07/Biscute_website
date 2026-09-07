@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biscute Post Office - Pure CSS UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           1. KHAI BÁO BIẾN & SETUP CƠ BẢN
+        ========================================= */
+        :root {
+            --paper-bg: #F9F7F1;
+            --border-navy: #182A40;
+            --text-navy: #182A40;
+            --text-red: #EE3E38;
+            --stamp-blue: #8B9BB4;
+        }
+
+        body {
+            background-color: #d1d5db; /* Màu nền ngoài tối hơn để tôn bưu thiếp lên */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Jost', sans-serif;
+            overflow: hidden; /* Ngăn scroll bar nảy lên khi có animation */
+        }
+
+        /* =========================================
+           2. LAYOUT BƯU THIẾP & HIỆU ỨNG HOVER
+        ========================================= */
+        .postcard-wrapper {
+            background: #ffffff;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 4px;
+            
+            /* Hiệu ứng Load trang */
+            animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(40px);
+
+            /* Transition cho Hover */
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+
+        /* Khi trỏ chuột vào bưu thiếp, nó sẽ nổi lên */
+        .postcard-wrapper:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        /* Viền đục lỗ răng cưa (CSS Mask) */
+        .postcard-scallop {
+            width: 900px;
+            height: 550px;
+            background-color: var(--border-navy);
+            -webkit-mask-image: radial-gradient(circle at 14px 14px, transparent 14px, black 14.5px);
+            -webkit-mask-size: 34px 34px;
+            -webkit-mask-position: -14px -14px;
+            mask-image: radial-gradient(circle at 14px 14px, transparent 14px, black 14.5px);
+            mask-size: 34px 34px;
+            mask-position: -14px -14px;
+            
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        /* Nền giấy bên trong - Thêm pattern lưới mờ tạo cảm giác mặt giấy */
+        .postcard-inner {
+            background-color: var(--paper-bg);
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-image: 
+                linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px),
+                linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* =========================================
+           3. TEXT VÀ CÁC THÀNH PHẦN BÊN TRONG
+        ========================================= */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 50px;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .air-mail {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-navy);
+            letter-spacing: 4px;
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+        }
+
+        .issue-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .issue-text {
+            color: var(--text-red);
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        /* Dòng kẻ đỏ tự động chạy dài ra */
+        .issue-line {
+            width: 0px;
+            height: 1px;
+            background-color: var(--text-red);
+            animation: expandLine 1.5s ease-out 0.5s forwards;
+        }
+
+        .postmark-group {
+            display: flex;
+            align-items: center;
+            margin-right: 40px;
+            transform: rotate(-10deg);
+        }
+
+        /* =========================================
+           4. CON DẤU & HIỆU ỨNG SVG DRAWING
+        ========================================= */
+        .stamp-circle {
+            width: 110px;
+            height: 110px;
+            border: 1px solid var(--stamp-blue);
+            border-radius: 50%;
+            padding: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background-color: rgba(249, 247, 241, 0.8);
+        }
+
+        .stamp-inner {
+            width: 100%;
+            height: 100%;
+            border: 1.5px dashed var(--stamp-blue);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--stamp-blue);
+            font-weight: 500;
+            font-size: 17px;
+            letter-spacing: 1px;
+        }
+
+        /* Hiệu ứng tương tác cho con dấu */
+        .postmark-group:hover .stamp-circle {
+            transform: scale(1.15) rotate(15deg);
+            border-color: #5d708e;
+            box-shadow: 0 5px 15px rgba(139, 155, 180, 0.3);
+        }
+        .postmark-group:hover .stamp-inner {
+            color: #5d708e;
+            border-color: #5d708e;
+        }
+
+        /* Setup CSS cho hiệu ứng vẽ nét SVG */
+        .wavy-svg path {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            animation: drawSvgLine 2s forwards ease-in-out;
+        }
+        
+        /* Độ trễ (delay) cho từng nét vẽ để tạo cảm giác tự nhiên */
+        .wavy-svg path:nth-child(1) { animation-delay: 0.6s; }
+        .wavy-svg path:nth-child(2) { animation-delay: 0.8s; }
+        .wavy-svg path:nth-child(3) { animation-delay: 1.0s; }
+
+        /* =========================================
+           5. KEYFRAMES ANIMATION (KHUNG HÌNH CHUYỂN ĐỘNG)
+        ========================================= */
+        @keyframes slideUpFade {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes drawSvgLine {
+            100% { stroke-dashoffset: 0; }
+        }
+
+        @keyframes expandLine {
+            0% { width: 0; }
+            100% { width: 70px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="postcard-wrapper">
+        <div class="postcard-scallop">
+            <div class="postcard-inner">
+                
+                <div class="header">
+                    <!-- Khu vực Text & Sóng lượn trái -->
+                    <div class="header-left">
+                        <div class="air-mail">AIR MAIL &bull; BISCUTE &bull; HANOI</div>
+                        
+                        <!-- Đường gợn sóng SVG (Sẽ tự động vẽ nét nhờ CSS) -->
+                        <svg class="wavy-svg" width="120" height="40" viewBox="0 0 120 40">
+                            <path d="M 0,10 Q 15,-5 30,10 T 60,10 T 90,10 T 120,10" fill="none" stroke="#8B9BB4" stroke-width="1.2"/>
+                            <path d="M 0,20 Q 15,5 30,20 T 60,20 T 90,20 T 120,20" fill="none" stroke="#8B9BB4" stroke-width="1.2"/>
+                            <path d="M 0,30 Q 15,15 30,30 T 60,30 T 90,30 T 120,30" fill="none" stroke="#8B9BB4" stroke-width="1.2"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Khu vực Text Đỏ & Con dấu phải -->
+                    <div class="header-right">
+                        <div class="issue-box">
+                            <span class="issue-text">ISSUE NO.</span>
+                            <!-- Đường vạch đỏ sẽ tự động kéo dài ra nhờ CSS expandLine -->
+                            <div class="issue-line"></div>
+                        </div>
+                        
+                        <div class="postmark-group">
+                            <div class="stamp-circle">
+                                <div class="stamp-inner">
+                                    <span>HANOI</span>
+                                    <span style="font-size: 12px; margin: 2px 0;">★ ★</span>
+                                    <span>VIỆT NAM</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Đường gợn sóng SVG đính kèm con dấu -->
+                            <svg class="wavy-svg" width="80" height="60" viewBox="0 0 80 60" style="margin-left: -10px; z-index: 0;">
+                                <path d="M 0,15 Q 20,0 40,15 T 80,15" fill="none" stroke="#8B9BB4" stroke-width="1.2"/>
+                                <path d="M 0,30 Q 20,15 40,30 T 80,30" fill="none" stroke="#8B9BB4" stroke-width="1.2"/>
+                                <path d="M 0,45 Q 20,30 40,45 T 80,45" fill="none" stroke="#8B9BB4" stroke-width="1.2"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

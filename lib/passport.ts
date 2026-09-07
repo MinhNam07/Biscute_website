@@ -1,8 +1,8 @@
 /**
- * Biscute Travel Passport — in-memory progress for the current page visit.
+ * Biscute Travel Passport — collectible stamp progress for the Post Office hunt.
  *
- * Progress resets on full page refresh / new visit. Soft client navigations
- * within the same visit keep stamps. No localStorage persistence.
+ * Progress is in-memory for this page lifetime only. Soft client navigations keep
+ * stamps; a full refresh clears the sheet so the hunt starts blank again.
  */
 
 export const PASSPORT_IDS = ["hanoi", "food", "animals", "tet"] as const;
@@ -45,9 +45,11 @@ export interface PassportProgress {
   rewardUnlockedAt?: string;
 }
 
+/** Cleared on boot so older builds that wrote localStorage do not leak stamps back. */
 const LEGACY_STORAGE_KEYS = [
   "biscute.travel-passport.v1",
   "biscute-passport-stamps",
+  "biscute.passport.v2",
 ] as const;
 const CHANGE_EVENT = "biscute-passport-change";
 
@@ -104,9 +106,12 @@ export function remainingToUnlock(progress: PassportProgress): number {
   return Math.max(0, PASSPORT_IDS.length - countStamped(progress));
 }
 
-/** One-time cleanup of older persistent passport keys. */
-function clearLegacyStorage(): void {
-  if (typeof window === "undefined") return;
+function canUseDom(): boolean {
+  return typeof window !== "undefined";
+}
+
+function clearPersistedStamps(): void {
+  if (!canUseDom() || typeof window.localStorage === "undefined") return;
   try {
     for (const key of LEGACY_STORAGE_KEYS) {
       window.localStorage.removeItem(key);
@@ -116,37 +121,71 @@ function clearLegacyStorage(): void {
   }
 }
 
-/** Session-only: stamps earned this page lifetime (for press animation). */
-const EMPTY_NEWLY: PassportId[] = [];
-let sessionNewlyStamped: PassportId[] = EMPTY_NEWLY;
-/** Session-only: reward unlock animation should play once. */
-let sessionJustUnlocked = false;
-/** Bumps when session animation flags change so subscribers can re-read. */
-let sessionEpoch = 0;
+/** Session animation flags + live progress — on globalThis so Turbopack chunk duplicates share one store. */
+type PassportRuntime = {
+  snapshot: PassportProgress;
+  ready: boolean;
+  sessionNewlyStamped: PassportId[];
+  sessionJustUnlocked: boolean;
+  sessionEpoch: number;
+};
 
-let snapshot: PassportProgress = createEmptyProgress();
-let hydrated = false;
+const RUNTIME_KEY = "__biscutePassportRuntime";
+
+function getRuntime(): PassportRuntime {
+  const scope = globalThis as typeof globalThis & {
+    [RUNTIME_KEY]?: PassportRuntime;
+  };
+  if (!scope[RUNTIME_KEY]) {
+    scope[RUNTIME_KEY] = {
+      snapshot: createEmptyProgress(),
+      ready: false,
+      sessionNewlyStamped: [],
+      sessionJustUnlocked: false,
+      sessionEpoch: 0,
+    };
+  }
+  return scope[RUNTIME_KEY];
+}
 
 function notify() {
-  if (typeof window === "undefined") return;
+  if (!canUseDom()) return;
   window.dispatchEvent(new Event(CHANGE_EVENT));
 }
 
-function ensureHydrated(): PassportProgress {
-  if (typeof window === "undefined") return createEmptyProgress();
-  if (!hydrated) {
-    clearLegacyStorage();
-    snapshot = createEmptyProgress();
-    hydrated = true;
+function ensureReady(): PassportProgress {
+  if (!canUseDom()) return createEmptyProgress();
+  const runtime = getRuntime();
+  if (!runtime.ready) {
+    clearPersistedStamps();
+    runtime.snapshot = createEmptyProgress();
+    runtime.ready = true;
   }
-  return snapshot;
+  return runtime.snapshot;
 }
 
 function commit(next: PassportProgress) {
-  snapshot = next;
-  hydrated = true;
+  const runtime = getRuntime();
+  runtime.snapshot = next;
+  runtime.ready = true;
   notify();
-  return snapshot;
+  return runtime.snapshot;
+}
+
+/**
+ * Client boot: wipe any leftover persisted stamps and ensure the in-memory
+ * store is ready. Soft navigations keep the current snapshot.
+ */
+export function rehydrateFromStorage(): PassportProgress {
+  if (!canUseDom()) return createEmptyProgress();
+  clearPersistedStamps();
+  const runtime = getRuntime();
+  if (!runtime.ready) {
+    runtime.snapshot = createEmptyProgress();
+    runtime.ready = true;
+    notify();
+  }
+  return runtime.snapshot;
 }
 
 export function getProgressServerSnapshot(): PassportProgress {
@@ -154,7 +193,7 @@ export function getProgressServerSnapshot(): PassportProgress {
 }
 
 export function getProgress(): PassportProgress {
-  return ensureHydrated();
+  return ensureReady();
 }
 
 /** @deprecated Prefer getProgress — kept for transitional call sites. */
@@ -164,7 +203,7 @@ export function getStamps(): PassportId[] {
 }
 
 export function getStampsServerSnapshot(): PassportId[] {
-  return EMPTY_NEWLY;
+  return [];
 }
 
 /**
@@ -176,7 +215,7 @@ export function markCollectionViewed(collectionId: string): PassportProgress {
     return getProgress();
   }
 
-  const current = ensureHydrated();
+  const current = ensureReady();
   if (current.stamps[collectionId]) {
     return current;
   }
@@ -189,56 +228,58 @@ export function markCollectionViewed(collectionId: string): PassportProgress {
     rewardUnlockedAt: current.rewardUnlockedAt,
   };
 
-  sessionNewlyStamped = sessionNewlyStamped.includes(collectionId)
-    ? sessionNewlyStamped
-    : [...sessionNewlyStamped, collectionId];
-  sessionEpoch += 1;
+  const runtime = getRuntime();
+  runtime.sessionNewlyStamped = runtime.sessionNewlyStamped.includes(collectionId)
+    ? runtime.sessionNewlyStamped
+    : [...runtime.sessionNewlyStamped, collectionId];
+  runtime.sessionEpoch += 1;
 
   if (!next.rewardUnlockedAt && isPassportComplete(next)) {
     next.rewardUnlockedAt = now;
-    sessionJustUnlocked = true;
+    runtime.sessionJustUnlocked = true;
   }
 
   return commit(next);
 }
 
 export function consumeNewlyStamped(): PassportId[] {
-  const ids = sessionNewlyStamped;
+  const runtime = getRuntime();
+  const ids = runtime.sessionNewlyStamped;
   if (ids.length > 0) {
-    sessionNewlyStamped = EMPTY_NEWLY;
-    sessionEpoch += 1;
+    runtime.sessionNewlyStamped = [];
+    runtime.sessionEpoch += 1;
     notify();
   }
   return ids;
 }
 
 export function peekNewlyStamped(): readonly PassportId[] {
-  return sessionNewlyStamped;
+  return getRuntime().sessionNewlyStamped;
 }
 
 export function consumeJustUnlocked(): boolean {
-  const value = sessionJustUnlocked;
+  const runtime = getRuntime();
+  const value = runtime.sessionJustUnlocked;
   if (value) {
-    sessionJustUnlocked = false;
-    sessionEpoch += 1;
+    runtime.sessionJustUnlocked = false;
+    runtime.sessionEpoch += 1;
     notify();
   }
   return value;
 }
 
 export function peekJustUnlocked(): boolean {
-  return sessionJustUnlocked;
+  return getRuntime().sessionJustUnlocked;
 }
 
 export function getSessionEpoch(): number {
-  return sessionEpoch;
+  return getRuntime().sessionEpoch;
 }
 
 export function subscribeProgress(onChange: () => void): () => void {
-  if (typeof window === "undefined") return () => {};
+  if (!canUseDom()) return () => {};
 
   const onLocal = () => onChange();
-
   window.addEventListener(CHANGE_EVENT, onLocal);
 
   return () => {

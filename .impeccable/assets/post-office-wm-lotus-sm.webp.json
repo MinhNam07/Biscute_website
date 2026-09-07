@@ -1,0 +1,4 @@
+{
+  "prompt": "Use the provided crop as the approved visual reference. Recreate ONLY the smaller lotus flower line-art watermark as a clean reusable production image. Subject: a single simpler lotus bloom in delicate hand-drawn sepia/brown ink line art — fewer petals, elegant sparse strokes matching the faint small lotus watermark near the top-right/mid of the mock. Complete flower centered. Flat solid pure chroma-key background color #FF00FF magenta — no paper, no cream, no stamp border, no clouds, no UI text (remove POST OFFICE / VIETNAM STAMP HUNT and any other copy), no circular postmark, no other objects. No redesign. Sepia brown ink lines on pure #FF00FF magenta. High resolution ~500px-wide watermark line art. Post: chroma-key to alpha; export webp ~520px wide.\n",
+  "createdAt": "2026-09-07T11:51:35.855Z"
+}

@@ -1,0 +1,38 @@
+{
+  "title": "BISCUTE Post Office redesign",
+  "question": "Bạn gửi mock tem bưu điện. Chọn hướng build nào?",
+  "options": [
+    {
+      "id": "match-mock",
+      "label": "Khớp mock",
+      "kicker": "COMP",
+      "thesis": "Rebuild section để khớp mock: 4 tem một hàng (desktop), ghost pastel, postmark sóng, Special Delivery locked sạch.",
+      "palette": ["#FFF8E9", "#25211E", "#EF4136", "#3EA9F5"],
+      "materials": ["perforated stamp sheet", "postal ink postmark", "ghost impressions"],
+      "viewport": "Một con tem khổ lớn: masthead → hàng tem → progress → tear → Special Delivery.",
+      "risk": "4 tem một hàng chật trên mobile — cần stack hoặc 2×2 dưới breakpoint."
+    },
+    {
+      "id": "mock-plus",
+      "label": "Mock + độ sâu",
+      "kicker": "REFINE",
+      "thesis": "Giữ bố cục mock nhưng đẩy chất liệu thật hơn: mực không đều, giấy grain, peels, motion stamp-press.",
+      "palette": ["#FFF8E9", "#25211E", "#C4342C", "#2B8FD9"],
+      "materials": ["offset-ink cancel", "paper fiber", "press animation"],
+      "viewport": "Cùng hierarchy mock, thêm cảm giác vật lý khi tem được ink và khi mở reward.",
+      "risk": "Dễ over-ornament nếu mọi góc đều có texture."
+    },
+    {
+      "id": "fresh-postal",
+      "label": "Thế giới postal mới",
+      "kicker": "REDESIGN",
+      "thesis": "Giữ cơ chế sưu tầm 4 tem + reward, thay form (ví dụ album tem, air-mail envelope, counter cửa sổ bưu điện).",
+      "palette": ["#FFD940", "#3EA9F5", "#EF4136", "#FFF8E9"],
+      "materials": ["souvenir club toys", "postal counter", "air-mail envelope"],
+      "viewport": "Form mới hoàn toàn — mock chỉ là bằng chứng product, không phải layout.",
+      "risk": "Lâu hơn; cần direction roll Impeccable."
+    }
+  ],
+  "reroll": false,
+  "steer": true
+}

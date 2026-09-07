@@ -1,0 +1,38 @@
+{
+  "title": "Post Office — mock mới",
+  "question": "Mock bạn gửi gần giống Comp A đang chạy. Bạn muốn gì?",
+  "options": [
+    {
+      "id": "fidelity",
+      "label": "Fidelity rebuild",
+      "kicker": "KHUYẾN NGHỊ",
+      "thesis": "Giữ UX + logic passport; rebuild UI sát pixel mock ChatGPT bạn gửi (watermark, mực tem, LOCKED, màu ghost).",
+      "viewport": "Masthead → 4 tem → progress → tear → Special Delivery LOCKED.",
+      "risk": "Thay đổi chủ yếu là chất liệu / tỉ lệ, không đổi cấu trúc.",
+      "hero": ".impeccable/mocks/post-office-user-comp.jpg",
+      "sketch": ".impeccable/mocks/post-office-user-comp.jpg"
+    },
+    {
+      "id": "scrap-rebuild",
+      "label": "Xóa sạch rồi build lại",
+      "kicker": "SCRAP",
+      "thesis": "Xóa CSS/markup Post Office hiện tại, viết lại từ đầu theo mock — vẫn giữ hook progress + i18n + TravelStamp IDs.",
+      "viewport": "Cùng composition mock, codebase mới sạch.",
+      "risk": "Lâu hơn; dễ mất polish motion đã ổn.",
+      "hero": ".impeccable/mocks/post-office-user-comp.jpg",
+      "sketch": ".impeccable/mocks/post-office-user-comp.jpg"
+    },
+    {
+      "id": "as-is-polish",
+      "label": "Chỉ polish chỗ lệch",
+      "kicker": "LIGHT",
+      "thesis": "Giữ code hiện tại; chỉ sửa watermark, màu Tet/Animals, cancel ink nếu lệch mock.",
+      "viewport": "Không đụng cấu trúc section.",
+      "risk": "Có thể vẫn cảm giác 'chưa phải mock mới'.",
+      "hero": ".impeccable/reviews/post-office-desktop-inked.png",
+      "sketch": ".impeccable/reviews/post-office-desktop-inked.png"
+    }
+  ],
+  "reroll": false,
+  "steer": true
+}

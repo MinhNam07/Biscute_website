@@ -1,4 +1,5 @@
 import type { Viewport } from "next";
+import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -58,6 +59,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${outfit.variable} h-full`}>
       <body className="min-h-full flex flex-col font-body antialiased">
+        <Script src="/postal-perf-contour.js" strategy="afterInteractive" />
         <NextIntlClientProvider messages={messages}>
           <AnnouncementBar />
           <Header />

@@ -19,7 +19,6 @@
     "cuteAnimals": "Cute Animals",
     "vietnamCulture": "Vietnam Culture",
     "characters": "Characters",
-    "about": "About",
     "visit": "Visit",
     "search": "Search",
     "menu": "Menu"
@@ -218,11 +217,6 @@
     "placeholder": "Search products, collections...",
     "noResults": "No results found",
     "results": "{count} results"
-  },
-  "about": {
-    "title": "About BISCUTE",
-    "p1": "BISCUTE is a playful character crew living in a slightly silly, colorful version of Vietnam. Souvenirs are what they bring home.",
-    "p2": "This site is a catalogue for discovery — visit us in Hanoi's Old Quarter to take the cute chaos home."
   },
   "visit": {
     "title": "Visit BISCUTE",

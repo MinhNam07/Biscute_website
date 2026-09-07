@@ -34,7 +34,7 @@
   padding: 2px var(--space-2);
   border: 2px solid var(--color-dark-ink);
   border-radius: var(--radius-pill);
-  background: var(--char-secondary, var(--color-mustard-yellow));
+  background: var(--char-badge, var(--color-mustard-yellow));
   color: var(--color-dark-ink);
 }
 

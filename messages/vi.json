@@ -19,7 +19,6 @@
     "cuteAnimals": "Thú cưng dễ thương",
     "vietnamCulture": "Văn hóa Việt",
     "characters": "Nhân vật",
-    "about": "Về BISCUTE",
     "visit": "Ghé thăm",
     "search": "Tìm kiếm",
     "menu": "Menu"
@@ -218,11 +217,6 @@
     "placeholder": "Tìm sản phẩm, bộ sưu tập...",
     "noResults": "Không tìm thấy kết quả",
     "results": "{count} kết quả"
-  },
-  "about": {
-    "title": "Về BISCUTE",
-    "p1": "BISCUTE là một hội nhân vật vui tươi sống trong phiên bản Việt Nam hơi ngộ và đầy màu sắc. Quà lưu niệm là những gì họ mang về nhà.",
-    "p2": "Website này là catalogue để khám phá — ghé chúng tôi ở Phố cổ Hà Nội để mang mớ dễ thương này về."
   },
   "visit": {
     "title": "Ghé BISCUTE",

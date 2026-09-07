@@ -21,7 +21,6 @@ type NavKey =
   | "cuteAnimals"
   | "vietnamCulture"
   | "characters"
-  | "about"
   | "visit";
 
 type NavLink = {
@@ -52,7 +51,6 @@ const navLinks: readonly NavLink[] = [
     children: collectionChildren,
   },
   { href: "/characters", key: "characters" },
-  { href: "/about", key: "about" },
   { href: "/visit", key: "visit" },
 ];
 

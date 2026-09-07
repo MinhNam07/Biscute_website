@@ -16,6 +16,14 @@ interface CharacterCardProps {
 
 const tilts = [-2.5, 1.5, -1.5, 2.5];
 
+/** Level badge fills — contrast against each character's window tint */
+const levelBadgeBySlug: Record<string, string> = {
+  bunny: "var(--color-bubble-pink)",
+  bear: "var(--color-accent-red)",
+  duck: "var(--color-mustard-yellow)",
+  cat: "var(--color-primary-blue)",
+};
+
 export function CharacterCard({
   character,
   index = 0,
@@ -37,6 +45,8 @@ export function CharacterCard({
           "--tilt": `${tilts[index % tilts.length]}deg`,
           "--char-primary": character.colors.primary,
           "--char-secondary": character.colors.secondary,
+          "--char-badge":
+            levelBadgeBySlug[character.slug] ?? "var(--color-mustard-yellow)",
         } as CSSProperties
       }
     >

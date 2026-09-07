@@ -84,9 +84,9 @@ export function Header() {
   return (
     <>
       <header className="mobile-header sticky top-0 z-40 border-b-2 border-biscute-chocolate bg-biscute-pink text-biscute-white lg:border-b-4">
-        <div className="container-biscute grid h-14 grid-cols-[auto_1fr_auto] items-center gap-2 lg:h-16 lg:grid-cols-[1fr_auto_1fr] lg:gap-4">
+        <div className="container-biscute relative flex h-14 items-center justify-between gap-2 lg:grid lg:h-16 lg:grid-cols-[1fr_auto_1fr] lg:gap-4">
           <button
-            className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-[var(--radius-sm)] border-2 border-biscute-chocolate bg-biscute-white text-biscute-chocolate shadow-biscute-sm btn-press lg:hidden"
+            className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-[var(--radius-sm)] border-2 border-biscute-chocolate bg-biscute-white text-biscute-chocolate shadow-biscute-sm btn-press lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={t("menu")}
             aria-expanded={mobileOpen}
@@ -109,7 +109,7 @@ export function Header() {
 
           <Link
             href="/"
-            className="flex justify-center transition-opacity hover:opacity-80 lg:col-start-1 lg:row-start-1 lg:justify-start"
+            className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 transition-opacity hover:opacity-80 lg:static lg:col-start-1 lg:row-start-1 lg:translate-x-0 lg:translate-y-0 lg:justify-self-start"
           >
             <GeometricLogo />
           </Link>
@@ -158,7 +158,7 @@ export function Header() {
             })}
           </nav>
 
-          <div className="flex items-center justify-end gap-2 lg:col-start-3 lg:row-start-1">
+          <div className="relative z-10 flex items-center justify-end gap-2 lg:col-start-3 lg:row-start-1">
             <button
               onClick={() => setSearchOpen(true)}
               className="flex h-11 w-11 items-center justify-center rounded-[var(--radius-sm)] border-2 border-biscute-chocolate bg-biscute-white text-biscute-chocolate shadow-biscute-sm btn-press hover:bg-biscute-pale-pink"

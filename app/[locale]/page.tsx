@@ -7,7 +7,6 @@ import { DrawnSection } from "@/components/home/drawn-section";
 import { PassportSection } from "@/components/home/passport-section";
 import { SpottedSection } from "@/components/home/spotted-section";
 import { StoreMap } from "@/components/location/store-map";
-import { VisitStickyCta } from "@/components/navigation/visit-sticky-cta";
 import {
   getFeaturedProducts,
   getThematicCollections,
@@ -46,8 +45,6 @@ export default async function HomePage() {
       <PassportSection />
       <SpottedSection />
       <StoreMap />
-      <VisitStickyCta />
-      <div className="h-[4.5rem] lg:hidden" aria-hidden />
     </>
   );
 }

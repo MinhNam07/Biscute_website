@@ -385,14 +385,6 @@
 }
 
 @media (max-width: 639px) {
-  /*
-   * Keep a little clearance under Special Delivery so sticky Visit
-   * does not cover the locked parcel (see visit-sticky-cta).
-   */
-  .passport-secret {
-    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
-  }
-
   .passport-book .postal-frame__content {
     padding-bottom: clamp(1.1rem, 3.5vw, 1.75rem);
   }

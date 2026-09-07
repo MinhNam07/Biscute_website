@@ -1,0 +1,234 @@
+/* Biscute Travel Passport — scrapbook / postal paper panel */
+
+.passport-book {
+  position: relative;
+  max-width: 56rem;
+  margin-inline: auto;
+  padding: var(--space-6) var(--space-4);
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in oklab, var(--color-warm-cream) 92%, white) 0%,
+      var(--color-warm-cream) 48%,
+      color-mix(in oklab, var(--color-mustard-yellow) 10%, var(--color-warm-cream)) 100%
+    );
+  box-shadow:
+    6px 8px 0 color-mix(in oklab, var(--color-dark-ink) 88%, transparent),
+    0 1px 0 color-mix(in oklab, var(--color-dark-ink) 12%, transparent);
+  overflow: hidden;
+}
+
+.passport-book__grain {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image:
+    radial-gradient(circle at 12% 20%, color-mix(in oklab, var(--color-dark-ink) 18%, transparent) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 78% 36%, color-mix(in oklab, var(--color-dark-ink) 14%, transparent) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 42% 82%, color-mix(in oklab, var(--color-dark-ink) 12%, transparent) 0 1px, transparent 1.3px);
+  background-size: 18px 18px, 22px 22px, 16px 16px;
+  mix-blend-mode: multiply;
+}
+
+.passport-book__doodle {
+  pointer-events: none;
+  position: absolute;
+  opacity: 0.14;
+  color: var(--color-dark-ink);
+}
+
+.passport-book__doodle--plane {
+  top: var(--space-3);
+  right: var(--space-4);
+  width: 2.4rem;
+  height: 1.2rem;
+  border: 1.5px solid currentColor;
+  border-radius: var(--radius-sm);
+  transform: rotate(12deg);
+}
+
+.passport-book__doodle--plane::after {
+  content: "";
+  position: absolute;
+  right: -0.55rem;
+  top: 0.15rem;
+  border: 0.45rem solid transparent;
+  border-left-color: currentColor;
+}
+
+.passport-book__doodle--post {
+  bottom: 7.5rem;
+  left: var(--space-3);
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1.5px dashed currentColor;
+  border-radius: var(--radius-pill);
+  transform: rotate(-8deg);
+}
+
+.passport-book__header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.passport-book__title {
+  max-width: 16ch;
+}
+
+.passport-book__count {
+  flex-shrink: 0;
+  padding: var(--space-1) var(--space-2);
+  border: 1.5px dashed color-mix(in oklab, var(--color-dark-ink) 35%, transparent);
+  border-radius: var(--radius-sm);
+  color: var(--color-dark-ink);
+  background: color-mix(in oklab, var(--color-warm-cream) 70%, white);
+}
+
+.passport-book__slots {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6) var(--space-3);
+  justify-items: center;
+  margin-top: var(--space-6);
+  padding-block: var(--space-2);
+}
+
+.passport-book__slot {
+  display: flex;
+  min-height: 11rem;
+  width: 100%;
+  max-width: 10rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform var(--motion-ui) var(--ease-expressive);
+}
+
+.passport-book__slot:active {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .passport-book__slot:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.passport-secret {
+  position: relative;
+  z-index: 1;
+  margin-top: var(--space-6);
+  perspective: 900px;
+}
+
+.passport-secret__ticket {
+  position: relative;
+  padding: var(--space-6) var(--space-6) var(--space-6) calc(var(--space-6) + 0.75rem);
+  border: 2px solid var(--color-dark-ink);
+  border-radius: var(--radius-md);
+  background:
+    repeating-linear-gradient(
+      -12deg,
+      color-mix(in oklab, var(--color-mustard-yellow) 22%, var(--color-warm-cream)),
+      color-mix(in oklab, var(--color-mustard-yellow) 22%, var(--color-warm-cream)) 10px,
+      color-mix(in oklab, var(--color-mustard-yellow) 12%, var(--color-warm-cream)) 10px,
+      color-mix(in oklab, var(--color-mustard-yellow) 12%, var(--color-warm-cream)) 20px
+    );
+  box-shadow: 3px 4px 0 color-mix(in oklab, var(--color-dark-ink) 75%, transparent);
+}
+
+.passport-secret__perf {
+  position: absolute;
+  left: 0.7rem;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  width: 0;
+  border-left: 2px dashed color-mix(in oklab, var(--color-dark-ink) 35%, transparent);
+}
+
+.passport-secret__eyebrow {
+  color: var(--color-deep-red);
+}
+
+.passport-secret__headline {
+  margin-top: var(--space-1);
+  color: var(--color-dark-ink);
+}
+
+.passport-secret--sealed .passport-secret__ticket {
+  background: color-mix(in oklab, var(--color-warm-cream) 88%, var(--color-dark-ink));
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-dark-ink) 8%, transparent);
+}
+
+.passport-secret--sealed .passport-secret__headline {
+  letter-spacing: 0.04em;
+}
+
+.passport-secret--peel .passport-secret__ticket {
+  animation: passport-secret-peel 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  transform-origin: top center;
+}
+
+@keyframes passport-secret-peel {
+  0% {
+    opacity: 0.35;
+    transform: rotateX(62deg) translateY(12px);
+    filter: brightness(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg) translateY(0);
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .passport-secret--peel .passport-secret__ticket {
+    animation: none;
+  }
+}
+
+.passport-book__dev-reset {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  margin-top: var(--space-4);
+  padding: var(--space-1) var(--space-2);
+  border: 1px dashed color-mix(in oklab, var(--color-dark-ink) 30%, transparent);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: color-mix(in oklab, var(--color-dark-ink) 45%, transparent);
+  cursor: pointer;
+}
+
+.passport-book__dev-reset:hover {
+  color: var(--color-dark-ink);
+  border-color: var(--color-dark-ink);
+}
+
+@media (min-width: 640px) {
+  .passport-book {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .passport-book__slots {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+  }
+
+  .passport-book__doodle--post {
+    bottom: 8.5rem;
+  }
+}

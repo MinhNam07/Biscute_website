@@ -16,6 +16,10 @@ type NavKey =
   | "apparel"
   | "gifts"
   | "collections"
+  | "hanoi"
+  | "foodIcons"
+  | "cuteAnimals"
+  | "vietnamCulture"
   | "characters"
   | "about"
   | "visit";
@@ -33,13 +37,31 @@ const shopChildren = [
   { href: "/collections/gifts", key: "gifts" },
 ] as const;
 
+const collectionChildren = [
+  { href: "/collections/hanoi", key: "hanoi" },
+  { href: "/collections/food-icons", key: "foodIcons" },
+  { href: "/collections/cute-animals", key: "cuteAnimals" },
+  { href: "/collections/vietnam-culture", key: "vietnamCulture" },
+] as const;
+
 const navLinks: readonly NavLink[] = [
   { href: "/shop", key: "shop", children: shopChildren },
-  { href: "/collections/hanoi", key: "collections" },
+  {
+    href: "/collections/hanoi",
+    key: "collections",
+    children: collectionChildren,
+  },
   { href: "/characters", key: "characters" },
   { href: "/about", key: "about" },
   { href: "/visit", key: "visit" },
 ];
+
+function isNavActive(pathname: string, link: NavLink): boolean {
+  if (link.children?.some((child) => pathname.startsWith(child.href))) {
+    return true;
+  }
+  return pathname.startsWith(link.href);
+}
 
 export function Header() {
   const t = useTranslations("nav");
@@ -99,7 +121,7 @@ export function Header() {
             aria-label="Main navigation"
           >
             {navLinks.map((link) => {
-              const active = pathname.startsWith(link.href);
+              const active = isNavActive(pathname, link);
               const linkClass = cn(
                 "type-nav transition-colors duration-200 hover:text-biscute-pale-pink",
                 active &&
@@ -175,7 +197,7 @@ export function Header() {
                       onClick={() => setMobileOpen(false)}
                       className={cn(
                         "mobile-nav-link type-nav flex min-h-11 items-center rounded-[var(--radius-sm)] border-2 border-transparent px-4 transition-[transform,background-color,border-color] duration-200 hover:border-biscute-white hover:bg-biscute-deep-pink active:translate-x-0.5 active:translate-y-0.5",
-                        pathname.startsWith(link.href) &&
+                        isNavActive(pathname, link) &&
                           "border-biscute-white bg-biscute-deep-pink text-biscute-pale-pink"
                       )}
                     >

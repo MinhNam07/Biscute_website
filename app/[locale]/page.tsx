@@ -47,7 +47,7 @@ export default async function HomePage() {
       <SpottedSection />
       <StoreMap />
       <VisitStickyCta />
-      <div className="h-16 lg:hidden" aria-hidden />
+      <div className="h-[4.5rem] lg:hidden" aria-hidden />
     </>
   );
 }

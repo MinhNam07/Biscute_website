@@ -34,6 +34,8 @@
 }
 
 .hero-stamp-headline {
+  max-width: 100%;
+  overflow-wrap: anywhere;
   animation: hero-headline-stamp var(--motion-reveal) var(--ease-expressive) both;
 }
 
@@ -43,30 +45,52 @@
 }
 
 .hero-stamp-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
   animation: hero-fade-up var(--motion-ui) var(--ease-ui) both;
   animation-delay: 160ms;
+}
+
+.hero-stamp-ctas__btn {
+  width: 100%;
 }
 
 .hero-stamp-panel {
   animation: hero-panel-enter var(--motion-reveal) var(--ease-expressive) both;
 }
 
+/* Mobile shell — edge-to-edge stage so the cast isn't inset twice */
+.hero-shell {
+  padding-block: var(--space-4);
+  padding-inline: 0;
+}
+
 /* Stage — single blue field so the crew reads as the subject */
 .hero-stage {
   position: relative;
   display: grid;
-  gap: var(--space-8);
-  overflow: hidden;
-  padding: var(--space-8) var(--space-6) var(--space-6);
+  gap: var(--space-6);
+  overflow: visible;
+  min-width: 0;
+  padding: var(--space-6) var(--space-4) var(--space-5);
   border: 2px solid var(--color-dark-ink);
-  border-radius: var(--radius-xl);
+  border-radius: 0;
   background: var(--color-primary-blue);
-  box-shadow: var(--shadow-lg);
+  box-shadow: none;
+}
+
+.hero-stage__cast {
+  position: relative;
+  min-height: 240px;
+  /* Room for corner stamps that sit on the character frame */
+  padding-block: 1.25rem;
 }
 
 .hero-stage__text {
   position: relative;
   z-index: 2;
+  min-width: 0;
 }
 
 .hero-stage__location {
@@ -78,36 +102,42 @@
   color: var(--color-mustard-yellow);
 }
 
-/* Cast — character portrait plus orbiting product stickers */
-.hero-stage__cast {
-  position: relative;
-  min-height: 280px;
-}
-
 .hero-character {
   position: relative;
-  width: min(78%, 320px);
+  width: min(72%, 280px);
   margin-inline: auto;
   aspect-ratio: 4 / 5;
-  overflow: hidden;
+  overflow: visible;
   border: 2px solid var(--color-dark-ink);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
 }
 
-.hero-stage__stamp {
+.hero-character__frame {
   position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+/* Corner stamp — positioned on the character frame */
+.hero-corner-stamp {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero-corner-stamp--tr {
   top: 0;
-  right: var(--space-2);
-  z-index: 3;
-  background: var(--color-warm-cream);
+  right: 0;
+  translate: 42% -42%;
 }
 
 .hero-float {
   position: absolute;
   z-index: 3;
   display: block;
-  width: 86px;
+  width: 72px;
   aspect-ratio: 1 / 1;
   overflow: hidden;
   border: 2px solid var(--color-dark-ink);
@@ -125,31 +155,61 @@
 }
 
 .hero-float--1 {
-  left: 0;
-  top: 12%;
+  left: 2%;
+  top: 10%;
 }
 
 .hero-float--2 {
-  right: 2%;
-  bottom: 20%;
+  right: 4%;
+  bottom: 18%;
 }
 
 .hero-float--3 {
-  left: 8%;
-  bottom: 2%;
+  left: 10%;
+  bottom: 4%;
 }
 
 @media (min-width: 640px) {
+  .hero-shell {
+    padding-block: var(--space-8);
+    padding-inline: var(--gutter-md);
+  }
+
   .hero-stage {
+    gap: var(--space-8);
     padding: var(--space-12) var(--space-8) var(--space-8);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .hero-stamp-ctas {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .hero-stamp-ctas__btn {
+    width: auto;
+  }
+
+  .hero-stage__cast {
+    min-height: 300px;
+  }
+
+  .hero-character {
+    width: min(78%, 320px);
   }
 
   .hero-float {
-    width: 104px;
+    width: 96px;
   }
 }
 
 @media (min-width: 1024px) {
+  .hero-shell {
+    padding-block: var(--space-16);
+    padding-inline: var(--gutter-lg);
+  }
+
   .hero-stage {
     grid-template-columns: 1.05fr 1fr;
     align-items: center;
@@ -183,6 +243,12 @@
   .hero-float--3 {
     left: 2%;
     bottom: -2%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-shell {
+    padding-inline: var(--gutter-xl);
   }
 }
 

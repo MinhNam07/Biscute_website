@@ -33,7 +33,7 @@ export function StoreMap() {
 
       <div className="visit-section__grid">
         <div className="relative overflow-hidden rounded-[var(--radius-xl)] border-2 border-biscute-chocolate bg-biscute-cream shadow-biscute-lg">
-          <div className="relative min-h-[280px] md:min-h-[360px]">
+          <div className="relative min-h-[220px] md:min-h-[360px]">
             {!imgFailed ? (
               <Image
                 src={ASSET_PATHS.store.exterior}
@@ -45,7 +45,7 @@ export function StoreMap() {
                 unoptimized
               />
             ) : (
-              <div className="flex min-h-[280px] flex-col items-center justify-center p-8 text-center md:min-h-[360px]">
+              <div className="flex min-h-[220px] flex-col items-center justify-center p-8 text-center md:min-h-[360px]">
                 <MapPin className="mb-4 h-10 w-10 text-biscute-pink" aria-hidden />
                 <p className="type-label text-biscute-chocolate/70">
                   {t("storePhotoPlaceholder")}
@@ -54,13 +54,13 @@ export function StoreMap() {
             )}
           </div>
           <div className="absolute left-4 top-4">
-            <PassportStamp label="BISCUTE" />
+            <PassportStamp label="BISCUTE" subtitle="VIETNAM" />
           </div>
           <div className="relative space-y-2 border-t-2 border-biscute-chocolate bg-biscute-white p-5">
             <p className="type-subsection-title">{t("storeName")}</p>
             <p className="type-body whitespace-pre-line">{t("address")}</p>
             <p className="type-label opacity-60">{t("year")}</p>
-            <Button variant="secondary" className="mt-2" asChild>
+            <Button variant="secondary" className="mt-2 w-full sm:w-auto" asChild>
               <a href={STORE_MAPS_URL} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="mr-2 h-4 w-4" aria-hidden />
                 {t("directions")}
@@ -74,7 +74,7 @@ export function StoreMap() {
             <iframe
               src={STORE_MAPS_EMBED_URL}
               width="100%"
-              height="260"
+              height="220"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
@@ -84,7 +84,7 @@ export function StoreMap() {
             />
           </div>
 
-          <div className="flex flex-col gap-5 rounded-[var(--radius-lg)] border-2 border-biscute-chocolate bg-biscute-white p-6 text-biscute-chocolate shadow-biscute-md">
+          <div className="visit-section__address-card flex-col gap-5 rounded-[var(--radius-lg)] border-2 border-biscute-chocolate bg-biscute-white p-6 text-biscute-chocolate shadow-biscute-md">
             <div className="flex items-start gap-3">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-sm)] border-2 border-biscute-chocolate bg-biscute-pink text-biscute-white shadow-biscute-sm">
                 <MapPin className="h-5 w-5" aria-hidden />

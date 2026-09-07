@@ -27,13 +27,13 @@ export function ProductSection({
 
   return (
     <SectionWrapper bg="pale-pink" spacing="featured" className="home-section-products">
-      <div className="section-header-gap flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <h2 className="section-title-accent section-title-accent--deep type-section-title max-w-[20ch] sm:max-w-none">
+      <div className="section-header-gap flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4">
+        <h2 className="section-title-accent section-title-accent--deep type-section-title max-w-[18ch] sm:max-w-none">
           {heading}
         </h2>
         <Link
           href={viewAllHref}
-          className="type-label shrink-0 text-biscute-deep-pink transition-colors hover:text-biscute-pink"
+          className="type-label inline-flex min-h-11 shrink-0 items-center text-biscute-deep-pink transition-colors hover:text-biscute-pink"
         >
           {t("exploreAll")} →
         </Link>

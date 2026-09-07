@@ -1,11 +1,16 @@
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
+import "./passport-stamp.css";
 
 type PassportStampProps = {
   children?: ReactNode;
   className?: string;
   stamped?: boolean;
   label?: string;
+  /** Second line on the stamp (collection-specific). Defaults to brand mark. */
+  subtitle?: string;
+  /** Ink tilt in degrees — vary per slot for a stamped-page feel. */
+  rotate?: number;
 };
 
 export function PassportStamp({
@@ -13,26 +18,29 @@ export function PassportStamp({
   className,
   stamped = true,
   label = "BISCUTE",
+  subtitle = "VIETNAM",
+  rotate = -8,
 }: PassportStampProps) {
   return (
     <div
-      className={cn(
-        "inline-flex flex-col items-center justify-center gap-0.5",
-        "aspect-square min-w-[4.5rem] rounded-full border-[3px] border-dashed",
-        "px-3 py-2 text-center type-label",
-        stamped
-          ? "border-biscute-red text-biscute-red -rotate-[8deg] opacity-90"
-          : "border-biscute-chocolate/30 text-biscute-chocolate/30",
-        className
-      )}
-      aria-hidden={!children}
+      className={cn("passport-stamp-wrap inline-flex", className)}
+      style={stamped ? { transform: `rotate(${rotate}deg)` } : undefined}
     >
-      {children ?? (
-        <>
-          <span className="leading-none">{label}</span>
-          <span className="leading-none tracking-widest">HANOI</span>
-        </>
-      )}
+      <div
+        className={cn(
+          "passport-stamp type-label",
+          stamped ? "passport-stamp--inked" : "passport-stamp--blank"
+        )}
+        aria-hidden={!children}
+        data-stamped={stamped ? "true" : "false"}
+      >
+        {children ?? (
+          <>
+            <span className="passport-stamp__line">{label}</span>
+            <span className="passport-stamp__line">{subtitle}</span>
+          </>
+        )}
+      </div>
     </div>
   );
 }

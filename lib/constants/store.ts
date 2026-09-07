@@ -1,7 +1,7 @@
 export const STORE_MAPS_URL =
   "https://maps.google.com/?q=Biscute+Vietnam+3A+P.+Đinh+Liệt+Hanoi+Old+Quarter+Hoàn+Kiếm+Hanoi";
 
-export const STORE_INSTAGRAM_URL = "https://www.instagram.com/biscutevn/";
+export const STORE_INSTAGRAM_URL = "https://www.instagram.com/biscutevietnam/";
 
 export const STORE_MAPS_EMBED_URL =
   process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_URL ??

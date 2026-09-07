@@ -14,6 +14,10 @@
     "apparel": "Apparel",
     "gifts": "Gifts",
     "collections": "Collections",
+    "hanoi": "Hanoi",
+    "foodIcons": "Food Icons",
+    "cuteAnimals": "Cute Animals",
+    "vietnamCulture": "Vietnam Culture",
     "characters": "Characters",
     "about": "About",
     "visit": "Visit",
@@ -54,9 +58,19 @@
   },
   "passport": {
     "title": "BISCUTE TRAVEL PASSPORT",
-    "locked": "Visit a collection to stamp",
-    "complete": "You've seen too much. Here's a secret.",
-    "secret": "Ask for a free postcard sticker at 3A Đinh Liệt."
+    "subtitle": "Explore our little Vietnam. Collect all four stamps.",
+    "progress": "{stamped} / {total} STAMPED",
+    "explore": "Explore collection →",
+    "stamped": "✓ STAMPED",
+    "lockedEyebrow": "SECRET SOUVENIR",
+    "lockedBody": "A little surprise is waiting for you at 3A Đinh Liệt.",
+    "lockedHint": "Collect {count, plural, one {# more stamp} other {# more stamps}} to reveal it.",
+    "unlockedEyebrow": "SECRET UNLOCKED!",
+    "unlockedTitle": "FREE BISCUTE STICKER",
+    "unlockedBody": "Show your completed Biscute Travel Passport at 3A Đinh Liệt to claim it.",
+    "stampAriaInked": "{name} — stamped",
+    "stampAriaBlank": "{name} — visit to stamp",
+    "devReset": "Reset Passport Progress"
   },
   "ugc": {
     "title": "SPOTTED IN THE WILD",

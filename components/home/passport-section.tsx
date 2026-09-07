@@ -1,56 +1,158 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { SectionWrapper } from "@/components/brand/section-wrapper";
-import { PassportStamp } from "@/components/brand/passport-stamp";
-import { ToyPanel } from "@/components/brand/toy-panel";
+import { TravelStamp } from "@/components/brand/travel-stamp";
 import {
-  getStamps,
-  isPassportComplete,
+  acknowledgePassportAnimations,
+  usePassportProgress,
+} from "@/hooks/use-passport-stamps";
+import {
   PASSPORT_COLLECTIONS,
-  type PassportHandle,
+  resetPassport,
+  type PassportId,
 } from "@/lib/passport";
-
-const LABELS: Record<PassportHandle, string> = {
-  hanoi: "HANOI",
-  "food-icons": "FOOD",
-  "cute-animals": "ANIMALS",
-  "vietnam-culture": "TẾT",
-};
+import "./passport-section.css";
+import "./homepage-colors.css";
 
 export function PassportSection() {
   const t = useTranslations("passport");
-  const [stamps, setStamps] = useState<PassportHandle[]>([]);
+  const {
+    progress,
+    stampedCount,
+    total,
+    remaining,
+    rewardUnlocked,
+    newlyStamped,
+    justUnlocked,
+    sessionEpoch,
+  } = usePassportProgress();
+
+  const [pressing, setPressing] = useState<ReadonlySet<PassportId>>(new Set());
+  const [peelOnce, setPeelOnce] = useState(false);
+  const animatedEpoch = useRef<number>(-1);
 
   useEffect(() => {
-    setStamps(getStamps());
-  }, []);
+    if (sessionEpoch === animatedEpoch.current) return;
+    if (newlyStamped.length === 0 && !justUnlocked) return;
 
-  const complete = isPassportComplete(stamps);
+    animatedEpoch.current = sessionEpoch;
+
+    if (justUnlocked) {
+      setPeelOnce(true);
+    }
+
+    if (newlyStamped.length > 0) {
+      setPressing(new Set(newlyStamped));
+      const timer = window.setTimeout(() => {
+        setPressing(new Set());
+        acknowledgePassportAnimations();
+      }, 550);
+      return () => window.clearTimeout(timer);
+    }
+
+    acknowledgePassportAnimations();
+  }, [newlyStamped, justUnlocked, sessionEpoch]);
+
+  const showUnlocked = rewardUnlocked;
+  const playPeel = showUnlocked && peelOnce;
 
   return (
     <SectionWrapper bg="cream" spacing="standard" id="passport">
-      <ToyPanel tint="white" className="max-w-3xl">
-        <h2 className="type-section-title">{t("title")}</h2>
-        <div className="mt-6 flex flex-wrap gap-4">
-          {PASSPORT_COLLECTIONS.map((handle) => {
-            const stamped = stamps.includes(handle);
+      <div className="passport-book">
+        <div className="passport-book__grain" aria-hidden />
+        <div className="passport-book__doodle passport-book__doodle--plane" aria-hidden />
+        <div className="passport-book__doodle passport-book__doodle--post" aria-hidden />
+
+        <header className="passport-book__header">
+          <div>
+            <h2 className="type-section-title passport-book__title">{t("title")}</h2>
+            <p className="type-meta mt-2 text-biscute-chocolate/70">{t("subtitle")}</p>
+          </div>
+          <p className="passport-book__count type-label" aria-live="polite">
+            {t("progress", { stamped: stampedCount, total })}
+          </p>
+        </header>
+
+        <div className="passport-book__slots">
+          {PASSPORT_COLLECTIONS.map((meta) => {
+            const stamped = progress.stamps[meta.id];
             return (
-              <Link key={handle} href={`/collections/${handle}`}>
-                <PassportStamp stamped={stamped} label={LABELS[handle]} />
+              <Link
+                key={meta.id}
+                href={`/collections/${meta.routeHandle}`}
+                className="passport-book__slot focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-biscute-pink focus-visible:ring-offset-2"
+                aria-label={
+                  stamped
+                    ? t("stampAriaInked", { name: meta.label })
+                    : t("stampAriaBlank", { name: meta.label })
+                }
+              >
+                <TravelStamp
+                  id={meta.id}
+                  stamped={stamped}
+                  animate={pressing.has(meta.id)}
+                  label={meta.label}
+                  exploreLabel={t("explore")}
+                  stampedLabel={t("stamped")}
+                />
               </Link>
             );
           })}
         </div>
-        <p className="type-meta mt-6 text-biscute-chocolate/70">
-          {complete ? t("complete") : t("locked")}
-        </p>
-        {complete ? (
-          <p className="type-body mt-2 font-semibold">{t("secret")}</p>
+
+        <div
+          className={
+            playPeel
+              ? "passport-secret passport-secret--peel"
+              : showUnlocked
+                ? "passport-secret passport-secret--open"
+                : "passport-secret passport-secret--sealed"
+          }
+        >
+          <div className="passport-secret__ticket">
+            <div className="passport-secret__perf" aria-hidden />
+            {showUnlocked ? (
+              <>
+                <p className="passport-secret__eyebrow type-label">{t("unlockedEyebrow")}</p>
+                <p className="passport-secret__headline type-subsection-title">
+                  {t("unlockedTitle")}
+                </p>
+                <p className="type-body mt-3 text-biscute-chocolate/80">
+                  {t("unlockedBody")}
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="passport-secret__eyebrow type-label">{t("lockedEyebrow")}</p>
+                <p className="type-body mt-3 text-biscute-chocolate/75">
+                  {t("lockedBody")}
+                </p>
+                <p className="type-meta mt-3 text-biscute-chocolate/60">
+                  {t("lockedHint", { count: remaining })}
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+
+        {process.env.NODE_ENV === "development" ? (
+          <button
+            type="button"
+            className="passport-book__dev-reset type-label"
+            onClick={() => {
+              resetPassport();
+              setPressing(new Set());
+              setPeelOnce(false);
+              animatedEpoch.current = -1;
+            }}
+          >
+            {t("devReset")}
+          </button>
         ) : null}
-      </ToyPanel>
+      </div>
     </SectionWrapper>
   );
 }

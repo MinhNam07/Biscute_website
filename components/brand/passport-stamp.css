@@ -1,0 +1,45 @@
+/* Passport stamp — dashed ink circle (shared across site) */
+
+.passport-stamp {
+  position: relative;
+  display: inline-flex;
+  aspect-ratio: 1 / 1;
+  width: 4.75rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  border-radius: 9999px;
+  padding: 0.5rem 0.4rem;
+  text-align: center;
+  text-transform: uppercase;
+  user-select: none;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.05;
+}
+
+.passport-stamp__line {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.passport-stamp--inked {
+  border: 2px dashed var(--color-biscute-red);
+  background: color-mix(in oklab, var(--color-warm-cream) 92%, white);
+  color: var(--color-biscute-red);
+}
+
+.passport-stamp--blank {
+  border: 2px dashed color-mix(in oklab, var(--color-dark-ink) 22%, transparent);
+  background: color-mix(in oklab, var(--color-warm-cream) 55%, transparent);
+  color: color-mix(in oklab, var(--color-dark-ink) 22%, transparent);
+}
+
+@media (min-width: 640px) {
+  .passport-stamp {
+    width: 5.25rem;
+  }
+}

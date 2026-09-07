@@ -14,6 +14,10 @@
     "apparel": "Thời trang",
     "gifts": "Quà tặng",
     "collections": "Bộ sưu tập",
+    "hanoi": "Hà Nội",
+    "foodIcons": "Ẩm thực Việt",
+    "cuteAnimals": "Thú cưng dễ thương",
+    "vietnamCulture": "Văn hóa Việt",
     "characters": "Nhân vật",
     "about": "Về BISCUTE",
     "visit": "Ghé thăm",
@@ -54,9 +58,19 @@
   },
   "passport": {
     "title": "HỘ CHIẾU DU LỊCH BISCUTE",
-    "locked": "Ghé một bộ sưu tập để lấy dấu",
-    "complete": "Bạn xem hơi nhiều rồi đấy. Tặng bạn một bí mật.",
-    "secret": "Hỏi lấy sticker bưu thiếp miễn phí tại 3A Đinh Liệt."
+    "subtitle": "Khám phá Việt Nam tí hon của chúng mình. Sưu tầm đủ bốn con dấu.",
+    "progress": "{stamped} / {total} ĐÃ ĐÓNG DẤU",
+    "explore": "Khám phá bộ sưu tập →",
+    "stamped": "✓ ĐÃ ĐÓNG DẤU",
+    "lockedEyebrow": "BÍ MẬT LƯU NIỆM",
+    "lockedBody": "Một bất ngờ nhỏ đang chờ bạn tại 3A Đinh Liệt.",
+    "lockedHint": "Còn {count, plural, one {# con dấu} other {# con dấu}} nữa để mở bí mật.",
+    "unlockedEyebrow": "ĐÃ MỞ BÍ MẬT!",
+    "unlockedTitle": "STICKER BISCUTE MIỄN PHÍ",
+    "unlockedBody": "Mang Hộ chiếu Du lịch Biscute đã hoàn thành đến 3A Đinh Liệt để nhận quà.",
+    "stampAriaInked": "{name} — đã đóng dấu",
+    "stampAriaBlank": "{name} — ghé xem để đóng dấu",
+    "devReset": "Reset Passport Progress"
   },
   "ugc": {
     "title": "BẮT GẶP NGOÀI ĐỜI",

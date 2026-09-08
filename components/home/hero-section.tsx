@@ -26,11 +26,11 @@ export function HeroSection({ products, character }: HeroSectionProps) {
   return (
     <section className="hero-root section-divider relative overflow-hidden bg-biscute-cream">
       <div className="hero-shell container-biscute">
-        <div className="hero-stage hero-stamp-panel">
+        <div className="hero-stage">
           <div className="hero-stage__text">
-            <Sticker rotate={-4} className="hero-stage__location">
-              {t("location")}
-            </Sticker>
+            <span className="hero-stage__location">
+              <Sticker rotate={-4}>{t("location")}</Sticker>
+            </span>
 
             <h1 className="hero-stamp-headline type-display mt-3 text-biscute-white sm:mt-4">
               {t.rich("title", {
@@ -40,7 +40,7 @@ export function HeroSection({ products, character }: HeroSectionProps) {
               })}
             </h1>
 
-            <p className="hero-stamp-subtitle type-body-lg mt-3 max-w-sm text-biscute-white/90 sm:mt-4">
+            <p className="type-body-lg mt-3 max-w-sm text-biscute-white/90 sm:mt-4">
               {t("subtitle")}
             </p>
 
@@ -57,7 +57,7 @@ export function HeroSection({ products, character }: HeroSectionProps) {
           <div className="hero-stage__cast">
             {character && (
               <div
-                className="hero-character animate-character-idle"
+                className="hero-character"
                 style={{ backgroundColor: character.colors.secondary }}
               >
                 <PassportStamp
